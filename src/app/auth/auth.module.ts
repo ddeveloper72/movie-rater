@@ -4,7 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthComponent } from './auth.component';
 
-const routes: Routes = [];  // declare a name for the array of routes
+// declare a name for the array of routes
+const routes: Routes = [
+  { path: 'auth', component: AuthComponent }  //  auth uses the AuthComponent
+
+];
 
 
 
