@@ -7,7 +7,10 @@ import { MainModule } from './main/main.module';
 
 import { AppComponent } from './app.component';
 
-const routes: Routes = [];  // declare a name for the array of routes
+// declare a name for the array of routes
+const routes: Routes = [
+ { path: '', pathMatch: 'full', redirectTo: 'movies' }  // if path does not match, redirect to here.
+];
 
 @NgModule({
   declarations: [
