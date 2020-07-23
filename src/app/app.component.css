@@ -1,4 +1,9 @@
 .app {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-image: linear-gradient(to right bottom,#466bb4, #282c34);
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #ffff;
+  padding: 20px 40px;
+  min-height: 100vh; /* for testing */
 }
