@@ -15,7 +15,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [AuthComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    // allow import of routes in the childModule
+    RouterModule.forChild(routes)
   ]
 })
 export class AuthModule { }
