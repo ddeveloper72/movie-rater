@@ -4,7 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainComponent } from './main.component';
 
-const routes: Routes = [];  // declare a name for the array of routes
+// declare a name for the array of routes
+const routes: Routes = [
+  { path: 'movies', component: MainComponent } //  movies uses the MainComponent
+];
 
 
 
