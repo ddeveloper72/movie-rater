@@ -18,6 +18,8 @@ const routes: Routes = [
     CommonModule,
     // allow import of routes in the childModule
     RouterModule.forChild(routes)
-  ]
+  ],
+  // export routes to the app module
+  exports: [RouterModule]
 })
-export class AuthModule { }
+export class AuthModule {}
