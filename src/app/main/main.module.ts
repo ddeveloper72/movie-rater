@@ -17,6 +17,8 @@ const routes: Routes = [
     CommonModule,
     // added imports for routes
     RouterModule.forChild(routes)
-  ]
+  ],
+  // export routes to the app module
+  exports: [RouterModule]
 })
-export class MainModule { }
+export class MainModule {}
