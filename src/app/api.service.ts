@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 export class ApiService {
   baseUrl = 'http://127.0.0.1:8000/api/movies/';
   headers = new HttpHeaders({
-    'Content-Type:': 'application/json',
+    'Content-Type': 'application/json',
     Authorization: environment.Token
   });
 
