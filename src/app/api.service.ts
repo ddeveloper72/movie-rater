@@ -5,5 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  constructor() { }
+  private movies = ['terminator', 'predator']; // mockup api data from a service
+
+  constructor() {}
 }
