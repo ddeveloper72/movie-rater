@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClinet, Httpheaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
