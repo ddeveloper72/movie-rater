@@ -8,4 +8,8 @@ export class ApiService {
   private movies = ['terminator', 'predator']; // mockup api data from a service
 
   constructor() {}
+
+  getMovies() {
+    return this.movies;
+  }
 }

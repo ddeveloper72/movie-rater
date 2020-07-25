@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
 })
 export class MovieListComponent implements OnInit {
 
-  movies = ['terminator', 'predator']; // mockup api data from a service
+  movies = [];  // list component now comes from api service
 
   constructor(
     private apiService: ApiService // initialize service
