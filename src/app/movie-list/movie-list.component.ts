@@ -11,7 +11,7 @@ export class MovieListComponent implements OnInit {
   movies = ['terminator', 'predator']; // mockup api data from a service
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService // initialize service
   ) { }
 
   ngOnInit(): void {
