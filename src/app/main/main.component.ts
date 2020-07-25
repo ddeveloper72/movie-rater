@@ -9,6 +9,7 @@ import { ApiService } from '../api.service';
 export class MainComponent implements OnInit {
 
   movies: any = []; // list component now comes from api service, type of any
+  selectedMovie = null;
 
   constructor(
     private apiService: ApiService // initialize service
