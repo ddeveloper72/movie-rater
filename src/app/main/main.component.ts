@@ -7,7 +7,6 @@ import { ApiService } from '../api.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
   movies: any = []; // list component now comes from api service, type of any
   selectedMovie = null;
 
@@ -24,5 +23,8 @@ export class MainComponent implements OnInit {
     );
   }
 
-  selectMovie() {}
+  selectMovie(movie): void {
+    console.log('selectedMovie:', this.selectedMovie);
+    this.selectedMovie = movie;
+  }
 }
