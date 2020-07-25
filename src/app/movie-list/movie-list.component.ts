@@ -10,11 +10,15 @@ export class MovieListComponent implements OnInit {
 
   @Input()
   movies: any = [];  // list component now comes from api service, type of any
+  @Output() selectMovie = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {}
 
-  movieClicked() {}
+  movieClicked(movie) {
+    // console.log(movie);
+    this.selectMovie.emit(movie);  // make the selected movie object accessible to parent component
+  }
 
 }
