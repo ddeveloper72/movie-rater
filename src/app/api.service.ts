@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClinet, Httpheaders } from '@angular/common/http';
+import { HttpClinet, Httpheaders, HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,9 @@ export class ApiService {
 
   private movies = ['Terminator', 'Predator']; // mockup api data from a service
 
-  constructor() {}
+  constructor(
+    private httpClient: HttpClient // initialize the HttpClient
+  ) {}
 
   getMovies() {
     return this.movies;
