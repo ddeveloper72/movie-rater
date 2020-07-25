@@ -4,8 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-
-  private movies = ['terminator', 'predator']; // mockup api data from a service
+  private movies = ['Terminator', 'Predator']; // mockup api data from a service
 
   constructor() {}
 
