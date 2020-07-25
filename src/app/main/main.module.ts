@@ -24,6 +24,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   // export routes to the app module
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ApiService]
 })
 export class MainModule {}
