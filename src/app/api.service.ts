@@ -15,6 +15,8 @@ export class ApiService {
   ) {}
 
   getMovies() {
+    const dynamicMovies = this.httpClient.get(this.baseUrl);
+    console.log(dynamicMovies);
     return this.movies;
   }
 }
