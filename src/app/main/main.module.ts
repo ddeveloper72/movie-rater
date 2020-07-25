@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
+import { ApiService } from '../api.service';
+
 import { MainComponent } from './main.component';
 import { MovieListComponent } from '../movie-list/movie-list.component';
 import { MovieFormComponent } from '../movie-form/movie-form.component';
