@@ -23,4 +23,6 @@ export class MainComponent implements OnInit {
       error => console.error()
     );
   }
+
+  selectMovie() {}
 }
