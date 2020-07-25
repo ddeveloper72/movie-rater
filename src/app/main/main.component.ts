@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  movies: any = []; // list component now comes from api service, type of any
+
+  constructor(
+    private apiService: ApiService // initialize service
+  ) {}
 
   ngOnInit(): void {
+    this.apiService.getMovies().subscribe(
+      data => {
+        this.movies = data;
+      },
+      error => console.error()
+    );
   }
-
 }
