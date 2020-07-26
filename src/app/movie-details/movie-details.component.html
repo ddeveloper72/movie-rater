@@ -1,5 +1,9 @@
 <div *ngIf="movie">
   <h1>{{ movie.title }}</h1>
   <p>{{ movie.description }}</p>
+  <svg-icon-sprite class="icon"
+    [src]="'assets/sprites/sprite.svg#icon-star'"
+    [width]="'2rem'">
+  </svg-icon-sprite>
   <p>{{ movie.no_of_ratings }} out of {{ movie.ave_ratings}}</p>
 </div>
