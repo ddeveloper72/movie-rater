@@ -16,7 +16,7 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  movieClicked(movie) {
+  movieClicked(movie): void {
     // console.log(movie);
     this.selectMovie.emit(movie);  // make the selected movie object accessible to parent component
   }
