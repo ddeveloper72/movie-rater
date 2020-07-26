@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
@@ -22,6 +23,7 @@ const routes: Routes = [
     AuthModule,
     MainModule,
     HttpClientModule,
+    IconSpriteModule,
     RouterModule.forRoot(routes)  // include imports for routes into the main module
   ],
   exports : [
