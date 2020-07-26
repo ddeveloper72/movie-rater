@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ApiService } from '../api.service';
+addedimport { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 import { MainComponent } from './main.component';
 import { MovieListComponent } from '../movie-list/movie-list.component';
@@ -17,11 +18,17 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [MainComponent, MovieListComponent, MovieFormComponent, MovieDetailsComponent],
+  declarations: [
+    MainComponent,
+    MovieListComponent,
+    MovieFormComponent,
+    MovieDetailsComponent
+  ],
   imports: [
     CommonModule,
     // added imports for routes
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    IconSpriteModule
   ],
   // export routes to the app module
   exports: [RouterModule],
