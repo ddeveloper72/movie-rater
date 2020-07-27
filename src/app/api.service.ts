@@ -20,7 +20,7 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl, {headers: this.headers});  // pass headers to baseUrl
   }
 
-  rateMovies(rate: number, movieId: number) {
+  rateMovie(rate: number, movieId: number) {
     return this.httpClient.get(this.baseUrl, {headers: this.headers});  // pass headers to baseUrl
   }
 }
