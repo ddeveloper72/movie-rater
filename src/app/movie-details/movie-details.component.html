@@ -1,30 +1,34 @@
 <div *ngIf="movie">
   <h1>{{ movie.title }}</h1>
-  <svg-icon-sprite class="svg-star"
-    [src]="'assets/sprites/sprite.svg#icon-star'"
-    [ngClass]="{'svg-gold-star': movie.no_of_ratings > 0}"
-    [width]="'2rem'">
-  </svg-icon-sprite>
-  <svg-icon-sprite class="svg-star"
-    [src]="'assets/sprites/sprite.svg#icon-star'"
-    [ngClass]="{'svg-gold-star': movie.no_of_ratings > 1}"
-    [width]="'2rem'">
-  </svg-icon-sprite>
-  <svg-icon-sprite class="svg-star"
-    [src]="'assets/sprites/sprite.svg#icon-star'"
-    [ngClass]="{'svg-gold-star': movie.no_of_ratings > 2}"
-    [width]="'2rem'">
-  </svg-icon-sprite>
-  <svg-icon-sprite class="svg-star"
-    [src]="'assets/sprites/sprite.svg#icon-star'"
-    [ngClass]="{'svg-gold-star': movie.no_of_ratings > 3}"
-    [width]="'2rem'">
-  </svg-icon-sprite>
-  <svg-icon-sprite class="svg-star"
-    [src]="'assets/sprites/sprite.svg#icon-star'"
-    [ngClass]="{'svg-gold-star': movie.no_of_ratings > 4}"
-    [width]="'2rem'">
-  </svg-icon-sprite>
+  <div class="movie-ratings">
+      <svg-icon-sprite class="svg-star"
+        [src]="'assets/sprites/sprite.svg#icon-star'"
+        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 0}"
+        [width]="'2rem'">
+      </svg-icon-sprite>
+      <svg-icon-sprite class="svg-star"
+        [src]="'assets/sprites/sprite.svg#icon-star'"
+        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 1}"
+        [width]="'2rem'">
+      </svg-icon-sprite>
+      <svg-icon-sprite class="svg-star"
+        [src]="'assets/sprites/sprite.svg#icon-star'"
+        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 2}"
+        [width]="'2rem'">
+      </svg-icon-sprite>
+      <svg-icon-sprite class="svg-star"
+        [src]="'assets/sprites/sprite.svg#icon-star'"
+        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 3}"
+        [width]="'2rem'">
+      </svg-icon-sprite>
+      <svg-icon-sprite class="svg-star"
+        [src]="'assets/sprites/sprite.svg#icon-star'"
+        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 4}"
+        [width]="'2rem'">
+      </svg-icon-sprite>
+      <p class="votes">
+        ({{ movie.ave_ratings }}) votes
+      </p>
+  </div>
   <p>{{ movie.description }}</p>
-  <p>{{ movie.no_of_ratings }} out of {{ movie.ave_ratings}}</p>
 </div>
