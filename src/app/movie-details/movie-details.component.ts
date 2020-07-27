@@ -10,7 +10,9 @@ export class MovieDetailsComponent implements OnInit {
   @Input() movie;
   rateHovered = 0;
 
-  constructor() {}
+  constructor(
+    private apiService: ApiService
+  ) {}
 
   ngOnInit(): void {}
 
