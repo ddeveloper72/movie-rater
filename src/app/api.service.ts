@@ -21,7 +21,7 @@ export class ApiService {
   }
 
   rateMovie(rate: number, movieId: number) {
-    const body = {};  // information from the movie rated
+    const body = JSON.stringify({stars: rate});  // information from the movie rated
     return this.httpClient.post(`${this.baseUrl}${movieId}/rate_movie/`, body, {
       headers: this.headers
     });  // pass headers to baseUrl
