@@ -23,7 +23,7 @@
   <p>{{ movie.description }}</p>
 
   <div class="user-rating">
-    <h2 class="rate-movie-heading">Rate Movie</h2>
+    <!-- generate stars based on array -->
     <svg-icon-sprite class="svg-star" *ngFor="let rate of [1,2,3,4,5]"
       [src]="'assets/sprites/sprite.svg#icon-star'"
       [width]="'2.4rem'">
