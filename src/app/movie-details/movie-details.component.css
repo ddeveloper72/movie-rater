@@ -38,6 +38,12 @@ svg-icon-sprite.svg-gold-star {
   padding: 2rem 0;
 }
 
+.user-rating__empty-stars {
+  height: 2.5rem;
+  width: 2.5rem;
+  color: #fff;
+}
+
 .user-rating__svg-star {
   height: 2.5rem;
   width: 2.5rem;
