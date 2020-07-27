@@ -17,3 +17,20 @@
 svg-icon-sprite.svg-gold-star {
   color: orange;
 }
+
+.user-rating {
+  margin-top: 2rem;
+  border-top: 2px solid #585858;
+
+}
+
+.user-rating svg-icon-sprite.svg-star {
+  color: #cca20a;
+  cursor: pointer;
+
+}
+
+
+.rate-movie-heading {
+  padding: 2rem 0;
+}
