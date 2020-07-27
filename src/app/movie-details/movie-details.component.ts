@@ -7,12 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MovieDetailsComponent implements OnInit {
   @Input() movie;
+  rateHovered = 0;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   rateHover(rate): void {
-    console.log(rate);
+    this.rateHovered = rate;
   }
 }
