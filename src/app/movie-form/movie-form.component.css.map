@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "movie-form.component.scss"
+    ],
+    "names": [],
+    "file": "movie-form.component.css"
+}

@@ -1,0 +1,47 @@
+.movie-ratings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.votes {
+  padding-left: .4rem;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+svg-icon-sprite.svg-star {
+  color: #fff;
+  height: 2rem;
+  width: 2rem;
+}
+
+svg-icon-sprite.svg-gold-star {
+  color: #cca20a;
+}
+
+.user-rating {
+  margin-top: 2rem;
+  border-top: 2px solid #585858;
+}
+
+.user-rating__svg-star {
+  height: 2.5rem;
+  width: 2.5rem;
+  color: #cca20a;
+  cursor: pointer;
+}
+
+.user-rating__movie-heading {
+  padding: 2rem 0;
+}
+
+.user-rating__select-stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=movie-details.component.css.map */
