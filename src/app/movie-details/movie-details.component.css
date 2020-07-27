@@ -1,7 +1,19 @@
-.svg-star {
-  color: #fff;
+.movie-ratings {
+  display: flex;
+  align-items: center;
+
 }
 
-.svg-gold-star {
+.votes {
+  padding-left: .4rem;
+  transform: translateY(-1px);
+}
+
+.svg-star {
+    color: #fff;
+}
+
+
+svg-icon-sprite.svg-gold-star {
   color: orange;
 }
