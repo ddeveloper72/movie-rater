@@ -28,9 +28,11 @@
       <svg-icon-sprite class="user-rating__empty-stars" *ngFor="let rate of [1,2,3,4,5]"
         [src]="'assets/sprites/sprite.svg#icon-star'"
         (mouseenter)="rateHover(rate)"
+        (mouseleave)="rateHovered = 0"
         [ngClass]="{'user-rating__svg-star': rateHovered >= rate}">
       </svg-icon-sprite>
-      <!-- use mouseenter ofr star in the array to call a method -->
+      <!-- use mouseenter over star in the array to call a method -->
+      <!-- mouse leave, reverts the rateHovered back to 0 -->
     </div>
   </div>
 
