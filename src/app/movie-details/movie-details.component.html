@@ -26,8 +26,10 @@
     <h2 class="user-rating__movie-heading">Rate Movie</h2>
     <div class="row user-rating__select-stars">
       <svg-icon-sprite class="user-rating__svg-star" *ngFor="let rate of [1,2,3,4,5]"
-        [src]="'assets/sprites/sprite.svg#icon-star'">
+        [src]="'assets/sprites/sprite.svg#icon-star'"
+        (mouseenter)="rateHover(rate)">
       </svg-icon-sprite>
+      <!-- use mouseenter ofr star in the array to call a method -->
     </div>
   </div>
 
