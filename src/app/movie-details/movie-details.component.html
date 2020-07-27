@@ -2,19 +2,19 @@
   <h1>{{ movie.title }}</h1>
   <div class="movie-ratings">
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 0}" [width]="'2rem'">
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 0}">
     </svg-icon-sprite>
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 1}" [width]="'2rem'">
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 1}">
     </svg-icon-sprite>
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 2}" [width]="'2rem'">
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 2}">
     </svg-icon-sprite>
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 3}" [width]="'2rem'">
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 3}">
     </svg-icon-sprite>
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 4}" [width]="'2rem'">
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 4}">
     </svg-icon-sprite>
     <p class="votes">
       ({{ movie.ave_ratings }}) votes
@@ -23,11 +23,12 @@
   <p>{{ movie.description }}</p>
 
   <div class="user-rating">
-    <!-- generate stars based on array -->
-    <svg-icon-sprite class="svg-star" *ngFor="let rate of [1,2,3,4,5]"
-      [src]="'assets/sprites/sprite.svg#icon-star'"
-      [width]="'2.4rem'">
-    </svg-icon-sprite>
+    <h2 class="user-rating__movie-heading">Rate Movie</h2>
+    <div class="row user-rating__select-stars">
+      <svg-icon-sprite class="user-rating__svg-star" *ngFor="let rate of [1,2,3,4,5]"
+        [src]="'assets/sprites/sprite.svg#icon-star'">
+      </svg-icon-sprite>
+    </div>
   </div>
 
 </div>

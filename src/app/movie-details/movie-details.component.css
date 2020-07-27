@@ -9,13 +9,15 @@
   transform: translateY(-1px);
 }
 
-.svg-star {
-    color: #fff;
+svg-icon-sprite.svg-star {
+  color: #fff;
+  height: 2rem;
+  width: 2rem;
 }
 
 
 svg-icon-sprite.svg-gold-star {
-  color: orange;
+  color: #cca20a;
 }
 
 .user-rating {
@@ -24,13 +26,19 @@ svg-icon-sprite.svg-gold-star {
 
 }
 
-.user-rating svg-icon-sprite.svg-star {
-  color: #cca20a;
-  cursor: pointer;
+.user-rating__select-stars {
+  display: flex;
 
 }
 
-
-.rate-movie-heading {
+.user-rating__movie-heading {
   padding: 2rem 0;
+}
+
+
+.user-rating__svg-star {
+  height: 2.5rem;
+  width: 2.5rem;
+  color: #cca20a;
+  cursor: pointer;
 }
