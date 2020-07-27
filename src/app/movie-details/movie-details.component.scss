@@ -33,6 +33,12 @@ svg-icon-sprite.svg-gold-star {
     padding: 2rem 0;
   }
 
+  &__empty-stars {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: #fff;
+  }
+
   &__svg-star {
     height: 2.5rem;
     width: 2.5rem;
