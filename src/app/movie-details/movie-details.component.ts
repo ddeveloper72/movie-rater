@@ -6,12 +6,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-
   @Input() movie;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  rateHover(rate): void {
+    console.log(rate);
   }
-
 }
