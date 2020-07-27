@@ -16,4 +16,9 @@ export class MovieDetailsComponent implements OnInit {
   rateHover(rate): void {
     this.rateHovered = rate;
   }
+
+  rateClicked(rate): void {
+    this.rateClicked = rate;
+  }
+
 }
