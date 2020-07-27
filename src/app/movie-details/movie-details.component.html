@@ -1,34 +1,33 @@
 <div *ngIf="movie">
   <h1>{{ movie.title }}</h1>
   <div class="movie-ratings">
-      <svg-icon-sprite class="svg-star"
-        [src]="'assets/sprites/sprite.svg#icon-star'"
-        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 0}"
-        [width]="'2rem'">
-      </svg-icon-sprite>
-      <svg-icon-sprite class="svg-star"
-        [src]="'assets/sprites/sprite.svg#icon-star'"
-        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 1}"
-        [width]="'2rem'">
-      </svg-icon-sprite>
-      <svg-icon-sprite class="svg-star"
-        [src]="'assets/sprites/sprite.svg#icon-star'"
-        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 2}"
-        [width]="'2rem'">
-      </svg-icon-sprite>
-      <svg-icon-sprite class="svg-star"
-        [src]="'assets/sprites/sprite.svg#icon-star'"
-        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 3}"
-        [width]="'2rem'">
-      </svg-icon-sprite>
-      <svg-icon-sprite class="svg-star"
-        [src]="'assets/sprites/sprite.svg#icon-star'"
-        [ngClass]="{'svg-gold-star': movie.no_of_ratings > 4}"
-        [width]="'2rem'">
-      </svg-icon-sprite>
-      <p class="votes">
-        ({{ movie.ave_ratings }}) votes
-      </p>
+    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 0}" [width]="'2rem'">
+    </svg-icon-sprite>
+    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 1}" [width]="'2rem'">
+    </svg-icon-sprite>
+    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 2}" [width]="'2rem'">
+    </svg-icon-sprite>
+    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 3}" [width]="'2rem'">
+    </svg-icon-sprite>
+    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 4}" [width]="'2rem'">
+    </svg-icon-sprite>
+    <p class="votes">
+      ({{ movie.ave_ratings }}) votes
+    </p>
   </div>
   <p>{{ movie.description }}</p>
+
+  <div class="user-rating">
+    <h2 class="rate-movie-heading">Rate Movie</h2>
+    <svg-icon-sprite class="svg-star" *ngFor="let rate of [1,2,3,4,5]"
+      [src]="'assets/sprites/sprite.svg#icon-star'"
+      [width]="'2.4rem'">
+    </svg-icon-sprite>
+  </div>
+
 </div>
