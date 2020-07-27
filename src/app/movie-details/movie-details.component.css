@@ -28,20 +28,20 @@ svg-icon-sprite.svg-gold-star {
   border-top: 2px solid #585858;
 }
 
-.user-rating__svg-star {
-  height: 2.5rem;
-  width: 2.5rem;
-  color: #cca20a;
-  cursor: pointer;
+.user-rating__select-stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .user-rating__movie-heading {
   padding: 2rem 0;
 }
 
-.user-rating__select-stars {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.user-rating__svg-star {
+  height: 2.5rem;
+  width: 2.5rem;
+  color: #cca20a;
+  cursor: pointer;
 }
 /*# sourceMappingURL=movie-details.component.css.map */
