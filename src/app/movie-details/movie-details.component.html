@@ -29,6 +29,7 @@
         [src]="'assets/sprites/sprite.svg#icon-star'"
         (mouseenter)="rateHover(rate)"
         (mouseleave)="rateHovered = 0"
+        (click)="rateClicked(rate)"
         [ngClass]="{'user-rating__svg-star': rateHovered >= rate}">
       </svg-icon-sprite>
       <!-- use mouseenter over star in the array to call a method -->
