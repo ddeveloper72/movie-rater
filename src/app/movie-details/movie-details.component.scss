@@ -24,21 +24,19 @@ svg-icon-sprite.svg-gold-star {
   margin-top: 2rem;
   border-top: 2px solid #585858;
 
-}
+  &__select-stars {
+    display: flex;
 
-.user-rating__select-stars {
-  display: flex;
+  }
 
-}
-
-.user-rating__movie-heading {
-  padding: 2rem 0;
-}
-
-
-.user-rating__svg-star {
-  height: 2.5rem;
-  width: 2.5rem;
-  color: #cca20a;
-  cursor: pointer;
+  &__movie-heading {
+    padding: 2rem 0;
+  }
+  
+  &__svg-star {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: #cca20a;
+    cursor: pointer;
+  }
 }
