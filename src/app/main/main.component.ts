@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Movie } from '../models/Movie';
 
 @Component({
   selector: 'app-main',
@@ -23,7 +24,7 @@ export class MainComponent implements OnInit {
     );
   }
 
-  selectMovie(movie): void {
+  selectMovie(movie: Movie): void {
     // console.log('selectedMovie:', this.selectedMovie);
     this.selectedMovie = movie;
   }
