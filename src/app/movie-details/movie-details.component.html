@@ -2,22 +2,22 @@
   <h1>{{ movie.title }}</h1>
   <div class="movie-ratings">
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 0}">
+      [ngClass]="{'svg-gold-star': movie.ave_ratings > 0}">
     </svg-icon-sprite>
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 1}">
+      [ngClass]="{'svg-gold-star': movie.ave_ratings > 1}">
     </svg-icon-sprite>
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 2}">
+      [ngClass]="{'svg-gold-star': movie.ave_ratings > 2}">
     </svg-icon-sprite>
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 3}">
+      [ngClass]="{'svg-gold-star': movie.ave_ratings > 3}">
     </svg-icon-sprite>
     <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.no_of_ratings > 4}">
+      [ngClass]="{'svg-gold-star': movie.ave_ratings > 4}">
     </svg-icon-sprite>
     <p class="votes">
-      ({{ movie.ave_ratings }}) votes
+      ({{ movie.no_of_ratings }}) votes
     </p>
   </div>
   <p>{{ movie.description }}</p>
