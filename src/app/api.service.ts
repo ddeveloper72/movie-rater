@@ -18,7 +18,7 @@ export class ApiService {
   ) {}
 
   getMovies() {
-    return this.httpClient.get<Movie>(this.baseUrl, {headers: this.headers});  // pass headers to baseUrl
+    return this.httpClient.get<Movie[]>(this.baseUrl, {headers: this.headers});  // pass headers to baseUrl
   }
 
 
