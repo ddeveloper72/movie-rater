@@ -22,7 +22,7 @@ export class MovieDetailsComponent implements OnInit {
     this.rateHovered = rate;
   }
 
-  rateClicked(rate): void {
+  rateClicked(rate: number): void {
     this.apiService.rateMovie(rate, this.movie.id).subscribe(
       result => this.getDetails(),
       error => console.log(error)
