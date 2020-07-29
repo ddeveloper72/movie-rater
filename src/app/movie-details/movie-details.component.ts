@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Movie } from '../models/Movie';
 
 @Component({
   selector: 'app-movie-details',
@@ -7,7 +8,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  @Input() movie;
+  @Input() movie: Movie;
   @Output() updateMovie = new EventEmitter();
   rateHovered = 0;
 
