@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { ApiService } from '../api.service';
 })
 export class MovieDetailsComponent implements OnInit {
   @Input() movie;
+  @Output() updateMovie = new EventEmitter();
   rateHovered = 0;
 
   constructor(
@@ -29,8 +30,8 @@ export class MovieDetailsComponent implements OnInit {
 
   getDetails(): void {
     this.apiService.getMovie(this.movie.id).subscribe(
-      result => {
-        console.log(result);
+      movie => {
+        console.log(movie);
       },
       error => {
         console.log(error);
