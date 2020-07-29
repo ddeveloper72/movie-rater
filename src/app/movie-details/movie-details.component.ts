@@ -31,7 +31,7 @@ export class MovieDetailsComponent implements OnInit {
   getDetails(): void {
     this.apiService.getMovie(this.movie.id).subscribe(
       movie => {
-        console.log(movie);
+        this.updateMovie.emit(movie);
       },
       error => {
         console.log(error);
