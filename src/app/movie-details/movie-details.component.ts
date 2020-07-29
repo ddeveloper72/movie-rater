@@ -9,7 +9,7 @@ import { Movie } from '../models/Movie';
 })
 export class MovieDetailsComponent implements OnInit {
   @Input() movie: Movie;
-  @Output() updateMovie = new EventEmitter();
+  @Output() updateMovie = new EventEmitter<Movie>();
   rateHovered = 0;
 
   constructor(
