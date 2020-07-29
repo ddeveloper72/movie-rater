@@ -31,4 +31,15 @@ export class MovieDetailsComponent implements OnInit {
     );
   }
 
+  getDetails(): void {
+    this.apiService.getMovie(this.movie.id).subscribe(
+      result => {
+        console.log(result);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
 }
