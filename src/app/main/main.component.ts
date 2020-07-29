@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getMovies().subscribe(
-      data => {
+      (data: Movie[] ) => {
         this.movies = data;
       },
       error => console.error()
