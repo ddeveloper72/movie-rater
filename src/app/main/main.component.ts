@@ -8,7 +8,7 @@ import { Movie } from '../models/Movie';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  movies: any = []; // list component now comes from api service, type of any
+  movies: Movie[] = []; // list component now comes from api service, type of any
   selectedMovie = null;
 
   constructor(
