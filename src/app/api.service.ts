@@ -20,6 +20,12 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl, {headers: this.headers});  // pass headers to baseUrl
   }
 
+
+  // get the specific rating of a movie so the data can be refreshed dynamically after user adds rating
+  getMovie(id: number) {
+    return this.httpClient.get(this.baseUrl, {headers: this.headers});  // pass headers to baseUrl
+  }
+
   rateMovie(rate: number, movieId: number) {
     const body = JSON.stringify({stars: rate});  // information from the movie rated
     return this.httpClient.post(`${this.baseUrl}${movieId}/rate_movie/`, body, {
