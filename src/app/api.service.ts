@@ -23,7 +23,7 @@ export class ApiService {
 
   // get the specific rating of a movie so the data can be refreshed dynamically after user adds rating
   getMovie(id: number) {
-    return this.httpClient.get(this.baseUrl, {headers: this.headers});  // pass headers to baseUrl
+    return this.httpClient.get(`${this.baseUrl}${id}/`, { headers: this.headers });  // pass headers to baseUrl
   }
 
   rateMovie(rate: number, movieId: number) {
