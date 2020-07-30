@@ -1,0 +1,23 @@
+.movie-list {
+  display: grid;
+  grid-template-columns: 1fr repeat(2, auto);
+
+
+  & svg-icon-sprite {
+    columns: 2 / 3;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__svg-edit {
+    margin-right: 15px;
+    color: #e4e155;
+    cursor: pointer;
+
+  }
+
+  &__svg-trash {
+    color: #1ee41e;
+    cursor: pointer;
+  }
+}
