@@ -1,4 +1,10 @@
 
-<div class="" *ngFor="let movie of movies" (click)="movieClicked(movie)">
+<div class="movie-list" *ngFor="let movie of movies" (click)="movieClicked(movie)">
   <h3>{{ movie.title }}</h3>
+  <svg-icon-sprite class="movie-list__svg-edit" [src]="'assets/sprites/sprite.svg#icon-new-message'"
+    >
+  </svg-icon-sprite>
+  <svg-icon-sprite class="movie-list__svg-trash" [src]="'assets/sprites/sprite.svg#icon-trash'"
+    >
+  </svg-icon-sprite>
 </div>
