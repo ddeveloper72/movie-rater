@@ -2,6 +2,9 @@
   display: grid;
   grid-template-columns: 1fr repeat(2, auto);
 
+  &__title {
+    cursor: pointer;
+  }
 
   & svg-icon-sprite {
     columns: 2 / 3;
