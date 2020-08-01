@@ -23,4 +23,22 @@
     color: #1ee41e;
     cursor: pointer;
   }
+
+}
+
+.movie-list-button {
+  border: none;
+  background-color: orange;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &::before {
+    content: url(../../assets/sprites/chevron-small-right.svg);
+    height: 20px;
+    width: 20px;
+    float: left;
+    margin-right: 5px;
+    margin-top: -2px;
+  }
 }
