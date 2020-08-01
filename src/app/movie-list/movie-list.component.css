@@ -1,1 +1,46 @@
-/* No CSS *//*# sourceMappingURL=movie-list.component.css.map */
+.movie-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr (auto)[2];
+      grid-template-columns: 1fr repeat(2, auto);
+}
+
+.movie-list__title {
+  cursor: pointer;
+}
+
+.movie-list svg-icon-sprite {
+  -webkit-columns: 2 / 3;
+          columns: 2 / 3;
+  height: 2rem;
+  width: 2rem;
+}
+
+.movie-list__svg-edit {
+  margin-right: 15px;
+  color: #e4e155;
+  cursor: pointer;
+}
+
+.movie-list__svg-trash {
+  color: #1ee41e;
+  cursor: pointer;
+}
+
+.movie-list-button {
+  border: none;
+  background-color: orange;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.movie-list-button::before {
+  content: url(../../assets/sprites/chevron-small-right.svg);
+  height: 20px;
+  width: 20px;
+  float: left;
+  margin-right: 5px;
+  margin-top: -2px;
+}
+/*# sourceMappingURL=movie-list.component.css.map */
