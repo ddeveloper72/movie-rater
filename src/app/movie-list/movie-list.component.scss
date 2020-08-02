@@ -1,6 +1,7 @@
 .movie-list {
   display: grid;
   grid-template-columns: 1fr repeat(2, auto);
+  margin: 15px 15px;
 
   &__title {
     cursor: pointer;
