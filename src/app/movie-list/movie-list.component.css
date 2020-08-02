@@ -23,7 +23,7 @@
 }
 
 .movie-list__svg-trash {
-  color: #1ee41e;
+  color: #fd6f6f;
   cursor: pointer;
 }
 
@@ -39,7 +39,6 @@
   background-color: #bfd249;
   margin-top: 2rem;
   padding: 1.2rem 2rem;
-  text-transform: uppercase;
   font-size: 1.8rem;
   cursor: pointer;
   -webkit-transition: all .2s;
@@ -73,5 +72,15 @@
           align-items: center;
   -webkit-transform: translateX(4px) scale(1.4);
           transform: translateX(4px) scale(1.4);
+}
+
+.movie-list-button:active, .movie-list-button:focus {
+  -webkit-transform: translateY(-0.1rem);
+          transform: translateY(-0.1rem);
+  /* reduce shadow size as well as the blur to give
+      appearance of button moving close to background: ; */
+  -webkit-filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.5));
+  outline: none;
 }
 /*# sourceMappingURL=movie-list.component.css.map */
