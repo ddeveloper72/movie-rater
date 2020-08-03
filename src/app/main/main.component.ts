@@ -36,6 +36,11 @@ export class MainComponent implements OnInit {
     this.selectedMovie = null;
   }
 
+  deletedMovie(movie: Movie): void {
+    // Remove movie using the API
+    console.log('delete:', movie.title);
+  }
+
   createNewMovie(): void {
     this.editedMovie = {
       title: '',
