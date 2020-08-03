@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Movie } from '../models/Movie';
 
 
 @Component({
@@ -9,16 +10,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class MovieListComponent implements OnInit {
 
   @Input()
-  movies: any = [];  // list component now comes from api service, type of any
-  @Output() selectMovie = new EventEmitter();
+  movies: Movie[] = [];  // list component now comes from api service, type of Movie
+  @Output() selectMovie = new EventEmitter<Movie>();
+  @Output() editedMovie = new EventEmitter<Movie>();
 
   constructor() { }
 
   ngOnInit(): void {}
 
-  movieClicked(movie): void {
+  movieClicked(movie: Movie): void {
     // console.log(movie);
     this.selectMovie.emit(movie);  // make the selected movie object accessible to parent component
+  }
+
+  editMovie(movie: Movie): void {
+    this.editedMovie.emit(movie);
   }
 
 }
