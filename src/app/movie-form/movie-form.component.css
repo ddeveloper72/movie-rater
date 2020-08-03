@@ -1,1 +1,48 @@
-/* No CSS *//*# sourceMappingURL=movie-form.component.css.map */
+.form-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #ec840d;
+  margin-top: 2rem;
+  padding: 1.2rem 2rem;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.form-button__svg-sprite {
+  height: 2rem;
+  width: 2rem;
+  float: left;
+  margin-right: 5px;
+  margin-top: -2px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.form-button:hover {
+  background-color: #ca7009;
+}
+
+.form-button:hover svg-icon-sprite {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateX(4px) scale(1.1);
+          transform: translateX(4px) scale(1.1);
+}
+
+.form-button:active, .form-button:focus {
+  outline: none;
+}
+/*# sourceMappingURL=movie-form.component.css.map */
