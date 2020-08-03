@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getMovies().subscribe(
-      (data: Movie[] ) => {
+      (data: Movie[]) => {
         this.movies = data;
       },
       error => console.error()
@@ -33,6 +33,14 @@ export class MainComponent implements OnInit {
 
   editMovie(movie: Movie): void {
     this.editedMovie = movie;
+    this.selectedMovie = null;
+  }
+
+  createNewMovie(): void {
+    this.editedMovie = {
+      title: '',
+      description: ''
+    };
     this.selectedMovie = null;
   }
 }
