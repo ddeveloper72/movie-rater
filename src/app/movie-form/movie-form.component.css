@@ -1,3 +1,17 @@
+.form__label {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.form__title {
+  border-radius: 5px;
+}
+
+.form__description {
+  border-radius: 5px;
+}
+
 .form-button {
   display: -webkit-box;
   display: -ms-flexbox;
