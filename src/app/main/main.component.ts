@@ -10,7 +10,7 @@ import { Movie } from '../models/Movie';
 export class MainComponent implements OnInit {
   movies: Movie[] = []; // list component now comes from api service, type of any
   selectedMovie = null;
-  editMovie = null;
+  editedMovie = null;
 
   constructor(
     private apiService: ApiService // initialize service
@@ -28,5 +28,9 @@ export class MainComponent implements OnInit {
   selectMovie(movie: Movie): void {
     // console.log('selectedMovie:', this.selectedMovie);
     this.selectedMovie = movie;
+  }
+
+  editMovie(movie: Movie): void {
+    this.editedMovie = movie;
   }
 }
