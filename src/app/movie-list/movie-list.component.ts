@@ -12,7 +12,8 @@ export class MovieListComponent implements OnInit {
   movies: Movie[] = []; // list component now comes from api service, type of Movie
   @Output() selectMovie = new EventEmitter<Movie>();
   @Output() editedMovie = new EventEmitter<Movie>();
-  @Output() createNewMovie = new EventEmitter();  // emit an empty event
+  @Output() deletedMovie = new EventEmitter<Movie>();
+  @Output() createNewMovie = new EventEmitter(); // emit an empty event
 
   constructor() {}
 
@@ -25,6 +26,10 @@ export class MovieListComponent implements OnInit {
 
   editMovie(movie: Movie): void {
     this.editedMovie.emit(movie);
+  }
+
+  deleteMovie(movie: Movie): void {
+    this.deletedMovie.emit(movie);
   }
 
   newMovie(): void {
