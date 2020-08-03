@@ -27,6 +27,7 @@
   text-transform: capitalize;
   font-size: 1.8rem;
   cursor: pointer;
+  transition: all .2s;
 
   &__svg-sprite {
     height: 2rem;
@@ -34,11 +35,17 @@
     float: left;
     margin-right: 5px;
     margin-top: -2px;
+    transition: all .4s;
   }
 
   &:hover {
     background-color: #ca7009;
-    transform: translateY(-2px);
 
+    svg-icon-sprite {
+      // transition location & scale of svg on hover
+      display: flex;
+      align-items: center;
+      transform: translateX(4px) scale(1.1);
+    }
   }
 }
