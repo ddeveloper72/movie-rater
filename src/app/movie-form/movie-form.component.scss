@@ -1,17 +1,18 @@
 .form {
 
   &__label {
-
-
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 15px;
   }
 
   &__title {
-
-
+    border-radius: 5px;
+    
   }
 
   &__description {
-
+    border-radius: 5px;
 
   }
 }
@@ -53,5 +54,5 @@
   &:focus {
    outline: none;
   }
-  
+
 }
