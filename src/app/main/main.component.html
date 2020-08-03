@@ -15,7 +15,7 @@
 
     <app-movie-form
     *ngIf="editedMovie"
-    (movie)="editedMovie"
+    [movie]="this.editedMovie"
     ></app-movie-form>
 
   </div>
