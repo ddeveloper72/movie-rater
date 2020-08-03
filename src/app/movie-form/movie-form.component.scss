@@ -48,4 +48,10 @@
       transform: translateX(4px) scale(1.1);
     }
   }
+
+  &:active,
+  &:focus {
+   outline: none;
+  }
+  
 }
