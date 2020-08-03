@@ -8,23 +8,26 @@ import { Movie } from '../models/Movie';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-
   @Input()
-  movies: Movie[] = [];  // list component now comes from api service, type of Movie
+  movies: Movie[] = []; // list component now comes from api service, type of Movie
   @Output() selectMovie = new EventEmitter<Movie>();
   @Output() editedMovie = new EventEmitter<Movie>();
+  @Output() createNewMovie = new EventEmitter();  // emit an empty event
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {}
 
   movieClicked(movie: Movie): void {
     // console.log(movie);
-    this.selectMovie.emit(movie);  // make the selected movie object accessible to parent component
+    this.selectMovie.emit(movie); // make the selected movie object accessible to parent component
   }
 
   editMovie(movie: Movie): void {
     this.editedMovie.emit(movie);
   }
 
+  newMovie(): void {
+    this.createNewMovie.emit();
+  }
 }
