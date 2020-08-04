@@ -8,7 +8,6 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./movie-form.component.css']
 })
 export class MovieFormComponent implements OnInit {
-
   @Input() movie: Movie;
 
   movieForm = new FormGroup({
@@ -16,9 +15,11 @@ export class MovieFormComponent implements OnInit {
     description: new FormControl('')
   });
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  saveForm(): void {
+    console.log(this.movieForm.value);
   }
-
 }
