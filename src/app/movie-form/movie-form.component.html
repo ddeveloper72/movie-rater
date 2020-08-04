@@ -1,9 +1,10 @@
-<form class="form" action="">
+<form class="form" [formGroup]="movieForm">
   <label class="form__label">Title:</label><br>
-  <input class="form__title" type="text"><br>
+  <input class="form__title" type="text" formControlName="title"><br>
 
   <label class="form__label">Description:</label><br>
-  <textarea class="from__description" name="" id="" cols="30" rows="5" type="text"></textarea><br>
+  <textarea class="from__description" name="" id="" cols="30" rows="5" type="text"
+    formControlName="description"></textarea><br>
   <button class="form-button">
     <svg-icon-sprite class="form-button__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-database'">
     </svg-icon-sprite>
