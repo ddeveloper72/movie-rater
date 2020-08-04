@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../models/Movie';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-movie-form',
@@ -19,7 +20,9 @@ export class MovieFormComponent implements OnInit {
     });
   }
 
-  constructor() {}
+  constructor(
+    private apiService: ApiService
+  ) {}
 
   ngOnInit(): void {}
 
