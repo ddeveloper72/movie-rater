@@ -29,7 +29,7 @@ export class ApiService {
 
   createMovie(title: string, description: string) {
     const body = JSON.stringify({ title, description });  // convert JSON object to string
-    return this.httpClient.post(`${this.baseUrl}/`, body, { headers: this.headers });  // add new body to the url
+    return this.httpClient.post(`${this.baseUrl}`, body, { headers: this.headers });  // add new body to the url
   }
 
   rateMovie(rate: number, movieId: number) {
