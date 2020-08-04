@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ApiService } from '../api.service';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MainComponent } from './main.component';
 import { MovieListComponent } from '../movie-list/movie-list.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
     CommonModule,
     // added imports for routes
     RouterModule.forChild(routes),
+    ReactiveFormsModule,
     IconSpriteModule
   ],
   // export routes to the app module
