@@ -1,15 +1,40 @@
-.form__label {
-  font-size: 2rem;
+.form {
   font-weight: 400;
+  font-size: 2rem;
+}
+
+.form__label {
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 
 .form__title {
+  font-size: 1.8rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
   border-radius: 5px;
+  padding: 10px;
+  height: 35px;
+  width: 100%;
 }
 
-.form__description {
-  border-radius: 5px;
+.form__title:active, .form__title:focus {
+  outline: none;
+  background-color: #eee4ca;
+}
+
+.form textarea {
+  font-size: 1.8rem;
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+}
+
+.form textarea:active, .form textarea:focus {
+  outline: none;
+  background-color: #eee4ca;
 }
 
 .form-button {
