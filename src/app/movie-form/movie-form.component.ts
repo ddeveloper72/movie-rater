@@ -8,12 +8,16 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./movie-form.component.css']
 })
 export class MovieFormComponent implements OnInit {
-  @Input() movie: Movie;
 
-  movieForm = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl('')
-  });
+  movieForm;
+
+  // use movieForm to render the values of the movie from the Input
+  @Input() set movie(val: Movie) {
+    this.movieForm = new FormGroup({
+      title: new FormControl(val.title),
+      description: new FormControl(val.description)
+    });
+  }
 
   constructor() {}
 
