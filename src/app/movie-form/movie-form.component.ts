@@ -11,6 +11,11 @@ export class MovieFormComponent implements OnInit {
 
   @Input() movie: Movie;
 
+  movieForm = new FormGroup({
+    title: new FormControl(''),
+    description: new FormControl('')
+  });
+
   constructor() { }
 
   ngOnInit(): void {
