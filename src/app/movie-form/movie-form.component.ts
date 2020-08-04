@@ -9,8 +9,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./movie-form.component.css']
 })
 export class MovieFormComponent implements OnInit {
-
-  movieForm;
+  movieForm: any;
 
   // use movieForm to render the values of the movie from the Input
   @Input() set movie(val: Movie) {
@@ -20,13 +19,18 @@ export class MovieFormComponent implements OnInit {
     });
   }
 
-  constructor(
-    private apiService: ApiService
-  ) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {}
 
   saveForm(): void {
     console.log(this.movieForm.value);
+    this.apiService
+      .createMovie(
+        this.movieForm.value.title,  // send value of title & value of description to ApiService
+        this.movieForm.value.description)
+      .subscribe(
+        result => console.log(result),
+        error => console.log(error));
   }
 }
