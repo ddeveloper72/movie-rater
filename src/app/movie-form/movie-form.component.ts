@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../models/Movie';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ApiService } from '../api.service';
@@ -21,6 +21,9 @@ export class MovieFormComponent implements OnInit {
       description: new FormControl(val.description)
     });
   }
+
+  @Output() movieCreated = new EventEmitter<Movie>();
+  @Output() movieUpdated = new EventEmitter<Movie>();
 
   constructor(private apiService: ApiService) {}
 
