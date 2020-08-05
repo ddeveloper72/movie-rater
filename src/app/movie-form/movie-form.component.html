@@ -8,6 +8,7 @@
   <button class="form-button" type="submit">
     <svg-icon-sprite class="form-button__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-database'">
     </svg-icon-sprite>
-    save
+    <span *ngIf="id">Update</span>
+    <span *ngIf="!id">Create</span>
   </button>
 </form>
