@@ -57,4 +57,13 @@ export class MainComponent implements OnInit {
   movieCreated(movie: Movie): void {
     this.movies.push(movie);
   }
+
+  movieUpdated(movie: Movie): void {
+    const indx = this.movies
+    .findIndex(
+      move => move.id === movie.id);  //  find id of movie in the array then assign as const indx
+    if (indx >= 0) {  // check that id is valid, being number >= 0
+        this.movies[indx] = movie;  // push the specific movie with the id to movie
+    }
+  }
 }
