@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Movie } from '../models/Movie';
+import { MovieFormComponent } from '../movie-form/movie-form.component';
 
 @Component({
   selector: 'app-main',
@@ -41,7 +42,8 @@ export class MainComponent implements OnInit {
     .deleteMovie(movie.id)
     .subscribe(
       data => {
-        console.log(data);
+        this.movies = this.movies
+        .filter(mov => mov.id !== movie.id);  // filter out the deleted movie id still present in the DOM
       },
       error => console.error()
     );
