@@ -32,9 +32,13 @@ export class ApiService {
     return this.httpClient.post(`${this.baseUrl}`, body, { headers: this.headers });  // add new body to the url
   }
 
-  updateMovie(id, title: string, description: string) {
+  updateMovie(id: number, title: string, description: string) {
     const body = JSON.stringify({ title, description });  // convert JSON object to string
     return this.httpClient.put(`${this.baseUrl}${id}/`, body, { headers: this.headers });  // add new body to the url
+  }
+
+  deleteMovie(id: number) {
+    return this.httpClient.delete(`${this.baseUrl}${id}/`, { headers: this.headers });  // add new body to the url
   }
 
   rateMovie(rate: number, movieId: number) {
