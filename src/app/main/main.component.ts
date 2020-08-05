@@ -38,12 +38,9 @@ export class MainComponent implements OnInit {
   }
 
   deletedMovie(movie: Movie): void {
-    this.apiService
-    .deleteMovie(movie.id)
-    .subscribe(
+    this.apiService.deleteMovie(movie.id).subscribe(
       data => {
-        this.movies = this.movies
-        .filter(mov => mov.id !== movie.id);  // filter out the deleted movie id still present in the DOM
+        this.movies = this.movies.filter(mov => mov.id !== movie.id); // filter out the deleted movie id still present in the DOM
       },
       error => console.error()
     );
@@ -55,5 +52,9 @@ export class MainComponent implements OnInit {
       description: ''
     };
     this.selectedMovie = null;
+  }
+
+  movieCreated(movie: Movie): void {
+    this.movies.push(movie);
   }
 }
