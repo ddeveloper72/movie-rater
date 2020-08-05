@@ -39,7 +39,7 @@ export class MovieFormComponent implements OnInit {
           this.movieForm.value.title,  // send value of title & value of description to ApiService
           this.movieForm.value.description)
         .subscribe(
-          result => console.log(result),
+          (result: Movie) => this.movieUpdated.emit(result),
           error => console.log(error));
     } else {
       this.apiService
