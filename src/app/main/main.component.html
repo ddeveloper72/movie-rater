@@ -17,6 +17,7 @@
     *ngIf="editedMovie"
     [movie]="this.editedMovie"
     (movieCreated)="movieCreated($event)"
+    (movieUpdated)="movieUpdated($event)"
     ></app-movie-form>
 
   </div>
