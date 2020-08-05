@@ -48,7 +48,7 @@ export class MovieFormComponent implements OnInit {
           this.movieForm.value.description
         )
         .subscribe(
-          result => console.log(result),
+          (result: Movie) => this.movieCreated.emit(result),
           error => console.log(error));
     }
   }
