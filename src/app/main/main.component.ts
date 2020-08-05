@@ -56,6 +56,7 @@ export class MainComponent implements OnInit {
 
   movieCreated(movie: Movie): void {
     this.movies.push(movie);
+    this.editedMovie = null;
   }
 
   movieUpdated(movie: Movie): void {
@@ -65,5 +66,6 @@ export class MainComponent implements OnInit {
     if (indx >= 0) {  // check that id is valid, being number >= 0
         this.movies[indx] = movie;  // push the specific movie with the id to movie
     }
+    this.editedMovie = null;
   }
 }
