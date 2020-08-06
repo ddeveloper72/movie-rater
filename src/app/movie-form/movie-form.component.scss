@@ -39,6 +39,14 @@
       background-color: #eee4ca;
     }
 
+
+  }
+
+  input.ng-invalid.ng-touched,
+  textarea.ng-invalid.ng-touched {
+    border: .5px solid #fc8e4f;
+    background-color: #e2b796;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
   }
 }
 
@@ -55,9 +63,6 @@
   cursor: pointer;
   transition: all .2s;
 
-  &:disabled {
-    background-color: #ca7009cb;
-  }
 
   &__svg-sprite {
     height: 2rem;
@@ -69,7 +74,7 @@
   }
 
 
-  &:hover:not.disabled {
+  &:hover  {
     background-color: #ca7009;
 
     svg-icon-sprite {
