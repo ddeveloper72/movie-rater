@@ -1,12 +1,31 @@
 <form class="form" [formGroup]="movieForm" (ngSubmit)="saveForm()">
-  <label class="form__label">Title:</label><br>
-  <input class="form__title" type="text" formControlName="title"><br>
+  <label class="form__label" for="title">Title:</label>
+  <br>
 
-  <label class="form__label">Description:</label><br>
-  <textarea class="from__description" rows="5" type="text"
-    formControlName="description"></textarea><br>
-  <button class="form-button" type="submit">
-    <svg-icon-sprite class="form-button__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-database'">
+  <input
+  class="form__title"
+  type="text"
+  formControlName="title"><br>
+
+  <label
+  class="form__label" for="description">Description:</label>
+  <br>
+
+  <textarea
+  class="from__description"
+  rows="5"
+  type="text"
+  formControlName="description"
+  ></textarea>
+  <br>
+
+  <button
+  class="form-button"
+  type="submit"
+  [disabled]="!movieForm.valid">
+    <svg-icon-sprite
+    class="form-button__svg-sprite"
+    [src]="'assets/sprites/sprite.svg#icon-database'">
     </svg-icon-sprite>
     <span *ngIf="id">Update</span>
     <span *ngIf="!id">Create</span>
