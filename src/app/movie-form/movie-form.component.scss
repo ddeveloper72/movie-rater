@@ -55,6 +55,10 @@
   cursor: pointer;
   transition: all .2s;
 
+  &:disabled {
+    background-color: #ca7009cb;
+  }
+
   &__svg-sprite {
     height: 2rem;
     width: 2rem;
@@ -64,7 +68,8 @@
     transition: all .4s;
   }
 
-  &:hover {
+
+  &:hover:not.disabled {
     background-color: #ca7009;
 
     svg-icon-sprite {
