@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../models/Movie';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -10,15 +10,19 @@ import { ApiService } from '../api.service';
 })
 export class MovieFormComponent implements OnInit {
   movieForm: any;
-  id = null;  // is true for new movie, but present for existing movie
+  id = null; // is true for new movie, but present for existing movie
 
   // use movieForm to render the values of the movie from the Input
   @Input() set movie(val: Movie) {
-    this.id = val.id;  // lets function know if move is new or existing
+    this.id = val.id; // lets function know if move is new or existing
     console.log(this.id);
     this.movieForm = new FormGroup({
-      title: new FormControl(val.title),
-      description: new FormControl(val.description)
+      title:
+      new FormControl(val.title,
+        [Validators.required]),
+      description:
+      new FormControl(val.description,
+        [Validators.required])
     });
   }
 
@@ -36,11 +40,13 @@ export class MovieFormComponent implements OnInit {
       this.apiService
         .updateMovie(
           this.id,
-          this.movieForm.value.title,  // send value of title & value of description to ApiService
-          this.movieForm.value.description)
+          this.movieForm.value.title, // send value of title & value of description to ApiService
+          this.movieForm.value.description
+        )
         .subscribe(
           (result: Movie) => this.movieUpdated.emit(result),
-          error => console.log(error));
+          error => console.log(error)
+        );
     } else {
       this.apiService
         .createMovie(
@@ -49,7 +55,8 @@ export class MovieFormComponent implements OnInit {
         )
         .subscribe(
           (result: Movie) => this.movieCreated.emit(result),
-          error => console.log(error));
+          error => console.log(error)
+        );
     }
   }
 }
