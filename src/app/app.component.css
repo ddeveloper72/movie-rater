@@ -9,4 +9,29 @@
   min-height: 100vh;
   /* for testing */
 }
+
+.rater {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+}
+
+.rater__svg-sprite {
+  color: #e2d285;
+  margin-right: 15px;
+  width: 5rem;
+  height: 5rem;
+}
+
+.rater__heading {
+  color: #e2d285;
+  font-family: cursive;
+}
 /*# sourceMappingURL=app.component.css.map */
