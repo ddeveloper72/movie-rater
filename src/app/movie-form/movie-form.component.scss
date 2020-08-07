@@ -73,6 +73,18 @@
     transition: all .4s;
   }
 
+  &:disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      svg-icon-sprite {
+        // transition location & scale of svg on hover
+        display: flex;
+        align-items: center;
+        transform: translateX(4px) scale(0.1);
+      }
+    }
+  }
 
   &:hover  {
     background-color: #ca7009;
