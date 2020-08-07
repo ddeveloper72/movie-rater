@@ -42,6 +42,7 @@
 
   }
 
+  // use built in classes to select invalid 7 touched elements for user alert styling
   input.ng-invalid.ng-touched,
   textarea.ng-invalid.ng-touched {
     border: .5px solid #fc8e4f;
@@ -73,6 +74,7 @@
     transition: all .4s;
   }
 
+  // when button is disabled, change pointer and shrink save icon
   &:disabled {
     cursor: not-allowed;
 
@@ -86,6 +88,7 @@
     }
   }
 
+  // when button enabled, grow save icon
   &:hover  {
     background-color: #ca7009;
 
