@@ -7,3 +7,25 @@
   padding: 20px 40px;
   min-height: 100vh; /* for testing */
 }
+
+.rater {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
+
+  &__svg-sprite {
+    color: #e2d285;
+    margin-right: 15px;
+    width: 5rem;
+    height: 5rem;
+
+  }
+
+  &__heading {
+  color: #e2d285;
+  font-family: cursive;
+
+  }
+
+}
