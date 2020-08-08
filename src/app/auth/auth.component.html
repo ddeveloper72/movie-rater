@@ -1,1 +1,33 @@
-<p>auth works!</p>
+<form class="form"
+[formGroup]="authForm"
+(ngSubmit)="saveForm()"
+>
+  <label class="form__label" for="username">User Name:</label>
+  <br>
+
+  <input
+  class="form__title"
+  type="text"
+  formControlName="username"><br>
+
+  <label
+  class="form__label" for="password">Password:</label>
+  <br>
+
+  <input
+  class="from__description"
+  type="password"
+  formControlName="password"
+  ><br>
+
+  <button
+  class="form-button"
+  type="submit"
+  [disabled]="!authForm.valid">
+    <svg-icon-sprite
+    class="form-button__svg-sprite"
+    [src]="'assets/sprites/sprite.svg#icon-login'">
+    </svg-icon-sprite>
+    Login
+  </button>
+</form>
