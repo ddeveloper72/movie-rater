@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthComponent } from './auth.component';
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // declare a name for the array of routes
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     // allow import of routes in the childModule
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    IconSpriteModule,
+    ReactiveFormsModule
   ],
   // export routes to the app module
   exports: [RouterModule]
