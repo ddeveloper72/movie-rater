@@ -10,41 +10,26 @@
     margin-bottom: 15px;
   }
 
-  &__title {
+  &__title,
+  &__password {
     font-size: 1.8rem;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
     padding: 10px;
     height: 35px;
-    width: 100%;
+    width: 40%;
 
     &:active,
     &:focus {
       outline: none;
       background-color: #eee4ca;
     }
-
-  }
-
-  textarea {
-    font-size: 1.8rem;
-    margin-top: 15px;
-    padding: 10px;
-    width: 100%;
-
-    &:active,
-    &:focus {
-      outline: none;
-      background-color: #eee4ca;
-    }
-
 
   }
 
   // use built in classes to select invalid 7 touched elements for user alert styling
-  input.ng-invalid.ng-touched,
-  textarea.ng-invalid.ng-touched {
+  input.ng-invalid.ng-touched {
     border: .5px solid #fc8e4f;
     background-color: #e2b796;
     box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
