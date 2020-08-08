@@ -1,1 +1,97 @@
-/* No CSS *//*# sourceMappingURL=auth.component.css.map */
+.form {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.form__label {
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.form__title, .form__password {
+  font-size: 1.8rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 10px;
+  height: 35px;
+  width: 40%;
+}
+
+.form__title:active, .form__title:focus, .form__password:active, .form__password:focus {
+  outline: none;
+  background-color: #eee4ca;
+}
+
+.form input.ng-invalid.ng-touched {
+  border: .5px solid #fc8e4f;
+  background-color: #e2b796;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
+          box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
+}
+
+.form-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #ec840d;
+  margin-top: 2rem;
+  padding: 1.2rem 2rem;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.form-button__svg-sprite {
+  height: 2rem;
+  width: 2rem;
+  float: left;
+  margin-right: 5px;
+  margin-top: -2px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.form-button:disabled {
+  cursor: not-allowed;
+}
+
+.form-button:disabled:hover svg-icon-sprite {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateX(4px) scale(0.1);
+          transform: translateX(4px) scale(0.1);
+}
+
+.form-button:hover {
+  background-color: #ca7009;
+}
+
+.form-button:hover svg-icon-sprite {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateX(4px) scale(1.1);
+          transform: translateX(4px) scale(1.1);
+}
+
+.form-button:active, .form-button:focus {
+  outline: none;
+}
+/*# sourceMappingURL=auth.component.css.map */
