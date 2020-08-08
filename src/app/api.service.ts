@@ -47,4 +47,11 @@ export class ApiService {
       headers: this.headers
     });  // pass headers to baseUrl
   }
+
+  loginUser(authData) {
+    const body = JSON.stringify({ authData }); // convert JSON object to string
+    return this.httpClient.put(`${this.baseUrl}${id}/`, body, {
+      headers: this.headers
+    });
+  }
 }
