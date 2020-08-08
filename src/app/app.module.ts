@@ -11,7 +11,7 @@ import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 // declare a name for the array of routes
 const routes: Routes = [
- { path: '', pathMatch: 'full', redirectTo: 'movies' }  // if path does not match, redirect to here.
+ { path: '', pathMatch: 'full', redirectTo: 'auth' }  // if path does not match, redirect to here.
 ];
 
 @NgModule({
