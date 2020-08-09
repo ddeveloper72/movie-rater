@@ -27,16 +27,18 @@ export class AuthComponent implements OnInit {
     private cookieService: CookieService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const mrToken = this.cookieService.get('mr-token');  // got the token at ngOnInit stage & store as constant
+    console.log('😎 Mr Token', mrToken);
+  }
 
   saveForm(): void {
     console.log(this.authForm.value);
     this.apiService.loginUser(this.authForm.value).subscribe(
       (result: TokenObject) => {  // use the data type definition for what the token is
-        console.log(result);
         this.cookieService.set('mr-token', result.token);  //  define the name of the token file and result of what it is to contain
       },
       error => console.log(error)
     );
   }
-}
+ }
