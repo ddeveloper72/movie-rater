@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../api.service';
 
+// define the data type fo the token going to be used
 interface TokenObject {
   token: string;
 }
@@ -31,9 +32,9 @@ export class AuthComponent implements OnInit {
   saveForm(): void {
     console.log(this.authForm.value);
     this.apiService.loginUser(this.authForm.value).subscribe(
-      (result: TokenObject) => {
+      (result: TokenObject) => {  // use the data type definition for what the token is
         console.log(result);
-        this.cookieService.set('mr-token', result.token);
+        this.cookieService.set('mr-token', result.token);  //  define the name of the token file and result of what it is to contain
       },
       error => console.log(error)
     );
