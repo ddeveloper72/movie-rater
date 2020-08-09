@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 // declare a name for the array of routes
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
   // export routes to the app module
+  providers: [CookieService],
   exports: [RouterModule]
 })
 export class AuthModule {}
