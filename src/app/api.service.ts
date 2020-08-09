@@ -10,10 +10,8 @@ import { Movie } from './models/Movie';
 export class ApiService {
   baseUrl = 'http://127.0.0.1:8000/';
   baseMovieUrl = `${this.baseUrl}api/movies/`;
-  token = this.cookieService.get('mr-token');  // define source of the token, ie from the service
   headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    Authorization: `Token ${this.token}`  // use reference the token from cookie service
+    'Content-Type': 'application/json'
   });
 
   constructor(
@@ -69,6 +67,14 @@ export class ApiService {
     const body = JSON.stringify(authData); // convert JSON object to string
     return this.httpClient.post(`${this.baseUrl}auth/`, body, {
       headers: this.headers
+    });
+  }
+
+  getAuthHeaders() {
+    const token = this.cookieService.get('mr-token');  // define source of the token, ie from the service
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}` // use reference the token from cookie service
     });
   }
 }
