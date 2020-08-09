@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environment';
+import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../environments/environment';  // used during dev for storing token
 import { Movie } from './models/Movie';
 
 @Injectable({
@@ -9,13 +10,15 @@ import { Movie } from './models/Movie';
 export class ApiService {
   baseUrl = 'http://127.0.0.1:8000/';
   baseMovieUrl = `${this.baseUrl}api/movies/`;
+  token = this.cookieService.get('mr-token');  // define source of the token, ie from the service
   headers = new HttpHeaders({
-    'Content-Type': 'application/json'
-    // Authorization: environment.Token
+    'Content-Type': 'application/json',
+    Authorization: `Token ${this.token}`  // use reference the token from cookie service
   });
 
   constructor(
-    private httpClient: HttpClient // initialize the HttpClient
+    private httpClient: HttpClient, // initialize the HttpClient
+    private cookieService: CookieService  // initialize the service
   ) {}
 
   getMovies() {
