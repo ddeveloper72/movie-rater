@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../api.service';
 
@@ -24,19 +25,23 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    const mrToken = this.cookieService.get('mr-token');  // got the token at ngOnInit stage & store as constant
+    const mrToken = this.cookieService.get('mr-token');  // get the token at ngOnInit stage & store as constant
+    if (mrToken) {
+      this.router.navigate(['/movies']);
+    }
     console.log('😎 Mr Token', mrToken);
   }
 
   saveForm(): void {
-    console.log(this.authForm.value);
     this.apiService.loginUser(this.authForm.value).subscribe(
       (result: TokenObject) => {  // use the data type definition for what the token is
         this.cookieService.set('mr-token', result.token);  //  define the name of the token file and result of what it is to contain
+        this.router.navigate(['/movies']);
       },
       error => console.log(error)
     );
