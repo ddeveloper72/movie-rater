@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../api.service';
 
+interface TokenObject {
+  token: string;
+}
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -18,7 +22,8 @@ export class AuthComponent implements OnInit {
   });
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private cookieService: CookieService
   ) {}
 
   ngOnInit(): void {}
@@ -26,7 +31,10 @@ export class AuthComponent implements OnInit {
   saveForm(): void {
     console.log(this.authForm.value);
     this.apiService.loginUser(this.authForm.value).subscribe(
-      result => console.log(result),
+      (result: TokenObject) => {
+        console.log(result);
+        this.cookieService.set('mr-token', result.token);
+      },
       error => console.log(error)
     );
   }
