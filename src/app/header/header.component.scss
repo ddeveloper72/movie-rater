@@ -1,6 +1,6 @@
 .nav {
-  color: orangered;
-  font-size: 2rem;
+  background: #222;
+  padding: 0 15px;
 
   &__header {
 
@@ -13,12 +13,17 @@
   }
 
   &__menu {
+    list-style: none;
 
-    
     &--item {
 
     }
 
+    &--link {
+      color: white;
+      text-decoration: none;
+
+    }
 
   }
 }
