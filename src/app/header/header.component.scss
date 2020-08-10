@@ -23,6 +23,8 @@
     list-style: none;
 
     &--item {
+      display: flex;
+      margin-right: 20px;
       font-size: 2.2rem;
 
     }
