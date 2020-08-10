@@ -1,4 +1,6 @@
 .nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   background: #222;
   padding: 0 15px;
 
@@ -8,11 +10,13 @@
   }
 
   &__brand {
+    color: white;
 
 
   }
 
   &__menu {
+    grid-column: 3 / -1;
     list-style: none;
 
     &--item {
