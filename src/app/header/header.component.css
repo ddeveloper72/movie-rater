@@ -1,5 +1,44 @@
-p {
+.nav {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  background: #222;
+  padding: 0 15px;
+}
+
+.nav__header {
+  font-size: 2.5rem;
+}
+
+.nav__brand {
+  color: white;
+}
+
+.nav__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  grid-column: 3 / -1;
+  list-style: none;
+}
+
+.nav__menu--item {
+  font-size: 2.2rem;
+}
+
+.nav__menu--link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav__menu--link:hover {
   color: orangered;
-  font-size: 2rem;
 }
 /*# sourceMappingURL=header.component.css.map */
