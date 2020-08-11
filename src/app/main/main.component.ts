@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { Movie } from '../models/Movie';
-import { MovieFormComponent } from '../movie-form/movie-form.component';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -10,32 +9,18 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
   movies: Movie[] = []; // list component now comes from api service, type of any
   selectedMovie = null;
   editedMovie = null;
 
   constructor(
     private apiService: ApiService, // initialize service
-    private cookieService: CookieService,
-    private router: Router
+  //   private cookieService: CookieService,
+  //   private router: Router
   ) {}
 
-  ngOnInit(): void {
-    const mrToken = this.cookieService.get('mr-token'); // get the token at ngOnInit stage & store as constant
 
-    // redirect if no token to auth, else if token, show movies
-    if (!mrToken) {
-      this.router.navigate(['/auth']);
-    } else {
-      this.apiService.getMovies().subscribe(
-        (data: Movie[]) => {
-          this.movies = data;
-        },
-        error => console.error()
-      );
-    }
-  }
 
   selectMovie(movie: Movie): void {
     // console.log('selectedMovie:', this.selectedMovie);
@@ -71,12 +56,12 @@ export class MainComponent implements OnInit {
   }
 
   movieUpdated(movie: Movie): void {
-    const indx = this.movies
-    .findIndex(
-      move => move.id === movie.id);  //  find id of movie in the array then assign as const indx
-    if (indx >= 0) {  // check that id is valid, being number >= 0
-        this.movies[indx] = movie;  // push the specific movie with the id to movie
+    const indx = this.movies.findIndex(move => move.id === movie.id); //  find id of movie in the array then assign as const indx
+    if (indx >= 0) {
+      // check that id is valid, being number >= 0
+      this.movies[indx] = movie; // push the specific movie with the id to movie
     }
     this.editedMovie = null;
   }
+
 }
