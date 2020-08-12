@@ -9,16 +9,19 @@ import { MainModule } from './main/main.module';
 import { AppComponent } from './app.component';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+;
 
 // declare a name for the array of routes
 const routes: Routes = [
- { path: '', pathMatch: 'full', redirectTo: 'auth' }  // if path does not match, redirect to here.
+  { path: 'movies', component: AppComponent } // if path does not match, redirect to here.
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
