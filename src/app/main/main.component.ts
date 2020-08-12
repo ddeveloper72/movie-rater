@@ -9,18 +9,33 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
   movies: Movie[] = []; // list component now comes from api service, type of any
   selectedMovie = null;
   editedMovie = null;
 
   constructor(
     private apiService: ApiService, // initialize service
-  //   private cookieService: CookieService,
-  //   private router: Router
-  ) {}
+    private cookieService: CookieService,
+    private router: Router
+  )
+  {}
 
+  ngOnInit(): void {
+    const mrToken = this.cookieService.get('mr-token'); // get the token at ngOnInit stage & store as constant
 
+    // redirect if no token to auth, else if token, show movies
+    if (!mrToken) {
+      this.router.navigate(['/home']);
+    } else {
+      this.apiService.getMovies().subscribe(
+        (data: Movie[]) => {
+          this.movies = data;
+        },
+        error => console.error()
+      );
+    }
+  }
 
   selectMovie(movie: Movie): void {
     // console.log('selectedMovie:', this.selectedMovie);
@@ -63,5 +78,4 @@ export class MainComponent {
     }
     this.editedMovie = null;
   }
-
 }
