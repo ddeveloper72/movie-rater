@@ -8,13 +8,19 @@
     <a class="nav__menu--link"
       routerLinkActive="active"
       routerLink="/auth"
-    >Login</a></li>
+    >Login</a>
+  </li>
 
     <li class="nav__menu--item">
       <a class="nav__menu--link"
     (click)="onLogout()">Logout</a>
     </li>
 
-    <li class="nav__menu--item"><a class="nav__menu--link" href="#">Register</a></li>
+    <li class="nav__menu--item"
+    *ngIf="!isAuthenticated">
+      <a class="nav__menu--link"
+    routerLink="/auth">
+      Register</a>
+    </li>
   </ul>
 </nav>
