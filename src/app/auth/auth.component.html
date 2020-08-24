@@ -1,33 +1,94 @@
 <form class="form"
 [formGroup]="authForm"
-(ngSubmit)="saveForm()"
->
-  <label class="form__label" for="username">User Name:</label>
-  <br>
+(ngSubmit)="saveForm()">
 
-  <input
-  class="form__title"
-  type="text"
-  formControlName="username"><br>
+<div class="form__header">
+  <h2 *ngIf="!registerMode">User Login page</h2>
+  <h2 *ngIf="registerMode">New user Registration</h2>
 
-  <label
-  class="form__label" for="password">Password:</label>
-  <br>
+</div>
 
-  <input
-  class=form__password
-  type="password"
-  formControlName="password"
-  ><br>
+  <div
+  class="form__form-group">
+    <label
+    class="form__form-group--label"
+    for="username">User Name:</label>
+    <input
+    class="form__form-group--input-text"
+    type="text"
+    formControlName="username">
+    <div *ngIf="submitted && f.username.errors" class="form__form-group--invalid-feedback">
+      <div *ngIf="f.username.errors.required">A username is required</div>
+    </div>
+  </div>
 
+  <div class="form__form-group">
+    <label
+    class="form__form-group--label"
+    for="password">Password:</label>
+    <input
+    class="form__form-group--input-text"
+    type="password"
+    formControlName="password">
+    <div *ngIf="submitted && f.password.errors"
+    class="form__form-group--invalid-feedback">
+      <div
+      *ngIf="f.password.errors.required">Please provide a password</div>
+      <div
+      *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+    </div>
+  </div>
+
+  <div *ngIf="!registerMode"
+  class="form__form-group">
+    <label
+    class="form__form-group--label"
+    for="password">Confirm Password</label>
+    <input
+    class="form__form-group--input-text"
+    type="password"
+    formControlName="confirmPassword">
+    <div
+    *ngIf="submitted && f.password.errors"
+    class="form__form-group--invalid-feedback">
+      <div
+      *ngIf="f.confirmPassword.errors.required">A password is required</div>
+      <div
+      *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+    </div>
+  </div>
+
+  <!-- [disabled]="!authForm.valid" -->
   <button
   class="form-button"
-  type="submit"
-  [disabled]="!authForm.valid">
-    <svg-icon-sprite
-    class="form-button__svg-sprite"
-    [src]="'assets/sprites/sprite.svg#icon-login'">
+  type="submit">
+  <span
+  *ngIf="!registerMode">
+  <svg-icon-sprite
+  class="form-button__svg-sprite"
+  [src]="'assets/sprites/sprite.svg#icon-login'">
     </svg-icon-sprite>
     Login
-  </button>
+  </span>
+  <span
+  *ngIf="registerMode">
+  <svg-icon-sprite
+  class="form-button__svg-sprite"
+  [src]="'assets/sprites/sprite.svg#icon-add-to-list'">
+</svg-icon-sprite>
+Register
+</span>
+</button>
+
 </form>
+
+<div class="access-mode">
+  <span class="access-mode__login"
+  *ngIf="!registerMode"
+  (click)="registerMode = true">
+  Don't have an account?  Click here to register</span>
+  <span class="access-mode__register"
+  *ngIf="registerMode"
+  (click)="registerMode = false">
+  Have an account?  Click here to login</span>
+</div>
