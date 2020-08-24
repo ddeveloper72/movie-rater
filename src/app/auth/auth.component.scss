@@ -1,32 +1,109 @@
 .form {
-  font-weight: 400;
-  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
 
-
-  &__label {
-    border-radius: 5px;
-    margin-top: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+  &__header {
+    color: #ca7009;
   }
 
-  &__title,
-  &__password {
-    font-size: 1.8rem;
-    margin-top: 15px;
-    margin-bottom: 15px;
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 2rem;
+
+    &--label {
+      justify-items: center;
+      align-items: center;
+      border-radius: 5px;
+      margin-top: 15px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    &--input-text{
+      font-size: 1.8rem;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      padding: 10px;
+      height: 35px;
+      width: 40%;
+
+      &:active,
+      &:focus {
+        outline: none;
+        background-color: #eee4ca;
+      }
+
+    }
+
+    &--invalid-feedback > * {
+      font-size: 1.6rem;
+      font-weight: 100;
+      color: orangered;
+    }
+  }
+
+
+.form-button {
+    display: flex;
+    align-items: center;
+    width: 140px;
+    border: none;
     border-radius: 5px;
-    padding: 10px;
-    height: 35px;
-    width: 40%;
+    background-color: #ec840d;
+    margin-top: 2rem;
+    padding: 1.2rem 2rem;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all .2s;
+
+
+    &__svg-sprite {
+      height: 2rem;
+      width: 2rem;
+      float: left;
+      margin-right: 5px;
+      margin-top: -2px;
+      transition: all .4s;
+    }
+
+    // when button is disabled, change pointer and shrink save icon
+    &:disabled {
+      cursor: not-allowed;
+
+      &:hover {
+        svg-icon-sprite {
+          // transition location & scale of svg on hover
+          display: flex;
+          align-items: center;
+          transform: translateX(4px) scale(0.1);
+        }
+      }
+    }
+
+    // when button enabled, grow save icon
+    &:hover {
+      background-color: #ca7009;
+
+      svg-icon-sprite {
+        // transition location & scale of svg on hover
+        display: flex;
+        align-items: center;
+        transform: translateX(4px) scale(1.1);
+      }
+    }
 
     &:active,
     &:focus {
       outline: none;
-      background-color: #eee4ca;
     }
-
   }
+}
+
+
 
   // use built in classes to select invalid 7 touched elements for user alert styling
   input.ng-invalid.ng-touched {
@@ -34,60 +111,18 @@
     background-color: #e2b796;
     box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
   }
-}
 
-.form-button {
-  display: flex;
-  align-items: center;
-  border: none;
-  border-radius: 5px;
-  background-color: #ec840d;
-  margin-top: 2rem;
-  padding: 1.2rem 2rem;
-  text-transform: capitalize;
+
+
+
+.access-mode {
   font-size: 1.8rem;
-  cursor: pointer;
-  transition: all .2s;
 
+  &__login {
 
-  &__svg-sprite {
-    height: 2rem;
-    width: 2rem;
-    float: left;
-    margin-right: 5px;
-    margin-top: -2px;
-    transition: all .4s;
   }
 
-  // when button is disabled, change pointer and shrink save icon
-  &:disabled {
-    cursor: not-allowed;
+  &__register {
 
-    &:hover {
-      svg-icon-sprite {
-        // transition location & scale of svg on hover
-        display: flex;
-        align-items: center;
-        transform: translateX(4px) scale(0.1);
-      }
-    }
   }
-
-  // when button enabled, grow save icon
-  &:hover {
-    background-color: #ca7009;
-
-    svg-icon-sprite {
-      // transition location & scale of svg on hover
-      display: flex;
-      align-items: center;
-      transform: translateX(4px) scale(1.1);
-    }
-  }
-
-  &:active,
-  &:focus {
-    outline: none;
-  }
-
 }
