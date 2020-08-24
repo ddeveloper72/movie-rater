@@ -1,26 +1,27 @@
 <nav class="nav">
   <div class="nav__header">
+    <h3 class="nav__brand">{{ this.currentUser.username }}</h3>
     <a href="#" class="nav__brand">Angular 10 with Django 3 Rest API</a>
   </div>
   <ul class="nav__menu">
-    <li class="nav__menu--item"
-    >
-    <a class="nav__menu--link"
-      routerLinkActive="active"
-      routerLink="/auth"
-    >Login</a>
-  </li>
 
     <li class="nav__menu--item">
       <a class="nav__menu--link"
-    (click)="onLogout()">Logout</a>
+    routerLinkActive="active"
+    routerLink="/movies"
+    >Home</a>
     </li>
 
     <li class="nav__menu--item"
-    *ngIf="!isAuthenticated">
+    *ngIf="currentUser">
       <a class="nav__menu--link"
-    routerLink="/auth">
-      Register</a>
+    (click)="logout()">Logout</a>
+    </li>
+
+    <li class="nav__menu--item"
+    *ngIf="!currentUser">
+      <a class="nav__menu--link"
+    routerLink="/auth">Login / Register</a>
     </li>
   </ul>
 </nav>
