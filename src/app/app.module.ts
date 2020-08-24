@@ -7,10 +7,11 @@ import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
 
 import { AppComponent } from './app.component';
+import { appRoutingModule } from './app.routing';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-;
+
 
 // declare a name for the array of routes
 const routes: Routes = [
@@ -18,16 +19,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, HeaderComponent, HomeComponent],
   imports: [
     BrowserModule,
     AuthModule,
     MainModule,
     HttpClientModule,
+    appRoutingModule,
     RouterModule.forRoot(routes), // include imports for routes into the main module
     IconSpriteModule
   ],
