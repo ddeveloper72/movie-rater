@@ -1,15 +1,7 @@
 <div class="app">
 
-  <!-- ***  Notes:
-  pass cookie status to header &
-  receive event emitted from logout button when clicked
-  *** -->
+  <app-header></app-header>
 
-  <app-header
-  (validCookie)="validCookie()"
-  (logoutUser)="logoutUser()">
-  </app-header>
-  
 <div class="rater">
   <svg-icon-sprite class="rater__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-film'">
   </svg-icon-sprite>
@@ -17,11 +9,9 @@
 </div>
 
 <!-- ***  Notes:
-if cookie is not present, show hom page
+if not auth current user, present, default user with home page
 *** -->
 
-<app-home
-*ngIf="!validCookie"
-></app-home>
+<app-home></app-home>
 <router-outlet></router-outlet>
 </div>
