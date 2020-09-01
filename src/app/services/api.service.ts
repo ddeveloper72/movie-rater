@@ -55,10 +55,9 @@ export class ApiService {
   rateMovie(rate: number, movieId: number) {
     const body = JSON.stringify({ stars: rate }); // information from the movie rated
     return this.httpClient.post<Movie>(
-      `${this.baseMovieUrl}${movieId}/rate_movie/`,
-      body,
-      { headers: this.authenticationService.getAuthHeaders() }
-    ); // pass headers to baseMovieUrl
+      `${this.baseMovieUrl}${movieId}/rate_movie/`, body, {
+        headers: this.authenticationService.getAuthHeaders()
+      }); // pass headers to baseMovieUrl
   }
 
   getUsers() {
