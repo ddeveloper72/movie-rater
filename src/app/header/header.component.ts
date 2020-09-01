@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../services/authentication.service';
+import { User } from '../models/User';
 
 
 @Component({
@@ -9,15 +10,22 @@ import { AuthenticationService } from '../services/authentication.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-  isAuthenticated = false;
+export class HeaderComponent implements OnInit {
+  currentUser: User;
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService,
-  ) {}
+    public authenticationService: AuthenticationService
+  ) {
+    this.authenticationService.currentUser
+    .subscribe(
+      x =>
+      this.currentUser = x);
+  }
 
-  logout() {
+  ngOnInit(): void {}
+
+  logout(): void {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
