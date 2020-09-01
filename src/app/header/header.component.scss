@@ -1,6 +1,7 @@
 .nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-items: center;
   background: #222;
   padding: 0 15px;
 
@@ -12,6 +13,15 @@
   &__brand {
     color: white;
 
+  }
+
+  &__token {
+    font-size: 1.8rem;
+
+    & span {
+      color: orangered;
+
+    }
 
   }
 
