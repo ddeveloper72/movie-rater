@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 // import custom validator to validate that password and confirm password fields match
@@ -25,14 +26,16 @@ export class AuthComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public authenticationService: AuthenticationService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) {
     // redirect to movies if already logged in
-    if (this.authenticationService.currentUserValue) {
+    if (this.authenticationService.currentUser) {
       this.router.navigate(['/auth']);
+    } else {
+      this.router.navigate(['/movies']);
     }
   }
+
 
   ngOnInit(): void {
 
@@ -46,23 +49,26 @@ export class AuthComponent implements OnInit {
         validator: MustMatch('password', 'confirmPassword')
       }
     );
-
-    // get return url from route parameters or default to '/'
-    // this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/auth';
   }
 
   // convenience getter for easy access to form fields
-  get f() {
+  get f(): any {
     return this.authForm.controls;
   }
 
   saveForm(): void {
     this.submitted = true;
+
+    // if form invalid, Stop
     if (this.authForm.invalid) {
       return;
     }
+
+    // if form is not login, go to loginUser()
     if (!this.registerMode) {
       this.loginUser();
+
+      // register new user passing data to authenticationService then pass data to loginUser()
     } else {
       this.authenticationService.register(this.authForm.value).subscribe(
         result => {
@@ -76,23 +82,33 @@ export class AuthComponent implements OnInit {
         }
       );
     }
-}
-
-
-loginUser() {
-  if (!this.authForm.invalid && !this.registerMode) {
-    this.authenticationService.login(this.authForm.value).subscribe(
-      (result: TokenObject) => {
-        // pass data to AuthenticationService service where it is saved in local storage as a value.
-        // the AuthService then shares the user status with other app components.
-        this.router.navigate(['/movies']);
-      },
-      error => {
-        this.error = error;
-        this.loading = false;
-      }
-    );
   }
 
+
+
+  loginUser(): void {
+    // if form invalid, Stop
+    if (this.authForm.invalid) {
+      return;
+
+      // login user
+    } else {
+      this.loading = true;
+      this.authenticationService
+        .login(this.authForm.value)
+        .pipe(first())
+        .subscribe(
+          result => {
+            // pass data to AuthenticationService service where it is saved in local storage as a value.
+            // the AuthService then shares the user status with other app components.
+
+            this.router.navigate(['/movies']);
+          },
+          error => {
+            this.error = error;
+            this.loading = false;
+          }
+        );
+    }
   }
 }
