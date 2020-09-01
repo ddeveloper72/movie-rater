@@ -1,14 +1,17 @@
 <nav class="nav">
   <div class="nav__header">
-    <a href="#" class="nav__brand">Angular 10 with Django 3 Rest API</a>
+    <a routerLink="/movies" class="nav__brand">Angular 10 with Django 3 Rest API</a>
   </div>
+
+
   <ul class="nav__menu">
 
     <li class="nav__menu--item">
       <a class="nav__menu--link"
+      *ngIf="currentUser"
     routerLinkActive="active"
-    routerLink="/movies"
-    >Home</a>
+    routerLink="/"
+    >Welcome {{ currentUser.username }}</a>
     </li>
 
     <li class="nav__menu--item"
