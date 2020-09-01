@@ -1,0 +1,67 @@
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.home__heading {
+  margin-bottom: 2rem;
+}
+
+.home__heading--primary span {
+  text-transform: uppercase;
+  color: burlywood;
+  margin-right: 4px;
+}
+
+.home__heading--secondary span {
+  text-transform: capitalize;
+  color: burlywood;
+  margin-right: 2rem;
+}
+
+.table {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  padding: 8px;
+  border-collapse: collapse;
+  width: 25%;
+  border: 1px solid #fa9805;
+  color: #3b3939;
+  background-color: #cec9c9;
+}
+
+.table__top-row {
+  text-align: center;
+  border: 1px solid #fa9805;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #f7b656;
+}
+
+.table__data-rows {
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.table__data-rows td:nth-child(even) {
+  text-transform: uppercase;
+  text-align: center;
+  color: orangered;
+}
+
+.table__data-rows:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table__data-rows:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+/*# sourceMappingURL=home.component.css.map */
