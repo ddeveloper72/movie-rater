@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ApiService } from '../api.service';
+import { ApiService } from '../services/api.service';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { ReactiveFormsModule } from '@angular/forms';
 
