@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -20,48 +20,61 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {
     // BehaviorSubject is a special type of Subject that keeps hold of the current
     // value and emits it to any new subscribers as soon as they subscribe.
-    // This is being used over ngx-cookie-service
     this.currentUserSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem('currentUser'))
     );
     this.currentUser = this.currentUserSubject.asObservable();
-
   }
 
-  public get currentUserValue(): User {
+  public get userValue(): User {
     return this.currentUserSubject.value;
   }
 
-  login(currentUser) {
-    const body = JSON.stringify(currentUser);
-    return this.http.post<any>(`${this.baseUrl}auth/`, body, {headers: this.headers})
+  login(user: User): Observable<User> {
+    const body = JSON.stringify(user);
+    return this.http
+      .post<User>(`${this.baseUrl}auth/`, body, {
+        headers: this.headers
+      })
       .pipe(
-        map(user => {
-          // store user details as a token in local storage to keep user logged in between page refreshes
-          // save the value of the key value pair, not the key: value pair to local storage
-          localStorage.setItem('TokenObject', user.token);
-          this.currentUserSubject.next(user);  //
+        map(result => {
+          // store user token in local storage to keep user logged in between page refreshes
+          localStorage.setItem(
+            'currentUser',
+            JSON.stringify({ username: user.username, token: result.token })
+          );
+          this.currentUserSubject.next(user);
           return user;
         })
       );
   }
 
-  register(newUser) {
-    const body = JSON.stringify(newUser);
-    return this.http.post(`${this.baseUrl}api/users/`, body, {headers: this.headers});
+  register(user: User): Observable<object> {
+    // pass user object, username & password to api service headers
+    const body = JSON.stringify(user);
+    return this.http.post(`${this.baseUrl}api/users/`, body, {
+      headers: this.headers
+    });
   }
 
-  logout() {
+  logout(): void {
     // remove user from local storage to log user out
-    localStorage.removeItem('TokenObject');
+    localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
 
-  getAuthHeaders() {
-      const token = localStorage.getItem('TokenObject');
-      return new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: `token ${token}`
-      });
-    }
+  getAuthHeaders(): HttpHeaders {
+    // create a header for passing user token to api service
+    // parse currentUser as JSON
+    const clearToken = JSON.parse(localStorage.getItem('currentUser'));
+
+    // test content of clearToken
+    // console.log('getAuthHeaders', clearToken);
+    // test that token is visible to headers
+    // console.log('getAuthHeaders', clearToken.token);
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `token ${clearToken.token}`
+    });
+  }
 }
