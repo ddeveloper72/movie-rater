@@ -21,11 +21,11 @@ export class MainComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const token = localStorage.getItem('TokenObject'); // get the token at ngOnInit stage & store as constant
+    const token = localStorage.getItem('currentUser'); // get the token at ngOnInit stage & store as constant
 
     if (!token) {
       this.router.navigate(['/auth']);
-      console.log('Cant see 🚫', token);
+      console.log('Cant see currentUser 🚫', token);
     } else {
     this.apiService.getMovies().subscribe(
         (data: Movie[]) => {
