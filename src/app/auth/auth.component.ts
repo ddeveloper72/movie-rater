@@ -6,10 +6,6 @@ import { AuthenticationService } from '../services/authentication.service';
 // import custom validator to validate that password and confirm password fields match
 import { MustMatch } from '../helper/must-match.validator';
 
-// define the data type fo the token going to be used
-interface TokenObject {
-  token: string;
-}
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -73,7 +69,7 @@ export class AuthComponent implements OnInit {
       this.authenticationService.register(this.authForm.value).subscribe(
         result => {
           this.loginUser();
-          // save the authentication token from the backend as a TokenObject in local storage
+          // save the authentication token from the backend as currentUser in local storage
           console.log('Register form result:', result);
         },
         error => {
@@ -83,7 +79,6 @@ export class AuthComponent implements OnInit {
       );
     }
   }
-
 
 
   loginUser(): void {
