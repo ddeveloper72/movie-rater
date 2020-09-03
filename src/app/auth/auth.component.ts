@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
+import { User } from '../models/User';
 import { AuthenticationService } from '../services/authentication.service';
 // import custom validator to validate that password and confirm password fields match
 import { MustMatch } from '../helper/must-match.validator';
@@ -12,6 +13,7 @@ import { MustMatch } from '../helper/must-match.validator';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
+  currentUser: User;
   authForm: FormGroup;
   loading = false;
   submitted = false;
@@ -24,17 +26,16 @@ export class AuthComponent implements OnInit {
     public authenticationService: AuthenticationService,
     private router: Router
   ) {
-    // redirect to movies if already logged in
     if (this.authenticationService.currentUser) {
-      this.router.navigate(['/auth']);
-    } else {
-      this.router.navigate(['/movies']);
-    }
-  }
+      // redirect to movies if already logged in
+         this.router.navigate(['/movies']);
+      } else {
+        this.router.navigate(['/auth']);
+      }
 
+}
 
   ngOnInit(): void {
-
     this.authForm = this.formBuilder.group(
       {
         username: ['', Validators.required],
@@ -79,7 +80,6 @@ export class AuthComponent implements OnInit {
       );
     }
   }
-
 
   loginUser(): void {
     // if form invalid, Stop
