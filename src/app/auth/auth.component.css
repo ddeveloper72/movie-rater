@@ -56,6 +56,23 @@
   color: orangered;
 }
 
+.form__form-group--alert {
+  background-color: #F8D7DA;
+  border: .5px solid #FFFFFF;
+  font-size: 1.8rem;
+  color: orangered;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40%;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .form .form-button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -129,5 +146,10 @@ input.ng-invalid.ng-touched {
 
 .access-mode {
   font-size: 1.8rem;
+}
+
+.access-mode__router {
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 /*# sourceMappingURL=auth.component.css.map */
