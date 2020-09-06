@@ -6,7 +6,6 @@
 <div class="form__header">
   <h2 *ngIf="!registerMode">User Login page</h2>
   <h2 *ngIf="registerMode">New user Registration</h2>
-
 </div>
 
   <div
@@ -83,6 +82,8 @@
 Register
 </span>
 </button>
+<div *ngIf="error"
+class="form__form-group--alert">{{ error }}</div>
 
 </form>
 
