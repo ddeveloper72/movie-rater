@@ -79,28 +79,25 @@ export class AuthComponent implements OnInit {
   }
 
   loginUser(): void {
-    // if form invalid, Stop
+    this.submitted = true; // login user
+    // stop here if form is invalid
     if (this.authForm.invalid) {
       return;
-
-      // login user
-    } else {
-      this.loading = true;
-      this.authenticationService
-        .login(this.authForm.value)
-        .pipe(first())
-        .subscribe(
-          result => {
-            // pass data to AuthenticationService service where it is saved in local storage as a value.
-            // the AuthService then shares the user status with other app components.
-
-            this.router.navigate(['/movies']);
-          },
-          error => {
-            this.error = error;
-            this.loading = false;
-          }
-        );
     }
+    this.loading = true;
+    this.authenticationService
+      .login(this.authForm.value)
+      .pipe(first())
+      .subscribe(
+        result => {
+          // pass data to AuthenticationService service where it is saved in local storage as a value.
+          // the AuthService then shares the user status with other app components.
+          this.router.navigate(['/movies']);
+        },
+        error => {
+          this.error = error;
+          this.loading = false;
+        }
+      );
   }
 }
