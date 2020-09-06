@@ -1,4 +1,5 @@
 <form class="form"
+*ngIf="!currentUser"
 [formGroup]="authForm"
 (ngSubmit)="saveForm()">
 
@@ -85,7 +86,8 @@ Register
 
 </form>
 
-<div class="access-mode">
+<div class="access-mode"
+*ngIf="!currentUser; else returnUser">
   <span class="access-mode__login"
   *ngIf="!registerMode"
   (click)="registerMode = true">
@@ -95,3 +97,10 @@ Register
   (click)="registerMode = false">
   Have an account?  Click here to login</span>
 </div>
+<ng-template
+  #returnUser>
+  <span class="access-mode__router"
+  routerLink="/movies"
+  (click)="registerMode = false">
+  OOps, you're still logged in. Click to return to movies... &rarr;</span>
+</ng-template>
