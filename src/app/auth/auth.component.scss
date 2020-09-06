@@ -43,6 +43,21 @@
       font-weight: 100;
       color: orangered;
     }
+
+    &--alert {
+      background-color: #F8D7DA;
+      border: .5px solid #FFFFFF;
+      font-size: 1.8rem;
+      color: orangered;
+      justify-items: center;
+      align-items: center;
+      width: 40%;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 15px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
   }
 
 
@@ -104,16 +119,12 @@
 }
 
 
-
   // use built in classes to select invalid 7 touched elements for user alert styling
   input.ng-invalid.ng-touched {
     border: .5px solid #fc8e4f;
     background-color: #e2b796;
     box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
   }
-
-
-
 
 .access-mode {
   font-size: 1.8rem;
