@@ -26,14 +26,11 @@ export class AuthComponent implements OnInit {
     public authenticationService: AuthenticationService,
     private router: Router
   ) {
-    if (this.authenticationService.currentUser) {
-      // redirect to movies if already logged in
-         this.router.navigate(['/movies']);
-      } else {
-        this.router.navigate(['/auth']);
-      }
+    this.authenticationService.currentUser.subscribe(
+      x =>
+      this.currentUser = x);
+  }
 
-}
 
   ngOnInit(): void {
     this.authForm = this.formBuilder.group(
