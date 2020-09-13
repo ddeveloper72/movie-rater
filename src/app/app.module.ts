@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
@@ -11,6 +11,7 @@ import { appRoutingModule } from './app.routing';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { HttpErrorInterceptor } from './helper/error.interceptor';
 
 
 // declare a name for the array of routes
@@ -32,7 +33,9 @@ const routes: Routes = [
   exports: [
     RouterModule // include exports for routes from the main module
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
