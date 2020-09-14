@@ -32,15 +32,20 @@ export class ApiService {
     }); // pass headers to baseMovieUrl
   }
 
-  createMovie(title: string, description: string) {
-    const body = JSON.stringify({ title, description }); // convert JSON object to string
+  createMovie(title: string, description: string, imagePath: string) {
+    const body = JSON.stringify({ title, description, imagePath }); // convert JSON object to string
     return this.httpClient.post(`${this.baseMovieUrl}`, body, {
       headers: this.authenticationService.getAuthHeaders()
     }); // add new body to the url
   }
 
-  updateMovie(id: number, title: string, description: string) {
-    const body = JSON.stringify({ title, description }); // convert JSON object to string
+  updateMovie(
+    id: number,
+    title: string,
+    description: string,
+    imagePath: string
+  ) {
+    const body = JSON.stringify({ title, description, imagePath }); // convert JSON object to string
     return this.httpClient.put(`${this.baseMovieUrl}${id}/`, body, {
       headers: this.authenticationService.getAuthHeaders()
     }); // add new body to the url
@@ -55,9 +60,12 @@ export class ApiService {
   rateMovie(rate: number, movieId: number) {
     const body = JSON.stringify({ stars: rate }); // information from the movie rated
     return this.httpClient.post<Movie>(
-      `${this.baseMovieUrl}${movieId}/rate_movie/`, body, {
+      `${this.baseMovieUrl}${movieId}/rate_movie/`,
+      body,
+      {
         headers: this.authenticationService.getAuthHeaders()
-      }); // pass headers to baseMovieUrl
+      }
+    ); // pass headers to baseMovieUrl
   }
 
   getUsers() {
@@ -65,5 +73,4 @@ export class ApiService {
       headers: this.headers
     });
   }
-
 }
