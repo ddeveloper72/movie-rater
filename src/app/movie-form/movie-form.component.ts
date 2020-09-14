@@ -17,12 +17,9 @@ export class MovieFormComponent implements OnInit {
     this.id = val.id; // lets function know if move is new or existing
     console.log(this.id);
     this.movieForm = new FormGroup({
-      title:
-      new FormControl(val.title,
-        [Validators.required]),
-      description:
-      new FormControl(val.description,
-        [Validators.required])
+      title: new FormControl(val.title, [Validators.required]),
+      description: new FormControl(val.description, [Validators.required]),
+      imagePath: new FormControl(val.imagePath, [Validators.required])
     });
   }
 
@@ -41,7 +38,8 @@ export class MovieFormComponent implements OnInit {
         .updateMovie(
           this.id,
           this.movieForm.value.title, // send value of title & value of description to ApiService
-          this.movieForm.value.description
+          this.movieForm.value.description,
+          this.movieForm.value.imagePath
         )
         .subscribe(
           (result: Movie) => this.movieUpdated.emit(result),
@@ -51,7 +49,8 @@ export class MovieFormComponent implements OnInit {
       this.apiService
         .createMovie(
           this.movieForm.value.title, // send value of title & value of description to ApiService
-          this.movieForm.value.description
+          this.movieForm.value.description,
+          this.movieForm.value.imagePath
         )
         .subscribe(
           (result: Movie) => this.movieCreated.emit(result),
