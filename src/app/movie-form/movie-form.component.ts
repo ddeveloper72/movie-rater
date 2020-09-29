@@ -19,7 +19,7 @@ export class MovieFormComponent implements OnInit {
     this.movieForm = new FormGroup({
       title: new FormControl(val.title, [Validators.required]),
       description: new FormControl(val.description, [Validators.required]),
-      imagePath: new FormControl(val.imagePath, [Validators.required])
+      imagePath: new FormControl(val.imagePath)
     });
   }
 
