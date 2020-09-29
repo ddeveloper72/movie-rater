@@ -24,7 +24,25 @@
       outline: none;
       background-color: #eee4ca;
     }
+  }
 
+  &__url {
+    font-size: 1.8rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding: 10px;
+    height: 35px;
+    width: 100%;
+  }
+
+  &__img {
+    height: 100%;
+    width: 300px;
+    margin-top: 2rem;
+    border-radius: 25px;
+    box-shadow: 2rem 1.4rem 4rem rgba(#3d3c3c, .18);
+    
   }
 
   textarea  {
