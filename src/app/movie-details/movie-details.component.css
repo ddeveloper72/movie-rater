@@ -7,6 +7,26 @@
           align-items: center;
 }
 
+.movie-ratings__img {
+  height: 100%;
+  width: 300px;
+  margin-top: 2rem;
+  border-radius: 25px;
+  -webkit-box-shadow: 2rem 1.4rem 4rem rgba(61, 60, 60, 0.18);
+          box-shadow: 2rem 1.4rem 4rem rgba(61, 60, 60, 0.18);
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+
+.movie-ratings__img:hover {
+  -webkit-transform: translateY(-1.5rem) scale(1.06);
+          transform: translateY(-1.5rem) scale(1.06);
+  -webkit-box-shadow: 2rem 1.4rem 4rem rgba(105, 104, 104, 0.18);
+          box-shadow: 2rem 1.4rem 4rem rgba(105, 104, 104, 0.18);
+}
+
 .votes {
   padding-left: .4rem;
   -webkit-transform: translateY(-1px);
