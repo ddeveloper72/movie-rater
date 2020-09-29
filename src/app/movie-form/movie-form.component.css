@@ -25,6 +25,25 @@
   background-color: #eee4ca;
 }
 
+.form__url {
+  font-size: 1.8rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 10px;
+  height: 35px;
+  width: 100%;
+}
+
+.form__img {
+  height: 100%;
+  width: 300px;
+  margin-top: 2rem;
+  border-radius: 25px;
+  -webkit-box-shadow: 2rem 1.4rem 4rem rgba(61, 60, 60, 0.18);
+          box-shadow: 2rem 1.4rem 4rem rgba(61, 60, 60, 0.18);
+}
+
 .form textarea {
   font-size: 1.8rem;
   margin-top: 15px;
