@@ -23,13 +23,13 @@
   <br>
 
   <input
-  class="from__description"
+  class="form__url"
   type="text"
   formControlName="imagePath"
   #imagePath>
   <br>
 
-  <img *ngIf="imagePath.value" [src]="imagePath.value" class="form__img" alt="">
+  <img *ngIf="imagePath.value" [src]="imagePath.value" class="form__img">
   <br>
 
   <button
