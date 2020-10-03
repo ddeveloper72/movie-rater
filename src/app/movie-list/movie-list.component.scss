@@ -1,31 +1,73 @@
 .movie-list {
-  display: grid;
-  grid-template-columns: 1fr repeat(2, auto);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   margin: 15px 15px;
 
-  &__title {
-    cursor: pointer;
+  &__card {
+    display:grid;
+    grid-template-columns: 1 100%;
+    grid-template-rows: 1fr repeat(3, auto);
+    grid-column: 1 / -1;
+    row-gap: 1rem;
+
+    &--img {
+      display: block;
+      width: 150px;
+      height: auto;
+      margin: 15px;
+      cursor: pointer;
+      transition: transform .3s;
+      box-shadow: 2rem 1.4rem 4rem rgba(#3d3c3c, .18);
+      transition: transform .3s;
+
+      &:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 2rem 1.4rem 4rem rgba(#696868, .18);
+      }
+
+    }
+
+
+
+
+    &--title {
+      display: grid;
+      grid-row: 2;
+      cursor: pointer;
+      margin-right: 5px;
+
+      &--svg {
+        display:flex;
+        flex-direction: row;
+
+        &-edit {
+          cursor: pointer;
+          margin-right: 15px;
+          color: #80ace2;
+          cursor: pointer;
+        }
+
+        &-trash {
+          color: #fd6f6f;
+          cursor: pointer;
+        }
+      }
+    }
+
   }
-
-  & svg-icon-sprite {
-    columns: 2 / 3;
-    height: 2rem;
-    width: 2rem;
-  }
-
-  &__svg-edit {
-    margin-right: 15px;
-    color: #80ace2;
-    cursor: pointer;
-
-  }
-
-  &__svg-trash {
-    color: #fd6f6f;
-    cursor: pointer;
-  }
-
+    & svg-icon-sprite {
+      display: block;
+      height: 2rem;
+      width: 2rem;
+      }
 }
+
+
+
+
+
+
 
 .movie-list-button {
   display: flex;
@@ -77,31 +119,6 @@
     -webkit-filter: drop-shadow(0 .5rem 1rem rgba(0, 0, 0, 0.5));
     filter: drop-shadow(0 .5rem 1rem rgba(0, 0, 0, 0.5));
     outline: none;
-  }
-
-}
-
-.movie-images {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin-top: 2rem;
-
-  &__img {
-    display: block;
-    width: 200px;
-    height: 100%;
-    margin: 15px;
-    cursor: pointer;
-    transition: transform .3s;
-
-    box-shadow: 2rem 1.4rem 4rem rgba(#3d3c3c, .18);
-    transition: transform .3s;
-
-    &:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 2rem 1.4rem 4rem rgba(#696868, .18);
-    }
   }
 
 }
