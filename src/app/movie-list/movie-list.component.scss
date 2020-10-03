@@ -4,6 +4,12 @@
   flex-direction: row;
   margin: 15px 15px;
 
+  & svg-icon-sprite {
+    display: block;
+    height: 2rem;
+    width: 2rem;
+  }
+
   &__card {
     display:grid;
     grid-template-columns: 1 100%;
@@ -27,9 +33,6 @@
       }
 
     }
-
-
-
 
     &--title {
       display: grid;
@@ -56,17 +59,8 @@
     }
 
   }
-    & svg-icon-sprite {
-      display: block;
-      height: 2rem;
-      width: 2rem;
-      }
+
 }
-
-
-
-
-
 
 
 .movie-list-button {
