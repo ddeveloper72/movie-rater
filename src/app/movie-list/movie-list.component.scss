@@ -80,3 +80,28 @@
   }
 
 }
+
+.movie-images {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 2rem;
+
+  &__img {
+    display: block;
+    width: 200px;
+    height: 100%;
+    margin: 15px;
+    cursor: pointer;
+    transition: transform .3s;
+
+    box-shadow: 2rem 1.4rem 4rem rgba(#3d3c3c, .18);
+    transition: transform .3s;
+
+    &:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 2rem 1.4rem 4rem rgba(#696868, .18);
+    }
+  }
+
+}
