@@ -1,31 +1,31 @@
 
-<div class="movie-list" *ngFor="let movie of movies">
-  <h3 class="movie-list__title"
-  (click)="movieClicked(movie)">{{ movie.title }}</h3>
-  <svg-icon-sprite class="movie-list__svg-edit"
-  (click)="editMovie(movie)"
-  [src]="'assets/sprites/sprite.svg#icon-new-message'"
-    >
+<div class="movie-list">
+  <ng-container *ngFor="let movie of movies">
+  <div class="movie-list__card">
+    <img *ngIf="movie.imagePath" (click)="movieClicked(movie)" [src]="movie.imagePath" alt="{{ movie.title }}"
+    class="movie-list__card--img">
+    <h3 class="movie-list__card--title"
+    (click)="movieClicked(movie)">{{ ((movie.title).length>15)? (movie.title | slice:0:15)+'...':(movie.title) }}
+  </h3>
+  <div class="movie-list__card--title--svg">
+    <svg-icon-sprite class="movie-list__card--title--svg-edit"
+    (click)="editMovie(movie)"
+    [src]="'assets/sprites/sprite.svg#icon-new-message'">
   </svg-icon-sprite>
-  <svg-icon-sprite class="movie-list__svg-trash"
+  <svg-icon-sprite class="movie-list__card--title--svg-trash"
   [src]="'assets/sprites/sprite.svg#icon-trash'"
-  (click)="deleteMovie(movie)"
-    >
+  (click)="deleteMovie(movie)">
   </svg-icon-sprite>
+
+  </div>
+</div>
+</ng-container>
 </div>
 <button class="movie-list-button"
- (click)="newMovie()"
- >
+(click)="newMovie()"
+>
   <svg-icon-sprite class="movie-list-button__svg-right"
   [src]="'assets/sprites/sprite.svg#icon-chevron-small-right'">
     </svg-icon-sprite>
     New Movie
 </button>
-
-<div class="movie-images">
-<ng-container *ngFor="let movie of movies">
-  <img *ngIf="movie.imagePath"
-  (click)="movieClicked(movie)"
-  [src]="movie.imagePath" alt="{{ movie.title }}" class="movie-images__img">
-  </ng-container>
-</div>
