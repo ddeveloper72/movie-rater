@@ -21,3 +21,11 @@
     </svg-icon-sprite>
     New Movie
 </button>
+
+<div class="movie-images">
+<ng-container *ngFor="let movie of movies">
+  <img *ngIf="movie.imagePath"
+  (click)="movieClicked(movie)"
+  [src]="movie.imagePath" alt="{{ movie.title }}" class="movie-images__img">
+  </ng-container>
+</div>
