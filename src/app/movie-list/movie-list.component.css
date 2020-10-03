@@ -11,6 +11,12 @@
   margin: 15px 15px;
 }
 
+.movie-list svg-icon-sprite {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+}
+
 .movie-list__card {
   display: -ms-grid;
   display: grid;
@@ -73,12 +79,6 @@
 .movie-list__card--title--svg-trash {
   color: #fd6f6f;
   cursor: pointer;
-}
-
-.movie-list svg-icon-sprite {
-  display: block;
-  height: 2rem;
-  width: 2rem;
 }
 
 .movie-list-button {
