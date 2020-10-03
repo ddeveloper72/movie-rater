@@ -21,8 +21,8 @@
 }
 
 .movie-ratings__img:hover {
-  -webkit-transform: translateY(-1.5rem) scale(1.06);
-          transform: translateY(-1.5rem) scale(1.06);
+  -webkit-transform: translateY(-10px) scale(1.02);
+          transform: translateY(-10px) scale(1.02);
   -webkit-box-shadow: 2rem 1.4rem 4rem rgba(105, 104, 104, 0.18);
           box-shadow: 2rem 1.4rem 4rem rgba(105, 104, 104, 0.18);
 }

@@ -84,4 +84,39 @@
   filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.5));
   outline: none;
 }
+
+.movie-images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 2rem;
+}
+
+.movie-images__img {
+  display: block;
+  width: 200px;
+  height: 100%;
+  margin: 15px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+  -webkit-box-shadow: 2rem 1.4rem 4rem rgba(61, 60, 60, 0.18);
+          box-shadow: 2rem 1.4rem 4rem rgba(61, 60, 60, 0.18);
+  transition: transform .3s;
+}
+
+.movie-images__img:hover {
+  -webkit-transform: translateY(-5px) scale(1.02);
+          transform: translateY(-5px) scale(1.02);
+  -webkit-box-shadow: 2rem 1.4rem 4rem rgba(105, 104, 104, 0.18);
+          box-shadow: 2rem 1.4rem 4rem rgba(105, 104, 104, 0.18);
+}
 /*# sourceMappingURL=movie-list.component.css.map */
