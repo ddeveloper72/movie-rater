@@ -1,6 +1,17 @@
 <nav class="nav">
-  <div class="nav__header">
-    <a routerLink="/movies" class="nav__brand">Angular 10 with Django 3 Rest API</a>
+  <div class="nav__header" routerLink="/movies">
+      <svg-icon-sprite class="nav__header--svg1"
+        [src]="'assets/sprites/sprite.svg#icon-angular'">
+      </svg-icon-sprite>
+      <svg class="nav__header--svg3">
+        <text class="nav__header--svg3-txt">With</text>
+      </svg>
+      <svg-icon-sprite class="nav__header--svg2"
+        [src]="'assets/sprites/sprite.svg#icon-django'">
+      </svg-icon-sprite>
+      <svg class="nav__header--svg4">
+        <text class="nav__header--svg4-txt">REST API</text></svg>
+    <!-- <a routerLink="/movies" class="nav__brand">Angular 10 with Django 3 Rest API</a> -->
   </div>
 
 
