@@ -6,7 +6,71 @@
   padding: 0 15px;
 
   &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
     font-size: 2.5rem;
+    cursor: pointer;
+    outline: none;
+    transition: transform .4s;
+
+    &--svg1 {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 8px;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &--svg2 {
+      display: flex;
+      align-items: center;
+      background-color: #650165;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-left: 8px;
+      margin-right: 8px;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &--svg3 {
+       display: flex;
+       align-items: flex-start;
+       width: 55px;
+       height: 2.5rem;
+
+       &-txt {
+         display: flex;
+         justify-content: flex-start;
+         fill: #fff;
+         transform: translateX(0) translateY(20px);
+       }
+    }
+
+    &--svg4 {
+       display: flex;
+       align-items: flex-start;
+       width: 100px;
+       height: 2.5rem;
+
+       &-txt {
+         display: flex;
+         justify-content: flex-start;
+         fill: #fff;
+         transform: translateX(0) translateY(20px);
+       }
+    }
+
+
 
   }
 
@@ -24,6 +88,7 @@
     }
 
   }
+
 
   &__menu {
     display: flex;
@@ -55,4 +120,5 @@
     }
 
   }
+
 }
