@@ -1,9 +1,12 @@
 .nav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   background: #222;
+  height: 3.5rem;
   padding: 0 15px;
+
+
 
   &__header {
     display: flex;
@@ -13,6 +16,7 @@
     font-size: 2.5rem;
     cursor: pointer;
     outline: none;
+    margin-right: 15px;
     transition: transform .4s;
 
     &--svg1 {
@@ -43,35 +47,33 @@
     }
 
     &--svg3 {
-       display: flex;
-       align-items: flex-start;
-       width: 55px;
-       height: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      width: 55px;
+      height: 2.5rem;
 
-       &-txt {
-         display: flex;
-         justify-content: flex-start;
-         fill: #fff;
-         transform: translateX(0) translateY(20px);
-       }
+      &-txt {
+        display: flex;
+        justify-content: flex-start;
+        fill: #fff;
+        transform: translateX(0) translateY(20px);
+      }
     }
 
     &--svg4 {
-       display: flex;
-       align-items: flex-start;
-       width: 100px;
-       height: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      width: 100px;
+      height: 2.5rem;
 
-       &-txt {
-         display: flex;
-         justify-content: flex-start;
-         fill: #fff;
-         transform: translateX(0) translateY(20px);
-       }
+      &-txt {
+        display: flex;
+        justify-content: flex-start;
+        fill: #fff;
+        transform: translateX(0) translateY(20px);
+      }
+
     }
-
-
-
   }
 
   &__brand {
@@ -93,9 +95,50 @@
   &__menu {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    grid-column: 3 / -1;
+    justify-self: end;
     list-style: none;
+
+    @media only screen and (max-width: 780px) {
+      &--item:not(:first-child) {
+        display: none;
+      }
+
+      &--button {
+        cursor: pointer;
+        display: flex;
+        justify-self: end;
+
+        &-icon {
+          position: relative;
+
+          &,
+          &::before,
+          &::after {
+            display: inline-block;
+            width: 2.5rem;
+            height: 1.5px;
+            background-color: #9c9999;
+            margin-right: 15px;
+          }
+
+          &::before,
+          &::after {
+            content: " ";
+            position: absolute;
+
+          }
+
+          &::before {
+            top: -.8rem;
+          }
+
+          &::after {
+            top: .8rem;
+          }
+        }
+      }
+    }
+
 
     &--item {
       display: flex;
@@ -105,7 +148,6 @@
       &:last-child {
         margin-right: 0px;
       }
-
     }
 
     &--link {
