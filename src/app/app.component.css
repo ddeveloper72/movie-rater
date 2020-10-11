@@ -10,6 +10,12 @@
   /* for testing */
 }
 
+@media only screen and (max-width: 780px) {
+  .app {
+    padding: 20px 5px;
+  }
+}
+
 .rater {
   display: -webkit-box;
   display: -ms-flexbox;
