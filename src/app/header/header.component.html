@@ -14,24 +14,24 @@
         <svg class="navbar__nav--brand-svg4">
         <text class="navbar__nav--brand-svg4-txt">REST API</text></svg>
       </li>
-      <li class="nav__item">
-        <a class="nav__link"
+      <li class="navbar__nav--item">
+        <a class="navbar__nav--item-link"
         *ngIf="currentUser"
         routerLinkActive="active"
         routerLink="/"
         >Welcome {{ currentUser.username }}</a>
       </li>
-      <li class="nav__item"
+      <li class="navbar__nav--item"
         *ngIf="currentUser">
-        <a class="nav__link"
+        <a class="navbar__nav--item-link"
         (click)="logout()">Logout</a>
       </li>
-      <li class="nav__item"
+      <li class="navbar__nav--item"
         *ngIf="!currentUser">
-        <a class="nav__link"
+        <a class="navbar__nav--item-link"
         routerLink="/auth">Login / Register</a>
       </li>
-      <li for="" class="navbar-toggler" (click)="toggleMobileNav()">
+      <li for="" class="navbar__nav--item navbar-toggler" (click)="toggleMobileNav()">
         <span class="navbar-toggler--icon"></span>
       </li>
     </ul>
