@@ -120,7 +120,34 @@
       }
 
       &--item-icon {
-        
+        position: relative;
+        margin-top: 1.6rem;
+
+        &,
+        &::before,
+        &::after {
+          display: inline-block;
+          width: 2.5rem;
+          height: 1.5px;
+          background-color: #9c9999;
+          margin-right: 15px;
+          cursor: pointer;
+        }
+
+        &::before,
+        &::after {
+          content: " ";
+          position: absolute;
+
+        }
+
+        &::before {
+          top: -.8rem;
+        }
+
+        &::after {
+          top: .8rem;
+        }
       }
 
       }
