@@ -110,10 +110,20 @@
   }
 }
 
-  // add grid layout for small screen responsive display menu
-  .navbar-collapse {
-    display: grid;
-    grid-column: 3 / -1;
-    justify-self: end;
+@media screen and (max-width: 780px) {
+  .navbar {
 
-  }
+    &__nav {
+
+      &--item-link {
+        display: none;
+      }
+
+      &--item-icon {
+        
+      }
+
+      }
+    }
+
+}
