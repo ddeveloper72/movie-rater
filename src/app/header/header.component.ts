@@ -17,10 +17,9 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     public authenticationService: AuthenticationService
   ) {
-    this.authenticationService.currentUser
-    .subscribe(
-      x =>
-      this.currentUser = x);
+    this.authenticationService.currentUser.subscribe(
+      x => (this.currentUser = x)
+    );
   }
 
   ngOnInit(): void {}
@@ -28,5 +27,14 @@ export class HeaderComponent implements OnInit {
   logout(): void {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+  }
+
+  toggleMobileNav(): void {
+    const x = document.getElementById('mobileNav');
+    if (x.className === 'navbar-collapse') {
+      x.className += ' show';
+    } else {
+      x.className = 'navbar-collapse';
+    }
   }
 }
