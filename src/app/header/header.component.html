@@ -1,45 +1,39 @@
-<nav class="nav">
-  <div class="nav__header" routerLink="/movies">
-      <svg-icon-sprite class="nav__header--svg1"
+<nav class="navbar">
+  <div class="navbar-collapse" id="mobileNav">
+    <ul class="navbar__nav nav">
+      <li class="navbar__nav--brand" routerLink="/movies">
+        <svg-icon-sprite class="navbar__nav--brand-svg1"
         [src]="'assets/sprites/sprite.svg#icon-angular'">
-      </svg-icon-sprite>
-      <svg class="nav__header--svg3">
-        <text class="nav__header--svg3-txt">With</text>
-      </svg>
-      <svg-icon-sprite class="nav__header--svg2"
+        </svg-icon-sprite>
+        <svg class="navbar__nav--brand-svg3">
+        <text class="navbar__nav--brand-svg3-txt">With</text>
+        </svg>
+        <svg-icon-sprite class="navbar__nav--brand-svg2"
         [src]="'assets/sprites/sprite.svg#icon-django'">
-      </svg-icon-sprite>
-      <svg class="nav__header--svg4">
-        <text class="nav__header--svg4-txt">REST API</text></svg>
-    <!-- <a routerLink="/movies" class="nav__brand">Angular 10 with Django 3 Rest API</a> -->
+        </svg-icon-sprite>
+        <svg class="navbar__nav--brand-svg4">
+        <text class="navbar__nav--brand-svg4-txt">REST API</text></svg>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+        *ngIf="currentUser"
+        routerLinkActive="active"
+        routerLink="/"
+        >Welcome {{ currentUser.username }}</a>
+      </li>
+      <li class="nav__item"
+        *ngIf="currentUser">
+        <a class="nav__link"
+        (click)="logout()">Logout</a>
+      </li>
+      <li class="nav__item"
+        *ngIf="!currentUser">
+        <a class="nav__link"
+        routerLink="/auth">Login / Register</a>
+      </li>
+      <li for="" class="navbar-toggler" (click)="toggleMobileNav()">
+        <span class="navbar-toggler--icon"></span>
+      </li>
+    </ul>
   </div>
-
-
-  <ul class="nav__menu">
-    <label for="" class="nav__menu--button">
-      <span class="nav__menu--button-icon"></span>
-    </label>
-    <li class="nav__menu--item">
-      <a class="nav__menu--link"
-      *ngIf="currentUser"
-    routerLinkActive="active"
-    routerLink="/"
-    >Welcome {{ currentUser.username }}</a>
-    </li>
-
-    <li class="nav__menu--item"
-    *ngIf="currentUser">
-      <a class="nav__menu--link"
-    (click)="logout()">Logout</a>
-    </li>
-
-    <li class="nav__menu--item"
-    *ngIf="!currentUser">
-      <a class="nav__menu--link"
-    routerLink="/auth">Login / Register</a>
-    </li>
-  </ul>
-  <!-- <label for="" class="nav__button">
-    <span class="nav__icon"></span>
-  </label> -->
 </nav>
