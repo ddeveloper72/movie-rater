@@ -1,147 +1,105 @@
-.nav {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
+// add background grid layout and background color to navbar
+.navbar {
   background: #222;
   height: 3.5rem;
   padding: 0 15px;
 
-
-
-  &__header {
-    display: flex;
-    flex-direction: row;
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    justify-content: flex-start;
-    font-size: 2.5rem;
-    cursor: pointer;
-    outline: none;
-    margin-right: 15px;
-    transition: transform .4s;
 
-    &--svg1 {
+    // style navbar brand
+    &--brand {
       display: flex;
+      float: left;
+      flex-direction: row;
       align-items: center;
-      background-color: #fff;
-      width: 2.5rem;
-      height: 2.5rem;
-      margin-right: 8px;
+      justify-content: flex-start;
+      font-size: 2.5rem;
+      cursor: pointer;
+      outline: none;
+      margin-right: 15px;
+      transition: transform .4s;
 
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-
-    &--svg2 {
-      display: flex;
-      align-items: center;
-      background-color: #650165;
-      width: 2.5rem;
-      height: 2.5rem;
-      margin-left: 8px;
-      margin-right: 8px;
-
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-
-    &--svg3 {
-      display: flex;
-      align-items: flex-start;
-      width: 55px;
-      height: 2.5rem;
-
-      &-txt {
+      // apply individual styles to the svg sprite icons
+      &-svg1 {
         display: flex;
-        justify-content: flex-start;
-        fill: #fff;
-        transform: translateX(0) translateY(20px);
-      }
-    }
+        align-items: center;
+        background-color: #fff;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 8px;
 
-    &--svg4 {
-      display: flex;
-      align-items: flex-start;
-      width: 100px;
-      height: 2.5rem;
-
-      &-txt {
-        display: flex;
-        justify-content: flex-start;
-        fill: #fff;
-        transform: translateX(0) translateY(20px);
-      }
-
-    }
-  }
-
-  &__brand {
-    color: white;
-
-  }
-
-  &__token {
-    font-size: 1.8rem;
-
-    & span {
-      color: orangered;
-
-    }
-
-  }
-
-
-  &__menu {
-    display: flex;
-    align-items: center;
-    justify-self: end;
-    list-style: none;
-
-    @media only screen and (max-width: 780px) {
-      &--item:not(:first-child) {
-        display: none;
-      }
-
-      &--button {
-        cursor: pointer;
-        display: flex;
-        justify-self: end;
-
-        &-icon {
-          position: relative;
-
-          &,
-          &::before,
-          &::after {
-            display: inline-block;
-            width: 2.5rem;
-            height: 1.5px;
-            background-color: #9c9999;
-            margin-right: 15px;
-          }
-
-          &::before,
-          &::after {
-            content: " ";
-            position: absolute;
-
-          }
-
-          &::before {
-            top: -.8rem;
-          }
-
-          &::after {
-            top: .8rem;
-          }
+        &:hover {
+          transform: scale(1.2);
         }
       }
+
+      &-svg2 {
+        display: flex;
+        align-items: center;
+        background-color: #650165;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-left: 8px;
+        margin-right: 8px;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+
+      // apply styles to brand text
+      &-svg3 {
+        display: flex;
+        align-items: flex-start;
+        width: 55px;
+        height: 2.5rem;
+
+        &-txt {
+          display: flex;
+          justify-content: flex-start;
+          fill: #fff;
+          transform: translateX(0) translateY(20px);
+        }
+      }
+
+      &-svg4 {
+        display: flex;
+        align-items: flex-start;
+        width: 100px;
+        height: 2.5rem;
+
+        &-txt {
+          display: flex;
+          justify-content: flex-start;
+          fill: #fff;
+          transform: translateX(0) translateY(20px);
+        }
+
+      }
     }
 
+  }
+}
 
-    &--item {
-      display: flex;
+  // add grid layout for small screen responsive display menu
+  .navbar-collapse {
+    display: grid;
+    grid-column: 3 / -1;
+    justify-self: end;
+
+  }
+
+  // add styles to nave menu list
+  .nav {
+    display: flex;
+    list-style: none;
+
+
+    &__item {
+      display: grid;
       margin-right: 20px;
       font-size: 2.2rem;
 
@@ -150,17 +108,14 @@
       }
     }
 
-    &--link {
+    &__link {
       color: white;
       text-decoration: none;
       cursor: pointer;
 
     }
 
-    &--link:hover {
+    &__link:hover {
       color: orangered;
     }
-
   }
-
-}
