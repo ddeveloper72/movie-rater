@@ -1,21 +1,21 @@
 <nav class="navbar">
-  <div class="navbar-collapse" id="mobileNav">
-    <ul class="navbar__nav nav">
-      <li class="navbar__nav--brand" routerLink="/movies">
-        <svg-icon-sprite class="navbar__nav--brand-svg1"
+    <span class="navbar-toggle" (click)="toggleMobileNav()"></span>
+    <ul class="navbar__nav" id="mobile-menu">
+      <li class="navbar__nav--item navbar__mobile--item" routerLink="/movies">
+        <svg-icon-sprite class="navbar__brand-svg1"
         [src]="'assets/sprites/sprite.svg#icon-angular'">
         </svg-icon-sprite>
-        <svg class="navbar__nav--brand-svg3">
-        <text class="navbar__nav--brand-svg3-txt">With</text>
+        <svg class="navbar__brand-svg3">
+        <text class="navbar__brand-svg3-txt">With</text>
         </svg>
-        <svg-icon-sprite class="navbar__nav--brand-svg2"
+        <svg-icon-sprite class="navbar__brand-svg2"
         [src]="'assets/sprites/sprite.svg#icon-django'">
         </svg-icon-sprite>
-        <svg class="navbar__nav--brand-svg4">
-        <text class="navbar__nav--brand-svg4-txt">REST API</text></svg>
-      </li>
+        <svg class="navbar__brand-svg4">
+        <text class="navbar__brand-svg4-txt">REST API</text></svg>
+        </li>
       <li class="navbar__nav--item">
-        <a class="navbar__nav--item-link"
+        <a class="navbar__nav--item-link navbar__mobile--item-link"
         *ngIf="currentUser"
         routerLinkActive="active"
         routerLink="/"
@@ -23,17 +23,13 @@
       </li>
       <li class="navbar__nav--item"
         *ngIf="currentUser">
-        <a class="navbar__nav--item-link"
+        <a class="navbar__nav--item-link navbar__mobile--item-link"
         (click)="logout()">Logout</a>
       </li>
       <li class="navbar__nav--item"
         *ngIf="!currentUser">
-        <a class="navbar__nav--item-link"
+        <a class="navbar__nav--item-link navbar__mobile--item-link"
         routerLink="/auth">Login / Register</a>
       </li>
-      <li for="" class="navbar__nav--item navbar-toggler" (click)="toggleMobileNav()">
-        <span class="navbar__nav--item-icon"></span>
-      </li>
     </ul>
-  </div>
 </nav>
