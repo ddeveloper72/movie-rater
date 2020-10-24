@@ -30,11 +30,11 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleMobileNav(): void {
-    const x = document.getElementById('mobileNav');
-    if (x.className === 'navbar-collapse') {
-      x.className += ' show';
+    const mainNav = document.getElementById('mobile-menu');
+    if (mainNav.className === 'navbar__nav') {
+      mainNav.className = 'navbar__mobile';
     } else {
-      x.className = 'navbar-collapse';
+      mainNav.className = 'navbar__nav';
     }
   }
 }
