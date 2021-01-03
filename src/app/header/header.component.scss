@@ -21,9 +21,14 @@
       justify-content: flex-end;
       align-items: center;
 
+      &:focus {
+        outline: none;
+      }
+
       &:first-child {
         grid-column: 1 / 2;
         justify-content: start;
+        cursor: pointer;
       }
       // specify center justify for second child, Welcome username
       &:nth-child(2) {
@@ -40,6 +45,7 @@
         text-decoration: none;
         display: flex;
         color: #fff;
+        cursor: pointer;
       }
 
 
@@ -54,8 +60,6 @@
   &__brand {
     display: flex;
     align-items: center;
-    cursor: pointer;
-    outline: none;
     margin-right: 15px;
     transition: transform .4s;
 
