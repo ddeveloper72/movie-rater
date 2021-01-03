@@ -35,6 +35,10 @@
           align-items: center;
 }
 
+.navbar__nav--item:focus {
+  outline: none;
+}
+
 .navbar__nav--item:first-child {
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
@@ -42,6 +46,7 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+  cursor: pointer;
 }
 
 .navbar__nav--item:nth-child(2) {
@@ -62,6 +67,7 @@
   display: -ms-flexbox;
   display: flex;
   color: #fff;
+  cursor: pointer;
 }
 
 .navbar__nav--item-link:hover {
@@ -75,8 +81,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  cursor: pointer;
-  outline: none;
   margin-right: 15px;
   -webkit-transition: -webkit-transform .4s;
   transition: -webkit-transform .4s;
