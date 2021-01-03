@@ -52,9 +52,8 @@
 
 .navbar__nav--item:nth-child(3), .navbar__nav--item:nth-child(4) {
   grid-column: 3 / -1;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 .navbar__nav--item-link {

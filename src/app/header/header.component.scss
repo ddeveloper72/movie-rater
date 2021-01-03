@@ -33,7 +33,7 @@
       &:nth-child(3),
       &:nth-child(4) {
         grid-column: 3 / -1;
-        justify-content: end;
+        justify-self: end;
       }
 
       &-link {
@@ -148,13 +148,13 @@
 
     &__nav {
       padding: 10px;
-      
+
       & li:not(:first-child) {
         display: none;
       }
 
     }
-  }  
+  }
 }
 
 // responsive menu hides list on smaller screens
@@ -166,11 +166,11 @@
       }
 
     &__brand {
-      
-      &-svg1, 
-      &-svg2 { 
-        scale: 0.8;  
-      }  
+
+      &-svg1,
+      &-svg2 {
+        scale: 0.8;
+      }
     }
   }
 }
