@@ -12,6 +12,7 @@ import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { HttpErrorInterceptor } from './helper/error.interceptor';
+import { LoadingSpinnerComponent } from './shared/loading-spinner.component';
 
 
 // declare a name for the array of routes
@@ -20,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, LoadingSpinnerComponent],
   imports: [
     BrowserModule,
     AuthModule,
