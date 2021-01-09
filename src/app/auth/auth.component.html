@@ -1,103 +1,110 @@
-<form class="form"
-*ngIf="!currentUser"
-[formGroup]="authForm"
-(ngSubmit)="saveForm()">
-
-<div class="form__header">
-  <h2 *ngIf="!registerMode">User Login page</h2>
-  <h2 *ngIf="registerMode">New user Registration</h2>
+<ng-template appPlaceholder></ng-template>
+<div class="spinner" *ngIf="loading else loginForm" >
+  <app-loading-spinner></app-loading-spinner>
 </div>
-
-  <div
-  class="form__form-group">
-    <label
-    class="form__form-group--label"
-    for="username">User Name:</label>
-    <input
-    class="form__form-group--input-text"
-    [ngClass]="{ 'ng-invalid': submitted && f.username.errors }"
-    type="text"
-    formControlName="username">
-    <div *ngIf="submitted && f.username.errors" class="form__form-group--invalid-feedback">
-      <div *ngIf="f.username.errors.required">A username is required</div>
-    </div>
+<ng-template #loginForm>
+  <form class="form"
+  *ngIf="!currentUser"
+  [formGroup]="authForm"
+  (ngSubmit)="saveForm()">
+  
+  <div class="form__header">
+    <h2 *ngIf="!registerMode">User Login page</h2>
+    <h2 *ngIf="registerMode">New user Registration</h2>
   </div>
-
-  <div class="form__form-group">
-    <label
-    class="form__form-group--label"
-    [ngClass]="{ 'ng-invalid': submitted && f.password.errors }"
-    for="password">Password:</label>
-    <input
-    class="form__form-group--input-text"
-    type="password"
-    formControlName="password">
-    <div *ngIf="submitted && f.password.errors"
-    class="form__form-group--invalid-feedback">
-      <div
-      *ngIf="f.password.errors.required">Please provide a password</div>
-      <div
-      *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-    </div>
-  </div>
-
-  <div
-  class="form__form-group">
-    <label
-    class="form__form-group--label"
-    for="password">Confirm Password</label>
-    <input
-    class="form__form-group--input-text"
-    [ngClass]="{ 'ng-invalid': submitted && f.password.errors }"
-    type="password"
-    formControlName="confirmPassword">
+  
     <div
-    *ngIf="submitted && f.password.errors"
-    class="form__form-group--invalid-feedback">
-      <div
-      *ngIf="f.confirmPassword.errors.required">A password is required</div>
-      <div
-      *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+    class="form__form-group">
+      <label
+      class="form__form-group--label"
+      for="username">User Name:</label>
+      <input
+      class="form__form-group--input-text"
+      [ngClass]="{ 'ng-invalid': submitted && f.username.errors }"
+      type="text"
+      formControlName="username">
+      <div *ngIf="submitted && f.username.errors" class="form__form-group--invalid-feedback">
+        <div *ngIf="f.username.errors.required">A username is required</div>
+      </div>
     </div>
-  </div>
-
-  <!-- [disabled]="!authForm.valid" -->
-  <button
-  class="form-button"
-  type="submit">
-  <span
-  *ngIf="!registerMode">
-  <svg-icon-sprite
-  class="form-button__svg-sprite"
-  [src]="'assets/sprites/sprite.svg#icon-login'">
-    </svg-icon-sprite>
-    Login
+  
+    <div class="form__form-group">
+      <label
+      class="form__form-group--label"
+      [ngClass]="{ 'ng-invalid': submitted && f.password.errors }"
+      for="password">Password:</label>
+      <input
+      class="form__form-group--input-text"
+      type="password"
+      formControlName="password">
+      <div *ngIf="submitted && f.password.errors"
+      class="form__form-group--invalid-feedback">
+        <div
+        *ngIf="f.password.errors.required">Please provide a password</div>
+        <div
+        *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+    </div>
+  
+    <div
+    class="form__form-group">
+      <label
+      class="form__form-group--label"
+      for="password">Confirm Password</label>
+      <input
+      class="form__form-group--input-text"
+      [ngClass]="{ 'ng-invalid': submitted && f.password.errors }"
+      type="password"
+      formControlName="confirmPassword">
+      <div
+      *ngIf="submitted && f.password.errors"
+      class="form__form-group--invalid-feedback">
+        <div
+        *ngIf="f.confirmPassword.errors.required">A password is required</div>
+        <div
+        *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+      </div>
+    </div>
+  
+    <!-- [disabled]="!authForm.valid" -->
+    <button
+    class="form-button"
+    type="submit">
+    <span
+    *ngIf="!registerMode">
+    <svg-icon-sprite
+    class="form-button__svg-sprite"
+    [src]="'assets/sprites/sprite.svg#icon-login'">
+      </svg-icon-sprite>
+      Login
+    </span>
+    <span
+    *ngIf="registerMode">
+    <svg-icon-sprite
+    class="form-button__svg-sprite"
+    [src]="'assets/sprites/sprite.svg#icon-add-to-list'">
+  </svg-icon-sprite>
+  Register
   </span>
-  <span
-  *ngIf="registerMode">
-  <svg-icon-sprite
-  class="form-button__svg-sprite"
-  [src]="'assets/sprites/sprite.svg#icon-add-to-list'">
-</svg-icon-sprite>
-Register
-</span>
-</button>
-<div *ngIf="error"
-class="form__form-group--alert">{{ error }}</div>
+  </button>
+  <div *ngIf="error"
+  class="form__form-group--alert">{{ error }}</div>
+  
+  </form>
 
-</form>
+  <div class="access-mode"
+  *ngIf="!currentUser; else returnUser">
+    <span class="access-mode__login"
+    *ngIf="!registerMode"
+    (click)="registerMode = true">
+    Don't have an account?  Click here to register</span>
+    <span class="access-mode__register"
+    *ngIf="registerMode"
+    (click)="registerMode = false">
+    Have an account?  Click here to login</span>
+  </div>
+</ng-template>
 
-<div class="access-mode"
-*ngIf="!currentUser; else returnUser">
-  <span class="access-mode__login"
-  *ngIf="!registerMode"
-  (click)="registerMode = true">
-  Don't have an account?  Click here to register</span>
-  <span class="access-mode__register"
-  *ngIf="registerMode"
-  (click)="registerMode = false">
-  Have an account?  Click here to login</span>
-</div>
 <ng-template
   #returnUser>
   <span class="access-mode__router"
