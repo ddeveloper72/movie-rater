@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 import { AuthComponent } from './auth.component';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
@@ -21,7 +22,8 @@ const routes: Routes = [
     // allow import of routes in the childModule
     RouterModule.forChild(routes),
     IconSpriteModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   // export routes to the app module
   providers: [],
