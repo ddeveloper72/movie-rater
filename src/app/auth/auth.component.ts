@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../models/User';
 import { AuthenticationService } from '../services/authentication.service';
+import { PlaceholderDirective } from '../shared/placeholder.directive';
 // import custom validator to validate that password and confirm password fields match
 import { MustMatch } from '../helper/must-match.validator';
 
@@ -20,6 +21,7 @@ export class AuthComponent implements OnInit {
   returnUrl: string;
   error = '';
   registerMode = false;
+  @ViewChild(PlaceholderDirective, {static: false}) alertHost: PlaceholderDirective;
 
   constructor(
     private formBuilder: FormBuilder,
