@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Movie } from '../models/Movie';
+import { ApiService } from '../services/api.service';
 
 
 @Component({
@@ -8,6 +10,8 @@ import { Movie } from '../models/Movie';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+  isLoading = false;
+  subscription: Subscription;
   @Input()
   movies: Movie[] = []; // list component now comes from api service, type of Movie
   @Output() selectMovie = new EventEmitter<Movie>();
@@ -15,9 +19,16 @@ export class MovieListComponent implements OnInit {
   @Output() deletedMovie = new EventEmitter<Movie>();
   @Output() createNewMovie = new EventEmitter(); // emit an empty event
 
-  constructor() {}
+  constructor(public apiservice: ApiService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // subscribe to getMovies data from ApiService to observe when data is called
+    var observable = this.apiservice.getMovies();
+      // subscribe to the data so it can be unsubscribed once page is unloaded
+      this.subscription = observable.subscribe(data => {
+      this.isLoading = true;
+    });
+  }
 
   movieClicked(movie: Movie): void {
     // console.log(movie);
@@ -34,5 +45,9 @@ export class MovieListComponent implements OnInit {
 
   newMovie(): void {
     this.createNewMovie.emit();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
