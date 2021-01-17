@@ -1,0 +1,7 @@
+.app-loading .logo {
+  width: 90px;
+  height: 90px;
+  background: url(./assets/Angular_logo_small.png) center center no-repeat;
+  background-size: cover;
+}
+/*# sourceMappingURL=styles-app-loading.css.map */
