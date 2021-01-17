@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../models/Movie';
-import { IsLoadingService } from '../services/is-loading.service';
-import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,7 +8,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  isLoading: Observable<boolean>;
   @Input()
   movies: Movie[] = []; // list component now comes from api service, type of Movie
   @Output() selectMovie = new EventEmitter<Movie>();
@@ -18,13 +15,9 @@ export class MovieListComponent implements OnInit {
   @Output() deletedMovie = new EventEmitter<Movie>();
   @Output() createNewMovie = new EventEmitter(); // emit an empty event
 
-  constructor(
-    private isLoadingService: IsLoadingService
-  ) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.isLoading = this.isLoadingService.isLoading$();
-  }
+  ngOnInit(): void {}
 
   movieClicked(movie: Movie): void {
     // console.log(movie);
