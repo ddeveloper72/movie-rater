@@ -1,7 +1,8 @@
 .home {
   display: flex;
-  justify-items: start;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
 
   &__heading {
     margin-bottom: 2rem;
@@ -20,8 +21,6 @@
 
   }
 
-
-
 }
 
 
@@ -35,6 +34,8 @@
   border: 1px solid #fa9805;
   color: #3b3939;
   background-color: rgb(206, 201, 201);
+  margin-left: auto;
+  margin-right: auto;
 
   &__top-row {
     text-align: center;

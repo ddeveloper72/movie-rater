@@ -2,11 +2,15 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-items: start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .home__heading {
@@ -35,6 +39,8 @@
   border: 1px solid #fa9805;
   color: #3b3939;
   background-color: #cec9c9;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .table__top-row {
