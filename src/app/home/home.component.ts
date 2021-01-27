@@ -12,7 +12,7 @@ import { ApiService } from '../services/api.service';
 })
 export class HomeComponent implements OnInit {
   currentUser: User;
-  loading = false;
+  isLoading = false;
   users: User[];
 
   constructor(
@@ -24,12 +24,12 @@ export class HomeComponent implements OnInit {
 
   // added method for retrieving all users from api db for testing purposes
   ngOnInit(): void {
-    this.loading = true;
+    this.isLoading = true;
     this.apiService
       .getUsers()
       .pipe(first())
       .subscribe(users => {
-        this.loading = false;
+        this.isLoading = false;
         this.users = users;
       });
   }
