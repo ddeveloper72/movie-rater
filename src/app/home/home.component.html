@@ -1,27 +1,29 @@
 
 
 <div class="home">
-
   <div class="home__heading">
     <!-- <h2 *ngIf="currentUser" class="home__heading--primary"><span>test page interface: </span>Welcome {{currentUser ? currentUser.username : 'visitor' }} -  Angular 10 & Django Rest API</h2> -->
     <h2 class="home__heading--primary"><span>test page interface: </span>Welcome Angular 10 & Django Rest API</h2>
     <br>
     <h3 class="home__heading--secondary"><span>diagnostic data:</span>Users from secure Django Restful api end point</h3>
   </div>
-
-<div *ngIf="currentUser" class="home__table">
-  <table class="table">
-    <tr *ngIf="users"
-    class="table__top-row">
-      <th>ID:</th>
-      <th>User Name:</th>
-    </tr>
-    <tr *ngFor="let user of users"
-    class="table__data-rows">
-      <td>{{ user.id }}</td>
-      <td>{{ user.username }}</td>
-    </tr>
-  </table>
-</div>
-
+  <div class="spinner" *ngIf="isLoading else userForm">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <ng-template #userForm>
+    <div *ngIf="currentUser" class="home__table">
+      <table class="table">
+        <tr *ngIf="users"
+        class="table__top-row">
+          <th>ID:</th>
+          <th>User Name:</th>
+        </tr>
+        <tr *ngFor="let user of users"
+        class="table__data-rows">
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+        </tr>
+      </table>
+    </div>
+  </ng-template>
 </div>
