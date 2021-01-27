@@ -28,7 +28,7 @@ const routes: Routes = [
     MainModule,
     HttpClientModule,
     appRoutingModule,
-    RouterModule.forRoot(routes), // include imports for routes into the main module
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }), // include imports for routes into the main module
     IconSpriteModule,
     SharedModule
   ],
