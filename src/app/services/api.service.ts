@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';  // used during dev for storing token
+// import { environment } from '../../environments/environment';  // used during dev for storing token
 import { Movie } from '../models/Movie';
 import { User } from '../models/User';
 import { AuthenticationService } from './authentication.service';
