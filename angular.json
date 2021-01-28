@@ -67,6 +67,9 @@
           "configurations": {
             "production": {
               "browserTarget": "movie-rater:build:production"
+            },
+            "development":{
+              "browserTarget": "movie-rater:build:development"
             }
           }
         },
