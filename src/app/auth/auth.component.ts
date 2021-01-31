@@ -75,9 +75,9 @@ export class AuthComponent implements OnInit {
         error => {
           this.error = error;
           this.loading = false;
-        }
-      );
-    }
+        });
+      }
+      this.authForm.reset();
   }
 
   loginUser(): void {
@@ -99,6 +99,7 @@ export class AuthComponent implements OnInit {
         error => {
           this.error = error;
           this.loading = false;
+          this.authForm.reset();
         }
       );
   }
