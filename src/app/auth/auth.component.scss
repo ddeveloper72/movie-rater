@@ -1,14 +1,18 @@
 .form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  justify-content: center;
+  margin-top: 80px;
+  padding: 0 20px;
+  padding-bottom: 20px;
 
   &__header {
+    font-size: 2.2rem;
     color: #ca7009;
   }
 
   &__form-group {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    justify-content: center;
     font-weight: 400;
     font-size: 2rem;
 
@@ -18,17 +22,24 @@
       border-radius: 5px;
       margin-top: 15px;
       margin-top: 15px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
-    &--input-text{
+    &--input-text {
+      display: flex;
       font-size: 1.8rem;
-      margin-top: 15px;
-      margin-bottom: 15px;
+      margin-bottom: 1px;
       border-radius: 5px;
       padding: 10px;
       height: 35px;
-      width: 40%;
+      width: 80vw;
+
+      @media only screen and (min-width: 1000px) {
+        max-width: 40vw;
+      }
+      @media only screen and (max-width: 780px) {
+        width: 95vw;
+      }
 
       &:active,
       &:focus {
@@ -61,7 +72,7 @@
   }
 
 
-.form-button {
+  .form-button {
     display: flex;
     align-items: center;
     width: 140px;
@@ -88,7 +99,6 @@
     // when button is disabled, change pointer and shrink save icon
     &:disabled {
       cursor: not-allowed;
-
       &:hover {
         svg-icon-sprite {
           // transition location & scale of svg on hover
@@ -99,10 +109,9 @@
       }
     }
 
-    // when button enabled, grow save icon
+      // when button enabled, grow save icon
     &:hover {
       background-color: #ca7009;
-
       svg-icon-sprite {
         // transition location & scale of svg on hover
         display: flex;
@@ -118,31 +127,18 @@
   }
 }
 
-
-  // use built in classes to select invalid 7 touched elements for user alert styling
-  input.ng-invalid.ng-touched {
-    border: .5px solid #fc8e4f;
-    background-color: #e2b796;
-    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
-  }
+// use built in classes to select invalid 7 touched elements for user alert styling
+input.ng-invalid.ng-touched {
+  border: .5px solid #fc8e4f;
+  background-color: #e2b796;
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
+}
 
 .access-mode {
   font-size: 1.8rem;
-
-  &__login {
-
-  }
-
-  &__register {
-
-  }
-
-  &__redirect {
-
-  }
+  cursor: pointer;
 
   &__router {
     font-size: 1.8rem;
-    cursor: pointer;
   }
 }
