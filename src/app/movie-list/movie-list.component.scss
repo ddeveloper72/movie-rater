@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   margin: 15px 15px;
+  padding: 0 15px;
 
   & svg-icon-sprite {
     display: block;
@@ -70,7 +71,8 @@
   border-radius: 5px;
   background-color: #bfd249;
   margin-top: 2rem;
-  padding: 1.2rem 2rem;
+  margin: 15px;
+  padding: 10px 10px;
   // text-transform: uppercase;
   font-size: 1.8rem;
   cursor: pointer;
@@ -114,5 +116,4 @@
     filter: drop-shadow(0 .5rem 1rem rgba(0, 0, 0, 0.5));
     outline: none;
   }
-
 }

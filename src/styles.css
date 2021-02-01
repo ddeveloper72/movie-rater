@@ -55,4 +55,8 @@ p {
       -ms-flex-align: center;
           align-items: center;
 }
+
+.content::not(.footer) {
+  min-height: calc(100vh - 80px);
+}
 /*# sourceMappingURL=styles.css.map */

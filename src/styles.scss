@@ -47,3 +47,7 @@ p {
   justify-content: center;
   align-items: center;
 }
+
+.content::not(.footer){
+  min-height: calc(100vh - 80px);
+}

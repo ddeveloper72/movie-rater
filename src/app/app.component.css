@@ -5,14 +5,11 @@
   background-size: cover;
   background-repeat: no-repeat;
   color: #ffff;
-  padding: 20px 40px;
-  min-height: 100vh;
-  /* for testing */
 }
 
 @media only screen and (max-width: 780px) {
   .app {
-    padding: 20px 5px;
+    padding: 2px 5px;
   }
 }
 

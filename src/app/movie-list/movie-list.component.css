@@ -9,6 +9,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   margin: 15px 15px;
+  padding: 0 15px;
 }
 
 .movie-list svg-icon-sprite {
@@ -92,7 +93,8 @@
   border-radius: 5px;
   background-color: #bfd249;
   margin-top: 2rem;
-  padding: 1.2rem 2rem;
+  margin: 15px;
+  padding: 10px 10px;
   font-size: 1.8rem;
   cursor: pointer;
   -webkit-transition: all .2s;
