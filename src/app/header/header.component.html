@@ -1,19 +1,18 @@
 <nav class="navbar">
     <span class="navbar-toggle" (click)="toggleMobileNav()"></span>
     <ul class="navbar__nav" id="mobile-menu">
-      <li class="navbar__nav--item navbar__mobile--item" routerLink="/movies">
-        <svg-icon-sprite class="navbar__brand-svg1"
-        [src]="'assets/sprites/sprite.svg#icon-angular'">
-        </svg-icon-sprite>
-        <svg class="navbar__brand-svg3">
-        <text class="navbar__brand-svg3-txt">With</text>
-        </svg>
-        <svg-icon-sprite class="navbar__brand-svg2"
-        [src]="'assets/sprites/sprite.svg#icon-django'">
-        </svg-icon-sprite>
-        <svg class="navbar__brand-svg4">
-        <text class="navbar__brand-svg4-txt">REST API</text></svg>
-        </li>
+      <li class="navbar__nav--item navbar__mobile--item">
+        <a routerLink="/movies">
+          <svg-icon-sprite class="navbar__brand--sprite"
+          [src]="'assets/sprites/sprite.svg#icon-angular'">
+          </svg-icon-sprite>
+            <p class="navbar__brand--txt">With</p>
+          <svg-icon-sprite class="navbar__brand--sprite"
+          [src]="'assets/sprites/sprite.svg#icon-django'">
+          </svg-icon-sprite>
+            <p class="navbar__brand--txt">REST API</p>
+        </a>
+      </li>
       <li class="navbar__nav--item">
         <a class="navbar__nav--item-link navbar__mobile--item-link"
         *ngIf="currentUser"
