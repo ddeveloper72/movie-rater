@@ -1,29 +1,27 @@
 .app {
-  /* background-color: #282c34; */
-  background-image: linear-gradient(to right bottom, #000000, #00143c);
+  color: var(--color-grey-dark);
+  background-image: linear-gradient(to right bottom, var(--color-primary-dark), var(--color-primary-light));
   background-size: cover;
   background-repeat: no-repeat;
-  color: #ffff;
-  // padding: 2px 5px;
-  // min-height: 100vh; /* for testing */
+  height: calc(100vh - 80px);  // vh  - footer height
 
   @media only screen and (max-width: 780px) {
     padding: 2px 5px;
   }
 }
 
+
 .rater {
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 
   &__svg-sprite {
     color: #e2eaef;
     margin-right: 15px;
     width: 5rem;
     height: 5rem;
-
 
   }
 
@@ -32,5 +30,4 @@ padding: 20px;
   font-family: cursive;
 
   }
-
 }
