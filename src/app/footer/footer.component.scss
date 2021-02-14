@@ -1,12 +1,11 @@
-.footer {
+.footer,
+.push {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-image: linear-gradient(260deg, #324450 0%, #18182b 100%);
-  margin-top: 2rem;
-  height: 80px;
   width: 100%;
-  position: absolute;
-  bottom: 0%;
+  height: 85px;
 
   &__sprite {
     display: flex;
