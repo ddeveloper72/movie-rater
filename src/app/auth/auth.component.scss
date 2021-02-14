@@ -5,6 +5,11 @@
   padding: 0 20px;
   padding-bottom: 20px;
 
+   @media only screen and (max-width: 780px) {
+     margin-top: 0;
+     padding: 10px 20px;
+   }
+
   &__header {
     font-size: 2.2rem;
     color: #ca7009;
@@ -14,7 +19,8 @@
     display: grid;
     justify-content: center;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.6rem;
+
 
     &--label {
       justify-items: center;
@@ -30,15 +36,17 @@
       font-size: 1.8rem;
       margin-bottom: 1px;
       border-radius: 5px;
-      padding: 10px;
-      height: 35px;
+      padding: 5px;
+      height: 30px;
       width: 80vw;
 
       @media only screen and (min-width: 1000px) {
         max-width: 40vw;
       }
+
       @media only screen and (max-width: 780px) {
-        width: 95vw;
+        width: 90vw;
+        height: 20px;
       }
 
       &:active,
@@ -52,14 +60,14 @@
     &--invalid-feedback > * {
       font-size: 1.6rem;
       font-weight: 100;
-      color: orangered;
+      color: #ca7009;
     }
 
     &--alert {
       background-color: #F8D7DA;
       border: .5px solid #FFFFFF;
       font-size: 1.8rem;
-      color: orangered;
+      color: #ca7009;
       justify-items: center;
       align-items: center;
       width: 40%;
@@ -74,11 +82,12 @@
 
   .form-button {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    width: 140px;
+    width: fit-content;
     border: none;
     border-radius: 5px;
-    background-color: #ec840d;
+    background-color: #ca7009;
     margin-top: 2rem;
     padding: 1.2rem 2rem;
     text-transform: capitalize;
@@ -94,6 +103,10 @@
       margin-right: 5px;
       margin-top: -2px;
       transition: all .4s;
+    }
+
+    @media only screen and (max-width: 780px) {
+      transform: scale(0.8);
     }
 
     // when button is disabled, change pointer and shrink save icon
@@ -129,16 +142,22 @@
 
 // use built in classes to select invalid 7 touched elements for user alert styling
 input.ng-invalid.ng-touched {
-  border: .5px solid #fc8e4f;
-  background-color: #e2b796;
-  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
+  border: .5px solid #ca7009;
+  background-color: #eee4ca;
+  box-shadow: 0 0 0 0.2rem #ca7009;
 }
 
 .access-mode {
-  font-size: 1.8rem;
+  margin-top: 1rem;
+  font-size: 1.4rem;
   cursor: pointer;
 
   &__router {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+  }
+
+  @media only screen and (max-width: 316px) {
+    font-size: 1rem;
+    padding: 0 5px;
   }
 }
