@@ -3,37 +3,31 @@
   background-image: linear-gradient(to right bottom, var(--color-primary-dark), var(--color-primary-light));
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
-  height: calc(100vh - 113px);
+  // specifying content height: by excluding height used footer;
+  min-height: calc(100% - 115px );
 
   @media only screen and (max-width: 780px) {
     padding: 2px 5px;
-    // height: calc(100% - 113px);
-  }
-}
-
-
-
-
-.rater {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-
-  &__svg-sprite {
-    color: #e2eaef;
-    margin-right: 15px;
-    width: 5rem;
-    height: 5rem;
-
   }
 
-  &__heading {
-  color: #e2d285;
-  font-family: cursive;
+  &__rater {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 
+    &--svg-sprite {
+      color: #e2eaef;
+      margin-right: 15px;
+      width: 5rem;
+      height: 5rem;
+
+    }
+
+    &--heading {
+    color: #e2d285;
+    font-family: cursive;
+
+    }
   }
 }
