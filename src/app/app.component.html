@@ -1,14 +1,15 @@
-<div class="app">
-  <!-- header -->
-  <app-header></app-header>
-
-<div class="rater">
-  <svg-icon-sprite class="rater__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-film'">
-  </svg-icon-sprite>
-  <h1 class="rater__heading"> Movie Rater</h1>
+<!-- header -->
+<app-header></app-header>
+<div class="content">
+  <router-outlet>
+      <div class="content__rater">
+        <svg-icon-sprite class="content__rater--svg-sprite" [src]="'assets/sprites/sprite.svg#icon-film'">
+        </svg-icon-sprite>
+          <h1 class="content__rater--heading"> Movie Rater</h1>
+      </div>
+  </router-outlet>
+  <div class="push"></div>
 </div>
 
-<router-outlet></router-outlet>
 <!-- footer -->
 <app-footer></app-footer>
-</div>
