@@ -1,5 +1,9 @@
 .layout {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  
+  @media screen and (max-width: 1000px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+
+  }
 }
