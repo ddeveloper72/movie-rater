@@ -22,8 +22,8 @@
   </div>
   <p>{{ movie.description }}</p>
   <br>
-  <div>
-    <img *ngIf="movie.imagePath" [src]="movie.imagePath" alt="{{ movie.title }}" class="movie-ratings__img">
+  <div class="movie-ratings__img">
+    <img *ngIf="movie.imagePath" [src]="movie.imagePath" alt="{{ movie.title }}" >
   </div>
 
   <div class="user-rating">
