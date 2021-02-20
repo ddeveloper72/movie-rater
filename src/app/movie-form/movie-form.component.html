@@ -27,10 +27,9 @@
   type="text"
   formControlName="imagePath"
   #imagePath>
-  <br>
-
-  <img *ngIf="imagePath.value" [src]="imagePath.value" class="form__img">
-  <br>
+  <div class="form__img">
+    <img *ngIf="imagePath.value" [src]="imagePath.value">
+  </div>
 
   <button
   class="form-button"
