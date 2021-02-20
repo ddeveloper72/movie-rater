@@ -10,18 +10,15 @@
   &__label {
     border-radius: 5px;
     margin-top: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
   }
 
   &__title {
     font-size: 1.8rem;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border-radius: 5px;
-    padding: 10px;
+    padding: 0 10px;
     height: 35px;
-    width: 100%;
+    width: 90%;
 
     &:active,
     &:focus {
@@ -30,14 +27,26 @@
     }
   }
 
+   textarea {
+     font-size: 1.8rem;
+     padding: 10px;
+     width: 90%;
+
+     &:active,
+     &:focus {
+       outline: none;
+       background-color: #eee4ca;
+     }
+
+   }
+
   &__url {
-    font-size: 1.8rem;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
     border-radius: 5px;
-    padding: 10px;
+    padding: 0 10px;
     height: 35px;
-    width: 100%;
+    width: 90%;
   }
 
   &__img {
@@ -48,7 +57,6 @@
     & img {
       height: auto;
       width: 300px;
-      margin-top: 2rem;
       border-radius: 25px;
       box-shadow: 2rem 1.4rem 4rem rgba(#3d3c3c, .18);
       transition: transform .3s;
@@ -59,24 +67,7 @@
           box-shadow: 2rem 1.4rem 4rem rgba(#696868, .18);
         }
       }
-
     }
-
-  }
-
-  textarea  {
-    font-size: 1.8rem;
-    margin-top: 15px;
-    padding: 10px;
-    width: 100%;
-
-    &:active,
-    &:focus {
-      outline: none;
-      background-color: #eee4ca;
-    }
-
-
   }
 
   // use built in classes to select invalid 7 touched elements for user alert styling
@@ -84,7 +75,7 @@
   textarea.ng-invalid.ng-touched {
     border: .5px solid #fc8e4f;
     background-color: #e2b796;
-    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.54);
+    box-shadow: 0 0 0 0.2rem rgba(255, 145, 0, 0.822);
   }
 }
 
