@@ -54,6 +54,7 @@
       &--svg {
         display:flex;
         flex-direction: row;
+        justify-content: space-around;
 
         &-edit {
           cursor: pointer;
