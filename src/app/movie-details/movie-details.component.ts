@@ -12,9 +12,7 @@ export class MovieDetailsComponent implements OnInit {
   @Output() updateMovie = new EventEmitter<Movie>();
   rateHovered = 0;
 
-  constructor(
-    private apiService: ApiService
-  ) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {}
 
@@ -23,10 +21,9 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   rateClicked(rate: number): void {
-    this.apiService.rateMovie(rate, this.movie.id).subscribe(
-      result => this.getDetails(),
-      error => console.log(error)
-    );
+    this.apiService
+      .rateMovie(rate, this.movie.id)
+      .subscribe(result => this.getDetails(), error => console.log(error));
   }
 
   getDetails(): void {
@@ -38,6 +35,10 @@ export class MovieDetailsComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  closeMovie(event): void {
+    this.updateMovie.emit();
   }
 
 }
