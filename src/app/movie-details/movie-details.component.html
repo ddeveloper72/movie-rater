@@ -1,44 +1,46 @@
 <div *ngIf="movie">
-  <h1>{{ movie.title }}</h1>
-  <div class="movie-ratings">
-    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.ave_ratings > 0}">
-    </svg-icon-sprite>
-    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.ave_ratings > 1}">
-    </svg-icon-sprite>
-    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.ave_ratings > 2}">
-    </svg-icon-sprite>
-    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.ave_ratings > 3}">
-    </svg-icon-sprite>
-    <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
-      [ngClass]="{'svg-gold-star': movie.ave_ratings > 4}">
-    </svg-icon-sprite>
-    <p class="votes">
-      ({{ movie.no_of_ratings }}) votes
-    </p>
-  </div>
-  <p>{{ movie.description }}</p>
-  <br>
-  <div class="movie-ratings__img">
-    <img *ngIf="movie.imagePath" [src]="movie.imagePath" alt="{{ movie.title }}" >
-  </div>
+  <button
+  (click)="closeMovie($event)"
+        >Close</button>
+          <h1>{{ movie.title }}</h1>
+          <div class="movie-ratings">
+            <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+              [ngClass]="{'svg-gold-star': movie.ave_ratings > 0}">
+            </svg-icon-sprite>
+            <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+              [ngClass]="{'svg-gold-star': movie.ave_ratings > 1}">
+            </svg-icon-sprite>
+            <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+              [ngClass]="{'svg-gold-star': movie.ave_ratings > 2}">
+            </svg-icon-sprite>
+            <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+              [ngClass]="{'svg-gold-star': movie.ave_ratings > 3}">
+            </svg-icon-sprite>
+            <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
+              [ngClass]="{'svg-gold-star': movie.ave_ratings > 4}">
+            </svg-icon-sprite>
+            <p class="votes">
+              ({{ movie.no_of_ratings }}) votes
+            </p>
+          </div>
+          <p>{{ movie.description }}</p>
+          <br>
+          <div class="movie-ratings__img">
+            <img *ngIf="movie.imagePath" [src]="movie.imagePath" alt="{{ movie.title }}" >
+          </div>
 
-  <div class="user-rating">
-    <h2 class="user-rating__movie-heading">Rate Movie</h2>
-    <div class="row user-rating__select-stars">
-      <svg-icon-sprite class="user-rating__empty-stars" *ngFor="let rate of [1,2,3,4,5]"
-        [src]="'assets/sprites/sprite.svg#icon-star'"
-        (mouseenter)="rateHover(rate)"
-        (mouseleave)="rateHovered = 0"
-        (click)="rateClicked(rate)"
-        [ngClass]="{'user-rating__svg-star': rateHovered >= rate}">
-      </svg-icon-sprite>
-      <!-- use mouseenter over star in the array to call a method -->
-      <!-- mouse leave, reverts the rateHovered back to 0 -->
-    </div>
-  </div>
-
+          <div class="user-rating">
+            <h2 class="user-rating__movie-heading">Rate Movie</h2>
+            <div class="row user-rating__select-stars">
+              <svg-icon-sprite class="user-rating__empty-stars" *ngFor="let rate of [1,2,3,4,5]"
+                [src]="'assets/sprites/sprite.svg#icon-star'"
+                (mouseenter)="rateHover(rate)"
+                (mouseleave)="rateHovered = 0"
+                (click)="rateClicked(rate)"
+                [ngClass]="{'user-rating__svg-star': rateHovered >= rate}">
+              </svg-icon-sprite>
+              <!-- use mouseenter over star in the array to call a method -->
+              <!-- mouse leave, reverts the rateHovered back to 0 -->
+            </div>
+          </div>
 </div>
