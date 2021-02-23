@@ -1,7 +1,8 @@
 <div *ngIf="movie">
-  <button
+  <a
   (click)="closeMovie($event)"
-        >Close</button>
+  class="close"
+        ></a>
           <h1>{{ movie.title }}</h1>
           <div class="movie-ratings">
             <svg-icon-sprite class="svg-star" [src]="'assets/sprites/sprite.svg#icon-star'"
