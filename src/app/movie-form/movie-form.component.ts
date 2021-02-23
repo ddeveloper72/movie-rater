@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../models/Movie';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-form',
@@ -26,7 +27,11 @@ export class MovieFormComponent implements OnInit {
   @Output() movieCreated = new EventEmitter<Movie>();
   @Output() movieUpdated = new EventEmitter<Movie>();
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -57,5 +62,9 @@ export class MovieFormComponent implements OnInit {
           error => console.log(error)
         );
     }
+  }
+
+  onCancel(): void {
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
