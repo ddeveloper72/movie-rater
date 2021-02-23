@@ -25,7 +25,8 @@
             ],
             "styles": [
               "src/styles-app-loading.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/styles-features.css"
             ],
             "scripts": []
           },
