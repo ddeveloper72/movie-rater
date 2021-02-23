@@ -1,0 +1,35 @@
+// close icon
+
+.close {
+  position: absolute;
+  right: 32px;
+  top: 111px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  transition: transform .3s;
+
+  &:hover {
+    opacity: 1;
+    filter: drop-shadow(4px 3px 3px #fff);
+    transform: translateY(-2px) translateX(2px) scale(1.08);
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    left: 15px;
+    content: "";
+    height: 33px;
+    width: 2px;
+    background-color: #f8f8f8;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
