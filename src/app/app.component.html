@@ -5,7 +5,9 @@
       <div class="content__rater">
         <svg-icon-sprite class="content__rater--svg-sprite" [src]="'assets/sprites/sprite.svg#icon-film'">
         </svg-icon-sprite>
-          <h1 class="content__rater--heading"> Movie Rater</h1>
+        <a [routerLink]="'/movies'">
+        <h1 class="content__rater--heading"> Movie Rater</h1>
+      </a>
       </div>
   </router-outlet>
   <div class="push"></div>
