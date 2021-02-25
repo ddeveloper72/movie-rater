@@ -1,52 +1,30 @@
-<a [routerLink]="'/movies'"
-  class="close"></a>
-<div [formGroup]="movieForm"
-(ngSubmit)="saveForm()"
-class="form">
-  <label class="form__label" for="title">Title:</label>
-<br>
+<div class="form">
+  <a [routerLink]="'/movies'" class="close"></a>
+  <form [formGroup]="movieForm" (ngSubmit)="saveForm()">
+    <label class="form__label" for="title">Title:</label>
 
-<input
-class="form__title"
-type="text"
-formControlName="title"><br>
+    <input class="form__title" type="text" formControlName="title"><br>
 
-<label
-class="form__label" for="description">Description:</label>
-<br>
+    <label class="form__label" for="description">Description:</label>
 
-<textarea
-class="from__description"
-rows="5"
-type="text"
-formControlName="description"
-></textarea>
-<br>
+    <textarea class="from__description" rows="5" type="text" formControlName="description"></textarea>
 
-<label class="form__label" for="name">Img URL</label>
-<br>
+    <label class="form__label" for="name">Img URL</label>
 
-<input
-class="form__url"
-type="text"
-formControlName="imagePath"
-#imagePath>
-<div class="form__img">
-  <img *ngIf="imagePath.value" [src]="imagePath.value">
-</div>
+    <input class="form__url" type="text" formControlName="imagePath" #imagePath>
 
-<button
-class="form-button"
-type="submit"
-[disabled]="!movieForm.valid">
-  <svg-icon-sprite
-  class="form-button__svg-sprite"
-  [src]="'assets/sprites/sprite.svg#icon-save'">
-  </svg-icon-sprite>
-  <span *ngIf="id">Update</span>
-  <span *ngIf="!id">Create</span>
-</button>
+    <div class="form__img">
+      <img *ngIf="imagePath.value" [src]="imagePath.value">
+    </div>
 
+    <button class="form-button" type="submit" [disabled]="!movieForm.valid">
+      <svg-icon-sprite class="form-button__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-save'">
+      </svg-icon-sprite>
+      <span *ngIf="id">Update</span>
+      <span *ngIf="!id">Create</span>
+    </button>
+
+  </form>
 
 </div>
 
