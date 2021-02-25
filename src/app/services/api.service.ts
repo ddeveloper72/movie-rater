@@ -27,8 +27,8 @@ export class ApiService {
   }
 
   // get the specific rating of a movie so the data can be refreshed dynamically after user adds rating
-  getMovie(id: number) {
-    return this.httpClient.get<Movie>(`${this.baseMovieUrl}${id}/`, {
+  getMovie(movieId) {
+    return this.httpClient.get<Movie>(`${this.baseMovieUrl}${movieId}/`, {
       headers: this.authenticationService.getAuthHeaders()
     }); // pass headers to baseMovieUrl
   }
