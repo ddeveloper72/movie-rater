@@ -33,7 +33,15 @@ export class MovieFormComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      console.log(params.get('id'));
+      this.apiService.getMovie(params.get('id')).subscribe(c => {
+        console.log(c);
+        this.movie = c;
+      });
+    });
+  }
 
   saveForm(): void {
     console.log(this.movieForm.value);
@@ -62,9 +70,5 @@ export class MovieFormComponent implements OnInit {
           error => console.log(error)
         );
     }
-  }
-
-  onCancel(): void {
-    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
