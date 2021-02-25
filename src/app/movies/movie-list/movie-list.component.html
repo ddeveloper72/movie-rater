@@ -16,7 +16,7 @@
     </h3>
     <div class="movie-list__card--title--svg">
       <svg-icon-sprite class="movie-list__card--title--svg-edit"
-      (click)="editMovie(movie)"
+      [routerLink]="['/edit', movie.id]"
       [src]="'assets/sprites/sprite.svg#icon-new-message'">
     </svg-icon-sprite>
     <svg-icon-sprite class="movie-list__card--title--svg-trash"
@@ -31,7 +31,7 @@
 </ng-template>
 
   <button class="movie-list-button"
-  (click)="newMovie()"
+  [routerLink]="['/new']"
   >
     <svg-icon-sprite class="movie-list-button__svg-right"
     [src]="'assets/sprites/sprite.svg#icon-chevron-small-right'">
