@@ -1,0 +1,56 @@
+<a [routerLink]="'/movies'"
+  class="close"></a>
+<div [formGroup]="movieForm"
+(ngSubmit)="saveForm()"
+class="form">
+  <label class="form__label" for="title">Title:</label>
+<br>
+
+<input
+class="form__title"
+type="text"
+formControlName="title"><br>
+
+<label
+class="form__label" for="description">Description:</label>
+<br>
+
+<textarea
+class="from__description"
+rows="5"
+type="text"
+formControlName="description"
+></textarea>
+<br>
+
+<label class="form__label" for="name">Img URL</label>
+<br>
+
+<input
+class="form__url"
+type="text"
+formControlName="imagePath"
+#imagePath>
+<div class="form__img">
+  <img *ngIf="imagePath.value" [src]="imagePath.value">
+</div>
+
+<button
+class="form-button"
+type="submit"
+[disabled]="!movieForm.valid">
+  <svg-icon-sprite
+  class="form-button__svg-sprite"
+  [src]="'assets/sprites/sprite.svg#icon-save'">
+  </svg-icon-sprite>
+  <span *ngIf="id">Update</span>
+  <span *ngIf="!id">Create</span>
+</button>
+
+
+</div>
+
+
+<div class="border">
+  <p class="border__break"><span>Movie List</span></p>
+</div>
