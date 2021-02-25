@@ -1,0 +1,182 @@
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 0 25px;
+
+
+  &__label {
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 35px;
+    width: 90%;
+
+    &:active,
+    &:focus {
+      outline: none;
+      background-color: #eee4ca;
+    }
+  }
+
+   textarea {
+     font-size: 1.8rem;
+     padding: 10px;
+     width: 90%;
+
+     &:active,
+     &:focus {
+       outline: none;
+       background-color: #eee4ca;
+     }
+
+   }
+
+  &__url {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 35px;
+    width: 90%;
+  }
+
+  &__img {
+    // applied css class to div
+    display: flex;
+    justify-content: center;
+
+    & img {
+      height: auto;
+      width: 300px;
+      border-radius: 25px;
+      box-shadow: 2rem 1.4rem 4rem rgba(#3d3c3c, .18);
+      transition: transform .3s;
+
+      @media screen and (min-width: 372px) {
+        &:hover {
+          transform: translateY(-10px) scale(1.02);
+          box-shadow: 2rem 1.4rem 4rem rgba(#696868, .18);
+        }
+      }
+    }
+  }
+
+  // use built in classes to select invalid 7 touched elements for user alert styling
+  input.ng-invalid.ng-touched,
+  textarea.ng-invalid.ng-touched {
+    border: .5px solid #fc8e4f;
+    background-color: #e2b796;
+    box-shadow: 0 0 0 0.2rem rgba(255, 145, 0, 0.822);
+  }
+}
+
+.form-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #ec840d;
+  margin-top: 2rem;
+  padding: 1.2rem 2rem;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all .2s;
+
+  &__svg-sprite {
+    height: 2rem;
+    width: 2rem;
+    float: left;
+    margin-right: 5px;
+    margin-top: -2px;
+    transition: all .4s;
+  }
+
+  // when button is disabled, change pointer and shrink save icon
+  &:disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      svg-icon-sprite {
+        // transition location & scale of svg on hover
+        display: flex;
+        align-items: center;
+        transform: translateX(4px) scale(0.1);
+      }
+    }
+  }
+
+  // when button enabled, grow save icon
+  &:hover  {
+    background-color: #ca7009;
+
+    svg-icon-sprite {
+      // transition location & scale of svg on hover
+      display: flex;
+      align-items: center;
+      transform: translateX(4px) scale(1.1);
+    }
+  }
+
+  &:active,
+  &:focus {
+   outline: none;
+  }
+
+}
+
+// only show border in column view
+.border {
+  visibility: hidden;
+
+  @media screen and (max-width: 1000px) {
+    visibility: visible;
+    margin-top: 2rem;
+    width: 100%;
+
+    &__break {
+      display: flex;
+      line-height: 0.5;
+      text-align: center;
+      justify-content: center;
+    }
+
+    &__break span {
+      position: relative;
+    }
+
+    &__break span::before,
+    &__break span::after {
+      display: inline-block;
+      content: "";
+      flex-grow: 1;
+      position: absolute;
+      height: 5px;
+      border-bottom: 1px solid white;
+      border-top: 1px solid white;
+      top: 0;
+      min-width: 60px;
+      margin: 0 15px;
+    }
+
+    &__break span:before {
+      right: 100%;
+      margin-right: 15px;
+    }
+
+    &__break span:after {
+      left: 100%;
+      margin-left: 15px;
+    }
+
+  }
+}

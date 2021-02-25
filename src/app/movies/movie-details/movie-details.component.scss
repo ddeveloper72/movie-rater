@@ -1,0 +1,68 @@
+.movie-ratings {
+  display: flex;
+  align-items: center;
+
+  &__img {
+    // applied css class to div
+    display: flex;
+    justify-content: center;
+
+    & img {
+      height: auto;
+      width: 300px;
+      margin-top: 2rem;
+      border-radius: 25px;
+      box-shadow: 2rem 1.4rem 4rem rgba(#3d3c3c, .18);
+      transition: transform .3s;
+
+      &:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 2rem 1.4rem 4rem rgba(#696868, .18);
+      }
+    }
+  }
+}
+
+
+.votes {
+  padding-left: .4rem;
+  transform: translateY(-1px);
+}
+
+svg-icon-sprite.svg-star {
+  color: #fff;
+  height: 2rem;
+  width: 2rem;
+}
+
+
+svg-icon-sprite.svg-gold-star {
+  color: #cca20a;
+}
+
+.user-rating {
+  margin-top: 2rem;
+  border-top: 2px solid #585858;
+
+  &__select-stars {
+    display: flex;
+
+  }
+
+  &__movie-heading {
+    padding: 2rem 0;
+  }
+
+  &__empty-stars {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: #fff;
+  }
+
+  &__svg-star {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: #cca20a;
+    cursor: pointer;
+  }
+}

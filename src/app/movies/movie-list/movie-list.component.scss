@@ -1,0 +1,130 @@
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  margin: 15px 15px;
+  padding: 0 15px;
+
+  @media screen and (max-width: 700px) {
+    padding: 0%;
+  }
+
+  & svg-icon-sprite {
+    display: block;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__card {
+    // switched fex direction of parent for card
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    margin: 15px;
+
+    @media screen and (max-width: 700px) {
+      margin: auto;
+      margin-bottom: 15px;
+    }
+
+    &--img {
+      display: block;
+      // define max width and height to random size images
+      max-width: 100%;
+      max-height: 260px;
+      margin: 15px;
+      cursor: pointer;
+      box-shadow: 2rem 1.4rem 4rem rgba(#3d3c3c, .18);
+      transition: transform .3s;
+
+      &:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 2rem 1.4rem 4rem rgba(#696868, .18);
+      }
+
+    }
+
+    &--title {
+      display: flex;
+      grid-row: 2;
+      cursor: pointer;
+      margin-right: 5px;
+
+      &--svg {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        &-edit {
+          cursor: pointer;
+          margin-right: 15px;
+          color: #80ace2;
+          cursor: pointer;
+        }
+
+        &-trash {
+          color: #fd6f6f;
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+
+}
+
+
+.movie-list-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #bfd249;
+  margin-top: 2rem;
+  margin: 15px;
+  padding: 10px 10px;
+  // text-transform: uppercase;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all .2s;
+
+  &__svg-right {
+    // content: url(../../assets/sprites/chevron-small-right.svg);
+    height: 2rem;
+    width: 2rem;
+    float: left;
+    margin-right: 5px;
+    margin-top: -2px;
+    transition: all .2s;
+  }
+
+  &:hover {
+    // change background color of button
+     background-color: #d3f01b;
+     transform: translateY(-2px);
+     // animate button
+     -webkit-filter: drop-shadow(12px 12px 7px rgba(1, 34, 61, 0.699));
+     filter: drop-shadow(12px 12px 7px rgba(1, 34, 61, 0.699));
+
+    svg-icon-sprite {
+      // transition location & scale of svg on hover
+      display: flex;
+      align-items: center;
+      transform: translateX(4px) scale(1.4);
+    }
+
+
+  }
+
+  //add button clicked effects
+  &:active,
+  &:focus {
+    transform: translateY(-0.1rem);
+    /* reduce shadow size as well as the blur to give
+      appearance of button moving close to background: ; */
+    -webkit-filter: drop-shadow(0 .5rem 1rem rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 .5rem 1rem rgba(0, 0, 0, 0.5));
+    outline: none;
+  }
+}
