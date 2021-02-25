@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   { path: 'movies', component: MovieListComponent },
   { path: 'movie/:id', component: MovieDetailsComponent },
   { path: 'new', component: MovieFormComponent },
-  { path: 'update/:id', component: MovieFormComponent },
+  { path: 'edit/:id', component: MovieFormComponent },
 
   // otherwise redirect to home
   { path: '', redirectTo: '/home', pathMatch: 'full' }
