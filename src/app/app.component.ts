@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 // import { Router } from '@angular/router';
-// import { User } from './models/User';
-// import { AuthenticationService } from './services/authentication.service';
+import { User } from './models/User';
+import { AuthenticationService } from './services/authentication.service';
 
 
 @Component({
@@ -10,7 +10,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // currentUser: User;
+  currentUser: User;
 
-  constructor() {}
+  constructor(public authenticationService: AuthenticationService) {
+    this.authenticationService.currentUser.subscribe(
+      x => (this.currentUser = x)
+    );
+  }
 }
