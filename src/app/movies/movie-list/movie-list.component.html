@@ -1,5 +1,5 @@
 
-<div class="spinner" *ngIf="!isLoading else movieForm">
+<div class="spinner" *ngIf="!isLoading; else movieForm">
   <app-loading-spinner></app-loading-spinner>
 </div>
 <ng-template #movieForm>
