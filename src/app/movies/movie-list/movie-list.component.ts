@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs';
 import { Movie } from '../../models/Movie';
 import { ApiService } from '../../services/api.service';
 
+import { AuthenticationService } from '../../services/authentication.service';
+import { User } from '../../models/User';
+
 
 @Component({
   selector: 'app-movie-list',
@@ -12,6 +15,8 @@ import { ApiService } from '../../services/api.service';
 export class MovieListComponent implements OnInit {
   isLoading = false;
   subscription: Subscription;
+  currentUser: User;
+
   @Input()
   movies: Movie[] = []; // list component now comes from api service, type of Movie
   // @Output() selectMovie = new EventEmitter<Movie>();
@@ -20,15 +25,20 @@ export class MovieListComponent implements OnInit {
   @Output() createNewMovie = new EventEmitter(); // emit an empty event
 
   constructor(
-    public apiservice: ApiService
-  ) {}
+    public apiservice: ApiService,
+    public authenticationService: AuthenticationService
+  ) {
+    this.authenticationService.currentUser.subscribe(
+      x => (this.currentUser = x)
+    );
+  }
 
   ngOnInit(): void {
     // subscribe to getMovies data from ApiService to observe when data is called
     var observable = this.apiservice.getMovies();
     // subscribe to the data so it can be unsubscribed once page is unloaded
     this.subscription = observable.subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.isLoading = true;
       this.movies = data;
     });
