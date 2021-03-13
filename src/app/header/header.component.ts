@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/welcome']);
   }
 
   toggleMobileNav(): void {
