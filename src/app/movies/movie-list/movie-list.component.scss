@@ -17,13 +17,15 @@
   }
 
   &__card {
-    // switched fex direction of parent for card
+    display: grid;
+    grid-template-rows: 2fr .5fr;
     flex-direction: column;
-    justify-content: center;
     padding: 10px;
     margin: 15px;
+    // justify-content: space-between;
 
     @media screen and (max-width: 700px) {
+      display: grid;
       margin: auto;
       margin-bottom: 15px;
     }
@@ -31,7 +33,8 @@
     &--img {
       display: block;
       // define max width and height to random size images
-      max-width: 100%;
+      width: 100%;
+      max-width: 200px;
       max-height: 260px;
       margin: 15px;
       cursor: pointer;
@@ -44,6 +47,15 @@
       }
 
     }
+
+    &--hero {
+      margin-top: 0;
+    }
+
+    &--info {
+      align-self: flex-end;
+    }
+
 
     &--title {
       display: flex;
@@ -75,7 +87,6 @@
 
 
 .movie-list-button {
-  display: flex;
   align-items: center;
   border: none;
   border-radius: 5px;
@@ -88,8 +99,7 @@
   cursor: pointer;
   transition: all .2s;
 
-  &__svg-right {
-    // content: url(../../assets/sprites/chevron-small-right.svg);
+  &__svg-add {
     height: 2rem;
     width: 2rem;
     float: left;
@@ -101,25 +111,23 @@
   &:hover {
     // change background color of button
      background-color: #d3f01b;
-     transform: translateY(-2px);
+     transform: translateY(-1px) translateX(1px);
      // animate button
      -webkit-filter: drop-shadow(12px 12px 7px rgba(1, 34, 61, 0.699));
      filter: drop-shadow(12px 12px 7px rgba(1, 34, 61, 0.699));
 
-    svg-icon-sprite {
+    & svg-icon-sprite {
       // transition location & scale of svg on hover
       display: flex;
       align-items: center;
-      transform: translateX(4px) scale(1.4);
+      transform: scale(1.1);
     }
-
-
   }
 
   //add button clicked effects
   &:active,
   &:focus {
-    transform: translateY(-0.1rem);
+    transform: translateY(-0.1px);
     /* reduce shadow size as well as the blur to give
       appearance of button moving close to background: ; */
     -webkit-filter: drop-shadow(0 .5rem 1rem rgba(0, 0, 0, 0.5));
