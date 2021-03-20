@@ -3,7 +3,7 @@
   <form [formGroup]="movieForm" (ngSubmit)="saveForm()">
     <label class="form__label" for="title">Title:</label>
 
-    <input class="form__title" type="text" formControlName="title"><br>
+    <input class="form__title" type="text" formControlName="title">
 
     <label class="form__label" for="description">Description:</label>
 
@@ -16,16 +16,49 @@
     <div class="form__img">
       <img *ngIf="imagePath.value" [src]="imagePath.value">
     </div>
-
-    <button class="form-button" type="submit" [disabled]="!movieForm.valid">
-      <svg-icon-sprite class="form-button__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-save'">
-      </svg-icon-sprite>
-      <span *ngIf="id">Update</span>
-      <span *ngIf="!id">Create</span>
-    </button>
-
   </form>
 
+  <div class="form-button">
+
+    <div
+    *ngIf="id; else newMovie">
+
+      <button class="form-button__edit" type="submit" [disabled]="!movieForm.valid">
+        <svg-icon-sprite class="form-button__svg-sprite-1" [src]="'assets/sprites/sprite.svg#icon-save'">
+        </svg-icon-sprite>
+        <span>Update</span>
+      </button>
+
+      <button class="form-button__cancel" type="submit" (click)="onCancel()">
+        <svg-icon-sprite class="form-button__svg-sprite-2" [src]="'assets/sprites/sprite.svg#icon-log-out'">
+        </svg-icon-sprite>
+        <span>Cancel</span>
+      </button>
+
+    </div>
+
+
+    <!-- sprite has to be soured as xlink -->
+    <ng-template #newMovie>
+      <button class="form-button__edit" type="submit" [disabled]="!movieForm.valid">
+        <svg class="form-button__svg-sprite-1">
+          <use xlink:href="assets/sprites/sprite.svg#icon-save">
+          </use>
+        </svg>
+        <span>Create</span>
+      </button>
+
+      <button class="form-button__cancel" type="submit" (click)="onCancel()">
+        <svg class="form-button__svg-sprite-2">
+          <use xlink:href="assets/sprites/sprite.svg#icon-log-out">
+          </use>
+        </svg>
+        <span>Cancel</span>
+      </button>
+
+    </ng-template>
+
+  </div>
 </div>
 
 
