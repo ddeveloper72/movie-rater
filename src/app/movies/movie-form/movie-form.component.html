@@ -24,13 +24,13 @@
     *ngIf="id; else newMovie">
 
       <button class="form-button__edit" type="submit" [disabled]="!movieForm.valid">
-        <svg-icon-sprite class="form-button__svg-sprite-1" [src]="'assets/sprites/sprite.svg#icon-save'">
+        <svg-icon-sprite class="form-button__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-save'">
         </svg-icon-sprite>
         <span>Update</span>
       </button>
 
       <button class="form-button__cancel" type="submit" (click)="onCancel()">
-        <svg-icon-sprite class="form-button__svg-sprite-2" [src]="'assets/sprites/sprite.svg#icon-log-out'">
+        <svg-icon-sprite class="form-button__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-ccw'">
         </svg-icon-sprite>
         <span>Cancel</span>
       </button>
@@ -41,7 +41,7 @@
     <!-- sprite has to be soured as xlink -->
     <ng-template #newMovie>
       <button class="form-button__edit" type="submit" [disabled]="!movieForm.valid">
-        <svg class="form-button__svg-sprite-1">
+        <svg class="form-button__svg-sprite">
           <use xlink:href="assets/sprites/sprite.svg#icon-save">
           </use>
         </svg>
@@ -49,8 +49,8 @@
       </button>
 
       <button class="form-button__cancel" type="submit" (click)="onCancel()">
-        <svg class="form-button__svg-sprite-2">
-          <use xlink:href="assets/sprites/sprite.svg#icon-log-out">
+        <svg class="form-button__svg-sprite">
+          <use xlink:href="assets/sprites/sprite.svg#icon-ccw">
           </use>
         </svg>
         <span>Cancel</span>
