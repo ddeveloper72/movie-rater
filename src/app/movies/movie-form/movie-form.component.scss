@@ -1,13 +1,13 @@
 .form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  display: block;
   font-weight: 400;
   font-size: 2rem;
   margin: 0 25px;
+  width: 90%;
 
 
   &__label {
+    display: flex;
     border-radius: 5px;
     margin-top: 15px;
   }
@@ -18,7 +18,7 @@
     border-radius: 5px;
     padding: 0 10px;
     height: 35px;
-    width: 90%;
+    // width: 90%;
 
     &:active,
     &:focus {
@@ -56,7 +56,8 @@
 
     & img {
       height: auto;
-      width: 300px;
+      width: 100%;
+      max-width: 300px;
       border-radius: 25px;
       box-shadow: 2rem 1.4rem 4rem rgba(#3d3c3c, .18);
       transition: transform .3s;
@@ -79,59 +80,78 @@
   }
 }
 
-.form-button {
+.form-button  {
   display: flex;
   align-items: center;
-  border: none;
-  border-radius: 5px;
-  background-color: #ec840d;
-  margin-top: 2rem;
-  padding: 1.2rem 2rem;
-  text-transform: capitalize;
-  font-size: 1.8rem;
-  cursor: pointer;
-  transition: all .2s;
+  // transition: all .2s;
 
-  &__svg-sprite {
+  &__edit,
+  &__cancel {
+    border-radius: 5px;
+    background-color: #ec840d;
+    border: none;
+    margin-top: 2rem;
+    padding: 1.2rem 2rem;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+    @media screen and (max-width: 295px) {
+      padding: 1rem 1.1rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__edit {
+    margin-right: 15px;
+  }
+
+
+  & svg-icon-sprite,
+  & svg {
     height: 2rem;
     width: 2rem;
     float: left;
     margin-right: 5px;
     margin-top: -2px;
-    transition: all .4s;
+    // transition-property: none;
+    transition-duration: .4s;
   }
 
   // when button is disabled, change pointer and shrink save icon
-  &:disabled {
+  &__edit:disabled {
     cursor: not-allowed;
 
     &:hover {
-      svg-icon-sprite {
+      svg-icon-sprite,
+      svg {
         // transition location & scale of svg on hover
         display: flex;
         align-items: center;
-        transform: translateX(4px) scale(0.1);
+        transform: translateX(2px) scale(0.1);
       }
+
     }
   }
 
   // when button enabled, grow save icon
-  &:hover  {
+  &__edit:hover,
+  &__cancel:hover {
     background-color: #ca7009;
 
-    svg-icon-sprite {
+    svg-icon-sprite,
+    svg {
       // transition location & scale of svg on hover
       display: flex;
       align-items: center;
-      transform: translateX(4px) scale(1.1);
+      transform: scale(1.1);
     }
   }
-
-  &:active,
-  &:focus {
-   outline: none;
-  }
-
 }
 
 // only show border in column view
