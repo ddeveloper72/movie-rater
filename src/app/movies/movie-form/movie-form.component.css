@@ -1,20 +1,15 @@
 .form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: block;
   font-weight: 400;
   font-size: 2rem;
   margin: 0 25px;
+  width: 90%;
 }
 
 .form__label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   border-radius: 5px;
   margin-top: 15px;
 }
@@ -25,7 +20,6 @@
   border-radius: 5px;
   padding: 0 10px;
   height: 35px;
-  width: 90%;
 }
 
 .form__title:active, .form__title:focus {
@@ -64,7 +58,8 @@
 
 .form__img img {
   height: auto;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   border-radius: 25px;
   -webkit-box-shadow: 2rem 1.4rem 4rem rgba(61, 60, 60, 0.18);
           box-shadow: 2rem 1.4rem 4rem rgba(61, 60, 60, 0.18);
@@ -98,60 +93,76 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: none;
+}
+
+.form-button__edit, .form-button__cancel {
   border-radius: 5px;
   background-color: #ec840d;
+  border: none;
   margin-top: 2rem;
   padding: 1.2rem 2rem;
   text-transform: capitalize;
   font-size: 1.8rem;
   cursor: pointer;
-  -webkit-transition: all .2s;
-  transition: all .2s;
 }
 
-.form-button__svg-sprite {
+.form-button__edit:active, .form-button__edit:focus, .form-button__cancel:active, .form-button__cancel:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 295px) {
+  .form-button__edit, .form-button__cancel {
+    padding: 1rem 1.1rem;
+    font-size: 1.2rem;
+  }
+}
+
+.form-button__edit {
+  margin-right: 15px;
+}
+
+.form-button svg-icon-sprite,
+.form-button svg {
   height: 2rem;
   width: 2rem;
   float: left;
   margin-right: 5px;
   margin-top: -2px;
-  -webkit-transition: all .4s;
-  transition: all .4s;
+  -webkit-transition-duration: .4s;
+          transition-duration: .4s;
 }
 
-.form-button:disabled {
+.form-button__edit:disabled {
   cursor: not-allowed;
 }
 
-.form-button:disabled:hover svg-icon-sprite {
+.form-button__edit:disabled:hover svg-icon-sprite,
+.form-button__edit:disabled:hover svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transform: translateX(4px) scale(0.1);
-          transform: translateX(4px) scale(0.1);
+  -webkit-transform: translateX(2px) scale(0.1);
+          transform: translateX(2px) scale(0.1);
 }
 
-.form-button:hover {
+.form-button__edit:hover, .form-button__cancel:hover {
   background-color: #ca7009;
 }
 
-.form-button:hover svg-icon-sprite {
+.form-button__edit:hover svg-icon-sprite,
+.form-button__edit:hover svg, .form-button__cancel:hover svg-icon-sprite,
+.form-button__cancel:hover svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transform: translateX(4px) scale(1.1);
-          transform: translateX(4px) scale(1.1);
-}
-
-.form-button:active, .form-button:focus {
-  outline: none;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .border {
