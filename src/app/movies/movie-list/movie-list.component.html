@@ -5,36 +5,39 @@
 <ng-template #movieForm>
   <div class="movie-list">
     <ng-container *ngFor="let movie of movies">
-    <div class="movie-list__card">
-      <a [routerLink]="['/movie', movie.id]">
-        <img *ngIf="movie.imagePath" [src]="movie.imagePath" alt="{{ movie.title }}"
-        class="movie-list__card--img">
-      </a>
-      <h3 class="movie-list__card--title">
-      {{ movie.id }}
-      {{ ((movie.title).length>15)? (movie.title | slice:0:15)+'...':(movie.title) }}
-    </h3>
-    <div class="movie-list__card--title--svg">
-      <svg-icon-sprite class="movie-list__card--title--svg-edit"
-      [routerLink]="['/edit', movie.id]"
-      [src]="'assets/sprites/sprite.svg#icon-new-message'">
-    </svg-icon-sprite>
-    <svg-icon-sprite class="movie-list__card--title--svg-trash"
-    [src]="'assets/sprites/sprite.svg#icon-trash'"
-    (click)="deleteMovie(movie)">
-    </svg-icon-sprite>
-
-    </div>
-  </div>
-  </ng-container>
+      <div class="movie-list__card">
+        <div class="movie-list__card--hero">
+          <a [routerLink]="['/movie', movie.id]">
+            <img *ngIf="movie.imagePath" [src]="movie.imagePath" alt="{{ movie.title }}"
+            class="movie-list__card--img">
+          </a>
+        </div>
+        <div class="movie-list__card--info">
+          <h3 class="movie-list__card--title">
+          {{ movie.id }}
+          {{ ((movie.title).length>15)? (movie.title | slice:0:15)+'...':(movie.title) }}
+          </h3>
+          <div class="movie-list__card--title--svg">
+            <svg-icon-sprite class="movie-list__card--title--svg-edit"
+            [routerLink]="['/edit', movie.id]"
+            [src]="'assets/sprites/sprite.svg#icon-new-message'">
+            </svg-icon-sprite>
+            <svg-icon-sprite class="movie-list__card--title--svg-trash"
+            [src]="'assets/sprites/sprite.svg#icon-trash'"
+            (click)="deleteMovie(movie)">
+            </svg-icon-sprite>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </ng-template>
 
-  <button class="movie-list-button"
-  [routerLink]="['/new']"
-  >
-    <svg-icon-sprite class="movie-list-button__svg-right"
-    [src]="'assets/sprites/sprite.svg#icon-chevron-small-right'">
-      </svg-icon-sprite>
-      New Movie
-  </button>
+<button class="movie-list-button"
+[routerLink]="['/new']"
+>
+  <svg-icon-sprite class="movie-list-button__svg-add"
+  [src]="'assets/sprites/sprite.svg#icon-add-to-list'">
+  </svg-icon-sprite>
+  New Movie
+</button>
