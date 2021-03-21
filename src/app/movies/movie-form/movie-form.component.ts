@@ -3,7 +3,6 @@ import { Movie } from '../../models/Movie';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
 @Component({
   selector: 'app-movie-form',
   templateUrl: './movie-form.component.html',
@@ -11,21 +10,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MovieFormComponent implements OnInit {
   movieForm: any;
-  id = null; // is true for new movie, but present for existing movie
+  id: number | null; // is true for new movie, but present for existing movie
+  editMode: false;
 
   // use movieForm to render the values of the movie from the Input
   @Input() set movie(val: Movie) {
     this.id = val.id; // lets function know if move is new or existing
     console.log(this.id);
+
     this.movieForm = new FormGroup({
-      title: new FormControl(val.title, [Validators.required]),
-      description: new FormControl(val.description, [Validators.required]),
+      title: new FormControl(val.title, Validators.minLength(2)),
+      description: new FormControl(val.description, Validators.minLength(30)),
       imagePath: new FormControl(val.imagePath)
     });
   }
 
-  @Output() movieCreated = new EventEmitter<Movie>();
+
   @Output() movieUpdated = new EventEmitter<Movie>();
+  @Output() movieCreated = new EventEmitter<Movie>();
 
   constructor(
     private apiService: ApiService,
@@ -70,5 +72,10 @@ export class MovieFormComponent implements OnInit {
           error => console.log(error)
         );
     }
+    this.onCancel();
+  }
+
+  onCancel(): void {
+    this.router.navigate(['/movies'], { relativeTo: this.route });
   }
 }
