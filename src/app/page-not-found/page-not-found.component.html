@@ -1,1 +1,14 @@
-<p>page-not-found works!</p>
+<div class="container">
+  <div class="container__error">
+    <div class="container__error--img">
+      <a [routerLink]="'/movies'">
+        <img [src]="'assets/404error.png'" alt="404 page not found">
+      </a>
+
+    </div>
+    <div class="container__error--description">
+      <p>What you were looking for is just not there...</p>
+    </div>
+
+  </div>
+</div>
