@@ -21,6 +21,34 @@
       margin-right: 15px;
       width: 5rem;
       height: 5rem;
+      animation: slide 5s;
+
+      &:hover {
+        @keyframes slide {
+          0% {
+            transform: translateX(140px);
+            opacity: 0;
+            z-index: -1;
+          }
+          20% {
+            opacity: .2;
+          }
+          40% {
+            opacity: .4;
+          }
+          60% {
+            opacity: .6;
+          }
+          80% {
+            opacity: .8;
+            z-index: 2;
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0)
+          }
+        }
+      }
 
     }
 
