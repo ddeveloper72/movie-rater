@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { MainComponent } from './movies/main.component';
 import { AuthGuard } from './helper/auth.guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   // { path: '', component: HomeComponent },
@@ -13,7 +14,7 @@ const appRoutes: Routes = [
     component: MainComponent,
     canActivate: [AuthGuard]
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
