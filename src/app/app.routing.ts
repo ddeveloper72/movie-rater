@@ -7,7 +7,7 @@ import { AuthGuard } from './helper/auth.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
-  // { path: '', component: HomeComponent },
+  { path: 'welcome', component: HomeComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   {
     path: 'movies',
