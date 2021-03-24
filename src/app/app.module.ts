@@ -14,10 +14,11 @@ import { HomeComponent } from './home/home.component';
 import { HttpErrorInterceptor } from './helper/error.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, FooterComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     AuthModule,
