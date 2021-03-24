@@ -33,6 +33,10 @@
   height: 5rem;
 }
 
+.content__rater a {
+  text-decoration: none;
+}
+
 .content__rater--heading {
   color: #e2d285;
   font-family: cursive;
