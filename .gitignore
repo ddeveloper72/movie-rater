@@ -48,3 +48,4 @@ src/environments/environment.ts
 *.css.map
 package-lock.json
 tsconfig.json
+.angular/*
