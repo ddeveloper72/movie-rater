@@ -10,11 +10,10 @@ const port = 8080;
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/movie-rater'));
 
-app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: __dirname })
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname +
+    '/dist/movie-rater/index.html'));
 });
 
-
-app.listen(port, () => {
-  console.log("Server is listening on port " + port);
-});
+// Serve app on eng specified prot or Angular default
+app.listen(process.env.PORT || 8080);
