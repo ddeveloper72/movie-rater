@@ -3,21 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --configuration production",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "dev": "lite-server",
-    "start": "node server.js"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.0.3",
-    "@angular/cli": "^13.0.4",
     "@angular/common": "~13.0.3",
     "@angular/compiler": "~13.0.3",
-    "@angular/compiler-cli": "~13.0.3",
     "@angular/core": "~13.0.3",
     "@angular/forms": "~13.0.3",
     "@angular/platform-browser": "~13.0.3",
