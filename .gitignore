@@ -49,3 +49,4 @@ src/environments/environment.ts
 package-lock.json
 tsconfig.json
 .angular/*
+.firebase/*.cache
