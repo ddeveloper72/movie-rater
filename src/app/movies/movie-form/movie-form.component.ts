@@ -16,7 +16,6 @@ export class MovieFormComponent implements OnInit {
   // use movieForm to render the values of the movie from the Input
   @Input() set movie(val: Movie) {
     this.id = val.id; // lets function know if move is new or existing
-    console.log(this.id);
 
     this.movieForm = new FormGroup({
       title: new FormControl(val.title, Validators.minLength(2)),
@@ -39,7 +38,6 @@ export class MovieFormComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       console.log(params.get('id'));
       this.apiService.getMovie(params.get('id')).subscribe(c => {
-        console.log(c);
         this.movie = c;
       });
     });
