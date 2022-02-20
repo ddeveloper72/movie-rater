@@ -1,62 +1,112 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import Validation from '../helper/validation';
 import { first } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../models/User';
 import { AuthenticationService } from '../services/authentication.service';
 import { PlaceholderDirective } from '../shared/placeholder.directive';
 // import custom validator to validate that password and confirm password fields match
-import { MustMatch } from '../helper/must-match.validator';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
   currentUser: User;
-  authForm: FormGroup;
   loading = false;
-  submitted = false;
   returnUrl: string;
-  error = '';
-  registerMode = false;
-  @ViewChild(PlaceholderDirective, {static: false}) alertHost: PlaceholderDirective;
+  registerMode: boolean;
+  @ViewChild(PlaceholderDirective, { static: false })
+  alertHost: PlaceholderDirective;
+  form: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+    // confirmPassword: new FormControl(''),
+  });
+  submitted = false;
 
   constructor(
-    private formBuilder: FormBuilder,
     public authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {
     this.authenticationService.currentUser.subscribe(
-      x =>
-      this.currentUser = x);
-  }
-
-
-  ngOnInit(): void {
-    this.authForm = this.formBuilder.group(
-      {
-        username: ['', Validators.required],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', Validators.required]
-      },
-      {
-        validator: MustMatch('password', 'confirmPassword')
-      }
+      (x) => (this.currentUser = x)
     );
   }
 
-  // convenience getter for easy access to form fields
-  get f(): any {
-    return this.authForm.controls;
+  ngOnInit(): void {
+    // use separate validation methods for registered and registering users
+    if (!this.registerMode) {
+      this.form = this.formBuilder.group(
+        {
+          username: [
+            '',
+            [
+              Validators.required,
+              Validators.minLength(6),
+              Validators.maxLength(20),
+            ],
+          ],
+          password: [
+            '',
+            [
+              Validators.required,
+              Validators.minLength(6),
+              Validators.maxLength(40),
+            ],
+          ],
+        }
+      );
+    } else {
+      // Register Mode
+      this.form = this.formBuilder.group(
+        {
+          username: [
+            '',
+            [
+              Validators.required,
+              Validators.minLength(6),
+              Validators.maxLength(20),
+            ],
+          ],
+          password: [
+            '',
+            [
+              Validators.required,
+              Validators.minLength(6),
+              Validators.maxLength(40),
+            ],
+          ],
+          confirmPassword: ['', Validators.required],
+        },
+        {
+          validators: [Validation.match('password', 'confirmPassword')],
+        }
+      );
+    }
+
   }
 
-  saveForm(): void {
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
+
+  onSubmit(): void {
     this.submitted = true;
+    console.log(JSON.stringify(this.form.value, null, 2));
 
     // if form invalid, Stop
-    if (this.authForm.invalid) {
+    if (this.form.invalid) {
+      console.log(Response + '🛑 This from is invalid');
       return;
     }
 
@@ -66,40 +116,45 @@ export class AuthComponent implements OnInit {
 
       // register new user passing data to authenticationService then pass data to loginUser()
     } else {
-      this.authenticationService.register(this.authForm.value).subscribe(
-        result => {
+      this.authenticationService.register(this.form.value).subscribe(
+        (result) => {
           this.loginUser();
           // save the authentication token from the backend as currentUser in local storage
           console.log('Register form result:', result);
         },
-        error => {
-          this.error = error;
+        (error) => {
+          console.log(error);
           this.loading = false;
-        });
-      }
-    this.authForm.reset();
+          this.onReset();
+        }
+      );
+    }
+  }
+
+  onReset(): void {
+    this.submitted = false;
+    this.form.reset();
   }
 
   loginUser(): void {
     this.submitted = true; // login user
     // stop here if form is invalid
-    if (this.authForm.invalid) {
+    if (this.form.invalid) {
       return;
     }
     this.loading = true;
     this.authenticationService
-      .login(this.authForm.value)
+      .login(this.form.value)
       .pipe(first())
       .subscribe(
-        result => {
+        (result) => {
           // pass data to AuthenticationService service where it is saved in local storage as a value.
           // the AuthService then shares the user status with other app components.
           this.router.navigate(['/movies']);
         },
-        error => {
-          this.error = error;
+        (error) => {
           this.loading = false;
-          this.authForm.reset();
+          this.onReset();
         }
       );
   }
