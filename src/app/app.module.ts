@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -27,6 +28,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     // RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }), // include imports for routes into the main module
     IconSpriteModule,
+    ReactiveFormsModule,
     SharedModule
   ],
   exports: [
