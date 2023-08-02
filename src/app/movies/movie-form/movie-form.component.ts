@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../../models/Movie';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
@@ -17,10 +17,10 @@ export class MovieFormComponent implements OnInit {
   @Input() set movie(val: Movie) {
     this.id = val.id; // lets function know if move is new or existing
 
-    this.movieForm = new FormGroup({
-      title: new FormControl(val.title, Validators.minLength(2)),
-      description: new FormControl(val.description, Validators.minLength(30)),
-      imagePath: new FormControl(val.imagePath)
+    this.movieForm = new UntypedFormGroup({
+      title: new UntypedFormControl(val.title, Validators.minLength(2)),
+      description: new UntypedFormControl(val.description, Validators.minLength(30)),
+      imagePath: new UntypedFormControl(val.imagePath)
     });
   }
 

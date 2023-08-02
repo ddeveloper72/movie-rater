@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import Validation from '../helper/validation';
@@ -26,9 +26,9 @@ export class AuthComponent implements OnInit {
   registerMode: boolean;
   @ViewChild(PlaceholderDirective, { static: false })
   alertHost: PlaceholderDirective;
-  form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    username: new UntypedFormControl(''),
+    password: new UntypedFormControl(''),
     // confirmPassword: new FormControl(''),
   });
   submitted = false;
@@ -36,7 +36,7 @@ export class AuthComponent implements OnInit {
   constructor(
     public authenticationService: AuthenticationService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {
     this.authenticationService.currentUser.subscribe(
       (x) => (this.currentUser = x)
