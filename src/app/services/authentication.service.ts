@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { User } from '../models/User';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
@@ -15,7 +15,7 @@ export class AuthenticationService {
   // public baseUrl = 'http://127.0.0.1:8000/';
   public baseUrl = 'https://ddeveloper72-movie-rater-api.herokuapp.com/';
   public headers = new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   });
 
   constructor(private http: HttpClient, private router: Router) {
@@ -35,10 +35,10 @@ export class AuthenticationService {
     const body = JSON.stringify(user);
     return this.http
       .post<User>(`${this.baseUrl}auth/`, body, {
-        headers: this.headers
+        headers: this.headers,
       })
       .pipe(
-        map(result => {
+        map((result) => {
           // store user token in local storage to keep user logged in between page refreshes
           localStorage.setItem(
             'currentUser',
@@ -54,7 +54,7 @@ export class AuthenticationService {
     // pass user object, username & password to api service headers
     const body = JSON.stringify(user);
     return this.http.post(`${this.baseUrl}api/users/`, body, {
-      headers: this.headers
+      headers: this.headers,
     });
   }
 
@@ -75,7 +75,7 @@ export class AuthenticationService {
     // console.log('getAuthHeaders', clearToken.token);
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `token ${clearToken.token}`
+      Authorization: `token ${clearToken.token}`,
     });
   }
 }
