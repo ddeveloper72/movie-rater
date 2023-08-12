@@ -11,8 +11,8 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class MainComponent implements OnInit {
   movies: Movie[] = []; // list component now comes from api service, type of any
-  selectedMovie = null;
-  editedMovie = null;
+  selectedMovie: Movie = null; // selected movie is null by default
+  editedMovie: Movie = null; // edited movie is null by default
 
   constructor(
     private apiService: ApiService, // initialize service
