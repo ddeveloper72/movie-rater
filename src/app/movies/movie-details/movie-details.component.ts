@@ -47,8 +47,9 @@ export class MovieDetailsComponent implements OnInit {
     );
   }
 
-  closeMovie(event): void {
-    this.updateMovie.emit();
+  closeMovie(): void { // close movie details
+    this.movie = null;
+    this.updateMovie.emit(null);
   }
 
 }
