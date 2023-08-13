@@ -8,8 +8,8 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root',
 })
 export class ApiService {
-  // public baseUrl = 'http://127.0.0.1:8000/';
-  public baseUrl = 'https://ddeveloper72-movie-rater-api.herokuapp.com/';
+  public baseUrl = 'http://127.0.0.1:8000/';
+  // public baseUrl = 'https://ddeveloper72-movie-rater-api.herokuapp.com/';
   public baseMovieUrl = `${this.baseUrl}api/movies/`;
   public headers = new HttpHeaders({
     'Content-Type': 'application/json', // use token from local storage
@@ -27,7 +27,7 @@ export class ApiService {
   }
 
   // get the specific rating of a movie so the data can be refreshed dynamically after user adds rating
-  getMovie(movieId) {
+  getMovie(movieId: number) {
     return this.httpClient.get<Movie>(`${this.baseMovieUrl}${movieId}/`, {
       headers: this.authenticationService.getAuthHeaders(),
     }); // pass headers to baseMovieUrl
