@@ -1,12 +1,16 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../../models/Movie';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  UntypedFormControl,
+  Validators,
+} from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-movie-form',
   templateUrl: './movie-form.component.html',
-  styleUrls: ['./movie-form.component.css']
+  styleUrls: ['./movie-form.component.css'],
 })
 export class MovieFormComponent implements OnInit {
   movieForm: any;
@@ -19,11 +23,13 @@ export class MovieFormComponent implements OnInit {
 
     this.movieForm = new UntypedFormGroup({
       title: new UntypedFormControl(val.title, Validators.minLength(2)),
-      description: new UntypedFormControl(val.description, Validators.minLength(30)),
-      imagePath: new UntypedFormControl(val.imagePath)
+      description: new UntypedFormControl(
+        val.description,
+        Validators.minLength(30)
+      ),
+      imagePath: new UntypedFormControl(val.imagePath),
     });
   }
-
 
   @Output() movieUpdated = new EventEmitter<Movie>();
   @Output() movieCreated = new EventEmitter<Movie>();
@@ -31,19 +37,22 @@ export class MovieFormComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       console.log(params.get('id'));
-      this.apiService.getMovie(params.get('id')).subscribe(c => {
+      const movieId = Number(params.get('id')); // Convert the string to a number
+      this.apiService.getMovie(movieId).subscribe((c) => {
+        // show movie detail
         this.movie = c;
       });
     });
   }
 
   saveForm(): void {
+    alert('Movie Updated');
     console.log(this.movieForm.value);
     // evaluate if movie is existing- has an id or not, then run respective logic
     if (this.id) {
@@ -55,8 +64,8 @@ export class MovieFormComponent implements OnInit {
           this.movieForm.value.imagePath
         )
         .subscribe(
-          (result: Movie) => this.movieUpdated.emit(result),
-          error => console.log(error)
+          (Movie: any) => this.movieUpdated.emit(Movie),
+          (error) => console.log(error)
         );
     } else {
       this.apiService
@@ -66,9 +75,10 @@ export class MovieFormComponent implements OnInit {
           this.movieForm.value.imagePath
         )
         .subscribe(
-          (result: Movie) => this.movieCreated.emit(result),
-          error => console.log(error)
+          (Movie: any) => this.movieCreated.emit(Movie),
+          (error) => console.log(error)
         );
+      alert('Movie Created');
     }
     this.onCancel();
   }
