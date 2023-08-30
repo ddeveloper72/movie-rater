@@ -1,64 +1,115 @@
 <div class="form">
   <a [routerLink]="'/movies'" class="close"></a>
-  <form [formGroup]="movieForm" (ngSubmit)="saveForm()">
-    <label class="form__label" for="title">Title:</label>
 
-    <input class="form__title" type="text" formControlName="title">
-
-    <label class="form__label" for="description">Description:</label>
-
-    <textarea class="from__description" rows="5" type="text" formControlName="description"></textarea>
-
-    <label class="form__label" for="name">Img URL</label>
-
-    <input class="form__url" type="text" formControlName="imagePath" #imagePath>
-
-    <div class="form__img">
-      <img *ngIf="imagePath.value" [src]="imagePath.value">
-    </div>
-  </form>
-
-  <div class="form-button">
-
-    <div
-    *ngIf="id; else newMovie">
-
-      <button class="form-button__edit" type="submit" [disabled]="!movieForm.valid">
-        <svg-icon-sprite class="form-button__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-save'">
-        </svg-icon-sprite>
-        <span>Update</span>
-      </button>
-
-      <button class="form-button__cancel" type="submit" (click)="onCancel()">
-        <svg-icon-sprite class="form-button__svg-sprite" [src]="'assets/sprites/sprite.svg#icon-ccw'">
-        </svg-icon-sprite>
-        <span>Cancel</span>
-      </button>
-
-    </div>
+  <div *ngIf="id; else newMovie">
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+      <div>
+        <div class="form__form-group">
+          <label class="form__label" for="title">Title:
+          </label>
+          <input class="form__title" type="text" id="title" formControlName="title">
+        </div>
 
 
-    <!-- sprite has to be soured as xlink -->
-    <ng-template #newMovie>
-      <button class="form-button__edit" type="submit" [disabled]="!movieForm.valid">
-        <svg class="form-button__svg-sprite">
-          <use xlink:href="assets/sprites/sprite.svg#icon-save">
-          </use>
-        </svg>
-        <span>Create</span>
-      </button>
+        <div class="form__form-group">
+          <label class="form__label" for="description">Description:
+          </label>
+          <textarea class="from__description" rows="5" type="text" id="description"
+            formControlName="description"></textarea>
+        </div>
 
-      <button class="form-button__cancel" type="submit" (click)="onCancel()">
-        <svg class="form-button__svg-sprite">
-          <use xlink:href="assets/sprites/sprite.svg#icon-ccw">
-          </use>
-        </svg>
-        <span>Cancel</span>
-      </button>
 
-    </ng-template>
+        <div class="form__form-group">
+          <label class="form__label" for="imagePath">Img URL:
+          </label>
+          <input class="form__url" type="image" id="imagePath" alt="Movie Title" formControlName="imagePath" #imagePath>
+        </div>
 
+        <div class="form__img">
+          <img *ngIf="imagePath.value" [src]="imagePath.value" alt="{{ movie.title }}">
+        </div>
+
+      </div>
+
+
+
+
+      <!-- switch between editing and cancelling the form -->
+      <!-- as well as creating a new movie -->
+      <div class="form-button">
+        <!-- sprite has to be soured as xlink -->
+
+        <button class="form-button__edit" type="submit" [disabled]="!movieForm.valid">
+          <svg class="form-button__svg-sprite">
+            <use xlink:href="assets/sprites/sprite.svg#icon-save">
+            </use>
+          </svg>
+          <span>Update</span>
+        </button>
+
+        <button class="form-button__cancel" type="submit" (click)="onCancel()">
+          <svg class="form-button__svg-sprite">
+            <use xlink:href="assets/sprites/sprite.svg#icon-ccw">
+            </use>
+          </svg>
+          <span>Cancel</span>
+        </button>
+
+      </div>
+    </form>
   </div>
+
+  <ng-template #newMovie>
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+      <div>
+        <div class="form__form-group">
+          <label class="form__label" for="title2">Title:
+          </label>
+          <input class="form__title" type="text" id="title2" formControlName="title">
+        </div>
+
+
+        <div class="form__form-group">
+          <label class="form__label" for="description2">Description:
+          </label>
+          <textarea class="from__description" rows="5" type="text" id="description2"
+            formControlName="description"></textarea>
+        </div>
+
+
+        <div class="form__form-group">
+          <label class="form__label" for="imagePath2">Img URL:
+          </label>
+          <input class="form__url" type="image" id="imagePath2" alt="Movie Title" formControlName="imagePath" #imagePath>
+        </div>
+
+        <div class="form__img">
+          <img *ngIf="imagePath.value" [src]="imagePath.value" alt="{{ movie.title }}">
+        </div>
+
+      </div>
+
+      <div class="form-button">
+        <!-- sprite has to be soured as xlink -->
+
+        <button class="form-button__edit" type="submit" [disabled]="!movieForm.valid">
+          <svg class="form-button__svg-sprite">
+            <use xlink:href="assets/sprites/sprite.svg#icon-save">
+            </use>
+          </svg>
+          <span>Create</span>
+        </button>
+
+        <button class="form-button__cancel" type="submit" (click)="onCancel()">
+          <svg class="form-button__svg-sprite">
+            <use xlink:href="assets/sprites/sprite.svg#icon-ccw">
+            </use>
+          </svg>
+          <span>Cancel</span>
+        </button>
+      </div>
+    </form>
+  </ng-template>
 </div>
 
 
