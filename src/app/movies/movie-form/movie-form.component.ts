@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../../models/Movie';
 import {
-  UntypedFormGroup,
-  UntypedFormControl,
+  FormBuilder,
+  FormControl,
+  NgForm,
   Validators,
 } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
@@ -13,21 +14,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./movie-form.component.css'],
 })
 export class MovieFormComponent implements OnInit {
-  movieForm: any;
   id: number | null; // is true for new movie, but present for existing movie
   editMode: false;
+  movieForm: any;
 
   // use movieForm to render the values of the movie from the Input
   @Input() set movie(val: Movie) {
     this.id = val.id; // lets function know if move is new or existing
 
-    this.movieForm = new UntypedFormGroup({
-      title: new UntypedFormControl(val.title, Validators.minLength(2)),
-      description: new UntypedFormControl(
-        val.description,
-        Validators.minLength(30)
-      ),
-      imagePath: new UntypedFormControl(val.imagePath),
+    this.movieForm =  this.formBuilder.group({
+      title: new FormControl(val.title, Validators.minLength(2)),
+      description: new FormControl(val.description, Validators.minLength(30)),
+      imagePath: new FormControl(val.imagePath),
     });
   }
 
@@ -37,9 +35,11 @@ export class MovieFormComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private route: ActivatedRoute,
-    private router: Router,
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
+  // get movie id from route
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       console.log(params.get('id'));
@@ -51,8 +51,8 @@ export class MovieFormComponent implements OnInit {
     });
   }
 
-  saveForm(): void {
-    alert('Movie Updated');
+  
+  onSubmit(): void {
     console.log(this.movieForm.value);
     // evaluate if movie is existing- has an id or not, then run respective logic
     if (this.id) {
@@ -67,6 +67,7 @@ export class MovieFormComponent implements OnInit {
           (Movie: any) => this.movieUpdated.emit(Movie),
           (error) => console.log(error)
         );
+      alert('Movie Updated');
     } else {
       this.apiService
         .createMovie(
