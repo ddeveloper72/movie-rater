@@ -1,29 +1,18 @@
 .home {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
   padding: 0 10px;
 }
-
 .home__heading {
   margin-bottom: 2rem;
 }
-
 .home__heading--primary span {
   text-transform: uppercase;
   color: burlywood;
   margin-right: 4px;
 }
-
 .home__heading--secondary span {
   text-transform: capitalize;
   color: burlywood;
@@ -31,7 +20,7 @@
 }
 
 .table {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.8rem;
   font-weight: 400;
   padding: 8px;
@@ -39,11 +28,10 @@
   width: 25%;
   border: 1px solid #fa9805;
   color: #3b3939;
-  background-color: #cec9c9;
+  background-color: rgb(206, 201, 201);
   margin-left: auto;
   margin-right: auto;
 }
-
 .table__top-row {
   text-align: center;
   border: 1px solid #fa9805;
@@ -51,24 +39,19 @@
   padding-bottom: 12px;
   background-color: #f7b656;
 }
-
 .table__data-rows {
   text-align: center;
   border: 1px solid #ddd;
 }
-
 .table__data-rows td:nth-child(even) {
   text-transform: uppercase;
   text-align: center;
   color: orangered;
 }
-
 .table__data-rows:nth-child(even) {
   background-color: #f2f2f2;
 }
-
 .table__data-rows:hover {
   background-color: #ddd;
   cursor: pointer;
-}
-/*# sourceMappingURL=home.component.css.map */
+}/*# sourceMappingURL=home.component.css.map */

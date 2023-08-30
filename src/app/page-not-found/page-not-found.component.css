@@ -1,36 +1,26 @@
 .container__error {
-  display: -ms-grid;
   display: grid;
   row-gap: 15px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin-top: 20px;
 }
-
 .container__error--img img {
   border-radius: 5px;
   width: 100%;
   max-width: 500px;
   height: auto;
 }
-
 .container__error--description {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2 / 3;
+  grid-row: 2/3;
   font-size: 2rem;
 }
-
 @media only screen and (max-width: 420px) {
   .container__error--description {
     font-size: 1.6rem;
   }
 }
-
 @media only screen and (max-width: 240px) {
   .container__error--description {
     font-size: 1.2rem;
   }
-}
-/*# sourceMappingURL=page-not-found.component.css.map */
+}/*# sourceMappingURL=page-not-found.component.css.map */

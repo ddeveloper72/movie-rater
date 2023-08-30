@@ -1,64 +1,31 @@
 .content {
   color: var(--color-grey-dark);
-  background-image: -webkit-gradient(linear, left top, right bottom, from(var(--color-primary-dark)), to(var(--color-primary-light)));
   background-image: linear-gradient(to right bottom, var(--color-primary-dark), var(--color-primary-light));
   background-size: cover;
   background-repeat: no-repeat;
   min-height: calc(100% - 115px);
 }
-
 @media only screen and (max-width: 780px) {
   .content {
     padding: 2px 5px;
   }
 }
-
 .content__rater {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
 }
-
 .content__rater--svg-sprite {
   color: #e2eaef;
   margin-right: 15px;
-  -webkit-animation: slide 5s;
-          animation: slide 5s;
+  animation: slide 5s;
   width: 5rem;
   height: 5rem;
 }
-
-@-webkit-keyframes slide {
-  0% {
-    -webkit-transform: translateX(140px) scale(0);
-            transform: translateX(140px) scale(0);
-    opacity: 0;
-    color: #000;
-    z-index: -1;
-  }
-  90% {
-    opacity: 1;
-    index: 1;
-    -webkit-transform: translateX(-5px) scale(1);
-            transform: translateX(-5px) scale(1);
-  }
-  100% {
-    -webkit-transform: translateX(0) scale(1);
-            transform: translateX(0) scale(1);
-  }
-}
-
 @keyframes slide {
   0% {
-    -webkit-transform: translateX(140px) scale(0);
-            transform: translateX(140px) scale(0);
+    transform: translateX(140px) scale(0);
     opacity: 0;
     color: #000;
     z-index: -1;
@@ -66,22 +33,17 @@
   90% {
     opacity: 1;
     index: 1;
-    -webkit-transform: translateX(-5px) scale(1);
-            transform: translateX(-5px) scale(1);
+    transform: translateX(-5px) scale(1);
   }
   100% {
-    -webkit-transform: translateX(0) scale(1);
-            transform: translateX(0) scale(1);
+    transform: translateX(0) scale(1);
   }
 }
-
 .content__rater a {
   text-decoration: none;
 }
-
 .content__rater--heading {
   z-index: 10;
   color: #e2d285;
   font-family: cursive;
-}
-/*# sourceMappingURL=app.component.css.map */
+}/*# sourceMappingURL=app.component.css.map */
