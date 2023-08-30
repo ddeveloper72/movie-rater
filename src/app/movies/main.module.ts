@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../services/api.service';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MainComponent } from './main.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
@@ -26,10 +26,11 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     CommonModule,
     // added imports for routes
+    FormsModule,
     ReactiveFormsModule,
     IconSpriteModule,
     SharedModule,
-    MainRoutingModule
+    MainRoutingModule,
   ],
   providers: [ApiService],
 })
