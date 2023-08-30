@@ -6,47 +6,36 @@
 
       <div *ngIf="currentUser; else visitor">
         <a routerLink="/movies">
-          <svg-icon-sprite class="navbar__brand--sprite"
-          [src]="'assets/sprites/sprite.svg#icon-angular'">
-        </svg-icon-sprite>
-        <p class="navbar__brand--txt">With</p>
-        <svg-icon-sprite class="navbar__brand--sprite"
-        [src]="'assets/sprites/sprite.svg#icon-django'">
-        </svg-icon-sprite>
-        <p class="navbar__brand--txt">REST API</p>
+          <svg-icon-sprite class="navbar__brand--sprite" [src]="'assets/sprites/sprite.svg#icon-angular'">
+          </svg-icon-sprite>
+          <p class="navbar__brand--txt">With</p>
+          <svg-icon-sprite class="navbar__brand--sprite" [src]="'assets/sprites/sprite.svg#icon-django'">
+          </svg-icon-sprite>
+          <p class="navbar__brand--txt">REST API</p>
         </a>
       </div>
 
       <ng-template #visitor>
         <a routerLink="/auth">
-        <svg-icon-sprite class="navbar__brand--sprite"
-        [src]="'assets/sprites/sprite.svg#icon-angular'">
-        </svg-icon-sprite>
-        <p class="navbar__brand--txt">With</p>
-        <svg-icon-sprite class="navbar__brand--sprite"
-        [src]="'assets/sprites/sprite.svg#icon-django'">
-        </svg-icon-sprite>
-        <p class="navbar__brand--txt">REST API</p>
+          <svg-icon-sprite class="navbar__brand--sprite" [src]="'assets/sprites/sprite.svg#icon-angular'">
+          </svg-icon-sprite>
+          <p class="navbar__brand--txt">With</p>
+          <svg-icon-sprite class="navbar__brand--sprite" [src]="'assets/sprites/sprite.svg#icon-django'">
+          </svg-icon-sprite>
+          <p class="navbar__brand--txt">REST API</p>
         </a>
       </ng-template>
 
     </li>
     <li class="navbar__nav--item">
-      <a class="navbar__nav--item-link navbar__mobile--item-link"
-      *ngIf="currentUser"
-      routerLinkActive="active"
-      routerLink="/"
-      >Welcome {{ currentUser.username }}</a>
+      <a class="navbar__nav--item-link navbar__mobile--item-link" *ngIf="currentUser" routerLinkActive="active"
+        routerLink="/welcome">Welcome {{ currentUser.username }}</a>
     </li>
-    <li class="navbar__nav--item"
-      *ngIf="currentUser">
-      <a class="navbar__nav--item-link navbar__mobile--item-link"
-      (click)="logout()">Logout</a>
+    <li class="navbar__nav--item" *ngIf="currentUser">
+      <a class="navbar__nav--item-link navbar__mobile--item-link" (click)="logout()">Logout</a>
     </li>
-    <li class="navbar__nav--item"
-      *ngIf="!currentUser">
-      <a class="navbar__nav--item-link navbar__mobile--item-link"
-      routerLink="/auth">Login / Register</a>
+    <li class="navbar__nav--item" *ngIf="!currentUser">
+      <a class="navbar__nav--item-link navbar__mobile--item-link" routerLink="/auth">Login / Register</a>
     </li>
   </ul>
 </nav>
