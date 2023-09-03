@@ -32,12 +32,12 @@
     </ng-container>
   </div>
 </ng-template>
+  <button class="movie-list-button"
+  (click)="newMovie()"
+  >
 
-<button class="movie-list-button"
-[routerLink]="['/new']"
->
   <svg-icon-sprite class="movie-list-button__svg-add"
   [src]="'assets/sprites/sprite.svg#icon-add-to-list'">
-  </svg-icon-sprite>
-  New Movie
+</svg-icon-sprite>
+New Movie
 </button>
