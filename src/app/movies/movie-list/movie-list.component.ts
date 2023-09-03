@@ -5,6 +5,7 @@ import { ApiService } from '../../services/api.service';
 
 import { AuthenticationService } from '../../services/authentication.service';
 import { User } from '../../models/User';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class MovieListComponent implements OnInit {
 
   constructor(
     public apiservice: ApiService,
+    public router: Router,
     public authenticationService: AuthenticationService
   ) {
     this.authenticationService.currentUser.subscribe(
@@ -53,8 +55,7 @@ export class MovieListComponent implements OnInit {
   }
 
   newMovie(): void {
-    // this.router.navigate(['new'], { relativeTo: this.route });
-    this.createNewMovie.emit();
+    (<any>this.router).navigate(['/new']);
   }
 
   ngOnDestroy(): void {
