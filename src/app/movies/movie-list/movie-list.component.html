@@ -14,7 +14,6 @@
         </div>
         <div class="movie-list__card--info">
           <h3 class="movie-list__card--title">
-          {{ movie.id }}
           {{ ((movie.title).length>15)? (movie.title | slice:0:15)+'...':(movie.title) }}
           </h3>
           <div class="movie-list__card--title--svg">
