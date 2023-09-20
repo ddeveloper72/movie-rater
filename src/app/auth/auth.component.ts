@@ -55,7 +55,6 @@ export class AuthComponent implements OnInit,  OnDestroy {
 
 
     this.submitted = true;
-    console.log(JSON.stringify(this.authForm.value, null, 2));
 
     // if form is not login, go to loginUser()
     if (this.isLoginMode) {
@@ -69,7 +68,6 @@ export class AuthComponent implements OnInit,  OnDestroy {
           (result) => {
             this.loginUser();
             // save the authentication token from the backend as currentUser in local storage
-            console.log('Register form result:', result);
           },
           (error) => {
             console.log(error);
