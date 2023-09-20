@@ -15,6 +15,8 @@ export class ApiService {
     'Content-Type': 'application/json', // use token from local storage
   });
 
+
+
   constructor(
     private httpClient: HttpClient, // initialize the HttpClient
     public authenticationService: AuthenticationService
@@ -27,14 +29,18 @@ export class ApiService {
   }
 
   // get the specific rating of a movie so the data can be refreshed dynamically after user adds rating
-  getMovie(movieId: number) {
-    return this.httpClient.get<Movie>(`${this.baseMovieUrl}${movieId}/`, {
+  getMovie(id: number) {
+    return this.httpClient.get<Movie>(`${this.baseMovieUrl}${id}/`, {
       headers: this.authenticationService.getAuthHeaders(),
     }); // pass headers to baseMovieUrl
   }
 
-  createMovie(title: string, description: string, imagePath: string) {
-    const body = JSON.stringify({ title, description, imagePath }); // convert JSON object to string
+  createMovie(
+    title: string,
+    description: string,
+    imagePath: string
+    ) {
+    const body = JSON.stringify({title, description, imagePath}); // convert JSON object to string
     return this.httpClient.post(`${this.baseMovieUrl}`, body, {
       headers: this.authenticationService.getAuthHeaders(),
     }); // add new body to the url
