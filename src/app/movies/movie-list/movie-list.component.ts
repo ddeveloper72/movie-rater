@@ -20,10 +20,8 @@ export class MovieListComponent implements OnInit {
 
   @Input()
   movies: Movie[] = []; // list component now comes from api service, type of Movie
-  // @Output() selectMovie = new EventEmitter<Movie>();
   @Output() editedMovie = new EventEmitter<Movie>();
-  @Output() deletedMovie = new EventEmitter<Movie>();
-  @Output() createNewMovie = new EventEmitter(); // emit an empty event
+  // @Output() deletedMovie = new EventEmitter<Movie>();
 
   constructor(
     public apiservice: ApiService,
@@ -51,8 +49,16 @@ export class MovieListComponent implements OnInit {
   }
 
   deleteMovie(movie: Movie): void {
-    this.deletedMovie.emit(movie);
+    this.apiservice.deleteMovie(movie.id).subscribe(
+      data => {
+        this.movies = this.movies.filter(m => m.id !== movie.id);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
+
 
   newMovie(): void {
     (<any>this.router).navigate(['/new']);
