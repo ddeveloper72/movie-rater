@@ -62,7 +62,7 @@
 .push__list--credits-item-2 {
   grid-column: 2/-1;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 @media screen and (max-width: 700px) {
   .footer__list--credits,
