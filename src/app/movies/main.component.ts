@@ -11,8 +11,6 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class MainComponent implements OnInit {
   movies: Movie[] = []; // initialize movies array
-  selectedMovie: Movie = null; // selected movie is null by default
-  editedMovie: Movie = null; // edited movie is null by default
 
   constructor(
     private apiService: ApiService, // initialize service
@@ -34,51 +32,5 @@ export class MainComponent implements OnInit {
         (error) => console.error()
       );
     }
-  }
-
-  selectMovie(movie: Movie): void {
-    // console.log('selectedMovie:', this.selectedMovie);
-    this.selectedMovie = movie;
-    this.editedMovie = null;
-  }
-
-  editMovie(movie: Movie): void {
-    this.editedMovie = movie;
-    this.selectedMovie = null;
-  }
-
-  deletedMovie(movie: Movie): void {
-    this.apiService.deleteMovie(movie.id).subscribe(
-      (data) => {
-        this.movies = this.movies.filter((mov) => mov.id !== movie.id); // filter out the deleted movie id still present in the DOM
-      },
-      (error) => console.error()
-    );
-  }
-
-  createNewMovie(): void {
-    this.editedMovie = {
-      id: null,
-      title: '',
-      description: '',
-      imagePath: '',
-      ave_ratings: null,
-      no_of_ratings: null,
-    }; // create a new movie object
-    this.selectedMovie = null;
-  }
-
-  movieCreated(movie: Movie): void {
-    this.movies.push(movie);
-    this.editedMovie = null;
-  }
-
-  movieUpdated(movie: Movie): void {
-    const indx = this.movies.findIndex((move) => move.id === movie.id); //  find id of movie in the array then assign as const indx
-    if (indx >= 0) {
-      // check that id is valid, being number >= 0
-      this.movies[indx] = movie; // push the specific movie with the id to movie
-    }
-    this.editedMovie = null;
   }
 }
