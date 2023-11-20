@@ -31,24 +31,6 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  // login(user: User): Observable<User> {
-  //   const body = JSON.stringify(user);
-  //   return this.http
-  //     .post<User>(`${this.baseUrl}auth/`, body, {
-  //       headers: this.headers,
-  //     })
-  //     .pipe(
-  //       map((result) => {
-  //         // store user token in local storage to keep user logged in between page refreshes
-  //         localStorage.setItem(
-  //           'currentUser',
-  //           JSON.stringify({ username: user.username, token: result.token })
-  //         );
-  //         this.currentUserSubject.next(user);
-  //         return user;
-  //       })
-  //     );
-  // }
 
   login(user: User): Observable<User> {
   const body = JSON.stringify(user);
