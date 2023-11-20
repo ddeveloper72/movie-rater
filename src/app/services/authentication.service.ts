@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -31,24 +31,58 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  // login(user: User): Observable<User> {
+  //   const body = JSON.stringify(user);
+  //   return this.http
+  //     .post<User>(`${this.baseUrl}auth/`, body, {
+  //       headers: this.headers,
+  //     })
+  //     .pipe(
+  //       map((result) => {
+  //         // store user token in local storage to keep user logged in between page refreshes
+  //         localStorage.setItem(
+  //           'currentUser',
+  //           JSON.stringify({ username: user.username, token: result.token })
+  //         );
+  //         this.currentUserSubject.next(user);
+  //         return user;
+  //       })
+  //     );
+  // }
+
   login(user: User): Observable<User> {
-    const body = JSON.stringify(user);
-    return this.http
-      .post<User>(`${this.baseUrl}auth/`, body, {
-        headers: this.headers,
+  const body = JSON.stringify(user);
+  return this.http
+    .post<User>(`${this.baseUrl}auth/`, body, {
+      headers: this.headers,
+    })
+    .pipe(
+      map((result) => {
+        // Store user token in local storage to keep the user logged in between page refreshes
+        localStorage.setItem(
+          'currentUser',
+          JSON.stringify({ username: user.username, token: result.token })
+        );
+        this.currentUserSubject.next(user);
+
+        // Set a timer to automatically log the user out after 5 minutes
+        const logoutTimer = timer(300000); // 5 minutes in milliseconds
+        logoutTimer.subscribe(() => {
+          // Remove user data from local storage
+          localStorage.removeItem('currentUser');
+          this.currentUserSubject.next(null); // Clear the current user data
+          this.router.navigate(['/auth']); // Navigate to the login page
+        });
+
+        return user;
       })
-      .pipe(
-        map((result) => {
-          // store user token in local storage to keep user logged in between page refreshes
-          localStorage.setItem(
-            'currentUser',
-            JSON.stringify({ username: user.username, token: result.token })
-          );
-          this.currentUserSubject.next(user);
-          return user;
-        })
-      );
-  }
+    );
+}
+
+
+
+
+
 
   register(user: User): Observable<object> {
     // pass user object, username & password to api service headers
