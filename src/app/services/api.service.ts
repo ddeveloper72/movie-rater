@@ -8,8 +8,8 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root',
 })
 export class ApiService {
-  public baseUrl = 'http://127.0.0.1:8000/';
-  // public baseUrl = 'https://ddeveloper72-movie-rater-api.herokuapp.com/';
+  // public baseUrl = 'http://127.0.0.1:8000/';
+  public baseUrl = 'https://ddeveloper72-movie-rater-api.herokuapp.com/';
   public baseMovieUrl = `${this.baseUrl}api/movies/`;
   public headers = new HttpHeaders({
     'Content-Type': 'application/json', // use token from local storage
