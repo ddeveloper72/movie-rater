@@ -12,8 +12,8 @@ import { User } from '../models/User';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  public baseUrl = 'http://127.0.0.1:8000/';
-  // public baseUrl = 'https://ddeveloper72-movie-rater-api.herokuapp.com/';
+  // public baseUrl = 'http://127.0.0.1:8000/';
+  public baseUrl = 'https://ddeveloper72-movie-rater-api.herokuapp.com/';
   public headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });
