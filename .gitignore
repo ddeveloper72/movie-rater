@@ -50,3 +50,7 @@ package-lock.json
 tsconfig.json
 .angular/*
 .firebase/*.cache
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md

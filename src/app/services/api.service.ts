@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-// import { environment } from '../../environments/environment';  // used during dev for storing token
+import { environment } from '../../environments/environment';
 import { Movie } from '../models/Movie';
 import { User } from '../models/User';
 import { AuthenticationService } from './authentication.service';
@@ -8,8 +8,7 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root',
 })
 export class ApiService {
-  // public baseUrl = 'http://127.0.0.1:8000/';
-  public baseUrl = 'https://ddeveloper72-movie-rater-api.herokuapp.com/';
+  public baseUrl = environment.apiUrl;
   public baseMovieUrl = `${this.baseUrl}api/movies/`;
   public headers = new HttpHeaders({
     'Content-Type': 'application/json', // use token from local storage
@@ -76,7 +75,7 @@ export class ApiService {
   }
 
   getUsers() {
-    return this.httpClient.get<User[]>(`${this.baseUrl}api/users`, {
+    return this.httpClient.get<User[]>(`${this.baseUrl}api/users/`, {
       headers: this.headers,
     });
   }

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 import { User } from '../models/User';
 
@@ -12,8 +13,7 @@ import { User } from '../models/User';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  // public baseUrl = 'http://127.0.0.1:8000/';
-  public baseUrl = 'https://ddeveloper72-movie-rater-api.herokuapp.com/';
+  public baseUrl = environment.apiUrl;
   public headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });
@@ -27,44 +27,74 @@ export class AuthenticationService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
+  // Function to check if the API token has expired
+  private isTokenExpired(): boolean {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+    // Check if there's a user and an associated token
+    if (currentUser && currentUser.token) {
+      const tokenParts = currentUser.token.split('.');
+      if (tokenParts.length !== 3) {
+        // Invalid token format
+        return true;
+      }
+
+      const payload = JSON.parse(atob(tokenParts[1]));
+
+      // Check if the token has an expiration time
+      if (payload.exp) {
+        const expirationTime = payload.exp * 1000; // Convert to milliseconds
+        const currentTime = new Date().getTime();
+        return expirationTime <= currentTime;
+      }
+    }
+
+    // No token or expiration time found
+    return true;
+  }
+
   public get userValue(): User {
     return this.currentUserSubject.value;
   }
 
-
   login(user: User): Observable<User> {
-  const body = JSON.stringify(user);
-  return this.http
-    .post<User>(`${this.baseUrl}auth/`, body, {
-      headers: this.headers,
-    })
-    .pipe(
-      map((result) => {
-        // Store user token in local storage to keep the user logged in between page refreshes
-        localStorage.setItem(
-          'currentUser',
-          JSON.stringify({ username: user.username, token: result.token })
-        );
-        this.currentUserSubject.next(user);
-
-        // Set a timer to automatically log the user out after 5 minutes
-        const logoutTimer = timer(300000); // 5 minutes in milliseconds
-        logoutTimer.subscribe(() => {
-          // Remove user data from local storage
-          localStorage.removeItem('currentUser');
-          this.currentUserSubject.next(null); // Clear the current user data
-          this.router.navigate(['/auth']); // Navigate to the login page
-        });
-
-        return user;
+    const body = JSON.stringify(user);
+    return this.http
+      .post<User>(`${this.baseUrl}auth/`, body, {
+        headers: this.headers,
       })
-    );
-}
+      .pipe(
+        map((result) => {
+          // Store user token in local storage to keep the user logged in between page refreshes
+          localStorage.setItem(
+            'currentUser',
+            JSON.stringify({ username: user.username, token: result.token })
+          );
+          this.currentUserSubject.next(user);
 
+          // Set a timer to automatically log the user out after 5 minutes
+          const logoutTimer = timer(300000); // 5 minutes in milliseconds
+          logoutTimer.subscribe(() => {
+            // Remove user data from local storage
+            localStorage.removeItem('currentUser');
+            this.currentUserSubject.next(null); // Clear the current user data
+            this.router.navigate(['/auth']); // Navigate to the login page
+          });
 
+          return user;
+        })
+      );
+  }
 
-
-
+  // Logout function when the API token has expired
+  public logoutOnTokenExpiration() {
+    if (this.isTokenExpired()) {
+      // Token has expired, perform logout actions
+      localStorage.removeItem('currentUser'); // Remove user data from local storage
+      this.currentUserSubject.next(null); // Clear the current user data
+      this.router.navigate(['/auth']); // Navigate to the login page or another appropriate page
+    }
+  }
 
   register(user: User): Observable<object> {
     // pass user object, username & password to api service headers
@@ -83,15 +113,35 @@ export class AuthenticationService {
   getAuthHeaders(): HttpHeaders {
     // create a header for passing user token to api service
     // parse currentUser as JSON
-    const clearToken = JSON.parse(localStorage.getItem('currentUser'));
-
-    // test content of clearToken
-    // console.log('getAuthHeaders', clearToken);
-    // test that token is visible to headers
-    // console.log('getAuthHeaders', clearToken.token);
-    return new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `token ${clearToken.token}`,
-    });
+    const currentUser = localStorage.getItem('currentUser');
+    
+    if (!currentUser) {
+      // No user stored, return headers without authorization
+      return new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+    }
+    
+    try {
+      const clearToken = JSON.parse(currentUser);
+      
+      if (!clearToken || !clearToken.token) {
+        // Invalid token data, return headers without authorization
+        return new HttpHeaders({
+          'Content-Type': 'application/json',
+        });
+      }
+      
+      return new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Token ${clearToken.token}`,
+      });
+    } catch (error) {
+      // Error parsing JSON, return headers without authorization
+      console.error('Error parsing stored user data:', error);
+      return new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+    }
   }
 }
