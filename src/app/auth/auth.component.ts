@@ -60,17 +60,30 @@ export class AuthComponent implements OnInit,  OnDestroy {
     if (this.isLoginMode) {
       this.loginUser();
 
-      // register new user passing data to authenticationService then pass data to loginUser()
+      // register new user passing data to authenticationService
     } else {
       this.authenticationService
         .register(this.authForm.getRawValue())
         .subscribe(
           (result) => {
-            this.loginUser();
-            // save the authentication token from the backend as currentUser in local storage
+            console.log('Registration successful:', result);
+            // Show success message and prompt user to login
+            alert('Registration successful! Please log in with your credentials.');
+            this.isLoginMode = true; // Switch to login mode
+            // Don't auto-login, let user manually login
           },
           (error) => {
-            console.log(error);
+            console.error('Registration failed:', error);
+            let errorMessage = 'Registration failed. Please try again.';
+            
+            // Better error handling
+            if (error.error && error.error.message) {
+              errorMessage = error.error.message;
+            } else if (error.message) {
+              errorMessage = error.message;
+            }
+            
+            alert(errorMessage);
             this.authForm.reset();
           }
         );
@@ -97,7 +110,19 @@ export class AuthComponent implements OnInit,  OnDestroy {
           this.router.navigate(['/movies']);
         },
         (error) => {
-          alert('Username or password is incorrect');
+          console.error('Login failed:', error);
+          let errorMessage = 'Username or password is incorrect';
+          
+          // Better error handling for server errors
+          if (error.status === 500) {
+            errorMessage = 'Server error. Please try again later.';
+          } else if (error.status === 0) {
+            errorMessage = 'Unable to connect to server. Please check your internet connection.';
+          } else if (error.error && error.error.message) {
+            errorMessage = error.error.message;
+          }
+          
+          alert(errorMessage);
           this.isLoading = false;
           this.authForm.reset();
         }
